@@ -1,0 +1,90 @@
+body{
+    background-color: #d4b505;
+}
+h1{
+    color:rgb(255, 255, 255);
+    text-align:center;
+}
+.formulario{
+    background-color: #c0bdbd;
+    padding: 10px;
+    box-shadow: 0 0 50px  rgba(0, 0, 0, 0.9);
+    color:rgb(0, 0, 0);
+}
+.form-control{
+    margin-top:20px;
+    background: white;
+    border-style:non;
+    transition: 0.5s ease-in;
+    font-size: 18px;
+    padding-left: 60px;
+}
+.Input{
+    transition: .8s;
+    background-color:white;
+    color:rgb(73, 71, 71);
+    border-color:black;
+    border-bottom-color:#f3cf00;
+    border-bottom-style: groove;
+    border-width:6px;
+}
+.Input:haver{
+    transition:.8s;
+    background-color: #f3cf00;
+    box-shadow: inset;
+    border-bottom-color: rgb(0, 0, 0);
+}
+.Input:focus{
+    transition:.8s;
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.apist-img img{
+    width: -100xp;
+    height: 120px; 
+    margin-top:-120px;
+    border: radius 20;
+    top:-70px;
+    padding-right: 10px;
+}
+.form-group::before{
+    font-family:"Font Awesome\ 5 Free";
+    position:absolute;
+    left:30px;
+    font-size:22px;
+    padding-top:4px;
+}
+.form-group#correo::before{
+    content:"\f007";
+}
+.form-group#contraseña::before{
+    content:"\f023";
+}
+.ti{
+    color:black;
+}
+
+.ingresar{
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    box-shadow:0 0 30px rgba(78, 79, 83, 0.9);
+    padding-left: -20px;
+    margin-top:-40px;
+    border-radius: 5rem;
+  }
+.reg{
+    color:rgb(0, 0, 0);
+    font-size:18px;
+}
+.btn-default{
+    padding: 1rem 5rem;
+}
+.btnP{
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow:0 0 30px rgba(0, 0, 0, 0.9);
+    border-radius: 5rem;
+    padding-left: -20px;
+    margin-top:-1px;
+    
+}
