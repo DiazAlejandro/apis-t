@@ -15,7 +15,7 @@
         $messaget = "REGISTRO AGREGADO CORRECTAMENTE";
                 echo "<script type='text/javascript'>
                         alert('$messaget');
-                        window.location.href = '../inicio.php';
+                        window.location.href = '../tabla_instructor.php';
                     </script>";
     }else{
         $messagec = "NO SE AGREGÓ EL INSTRUCTOR";
