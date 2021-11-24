@@ -1,23 +1,23 @@
 <?php
     include ("../../connect/conectar.php");
-    if (isset($_GET['clave'])){    
-        $clave = $_GET['clave'];
+    if (isset($_GET['curp'])){    
+        $curp = $_GET['curp'];
         
-        $delete = "DELETE FROM curso WHERE clave = $clave";
+        $delete = "DELETE FROM instructor WHERE curp = '$curp'";
         #delete from curso where clave='001'; delete from curso where clave='001';
         if (mysqli_query($conexion, $delete)){
-            $messaget = "CURSO BORRADO CORRECTAMENTE CORRECTAMENTE";
+            $messaget = "INSTRUCTOR BORRADO CORRECTAMENTE CORRECTAMENTE";
                 echo "<script type='text/javascript'>
                         alert('$messaget');
-                        window.location.href = '../apis-t/login.php';
+                        window.location.href = '../tabla_instructor.php';
                     </script>";
             $_SESSION['message_type'] = 'danger'; # Funcion de bootstrap
             header('Location:../tabla_curso.php'); # Redireccionar el archivo
         }else{
-            $messaget = "CURSO ACTUAL EN DESARROLLO";
+            $messaget = "INSTRUCTOR ACTUAL EN DESARROLLO";
                 echo "<script type='text/javascript'>
                         alert('$messaget');
-                        window.location.href = '../apis-t/login.php';
+                        window.location.href = '../tabla_instructor.php';
                     </script>";
             #echo "Error al borrar registro: " . mysqli_error($conexion);
         }
