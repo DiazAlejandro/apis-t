@@ -6,7 +6,7 @@
         session_destroy();
     }
 
-    if(isset($_SESSION['rol'])){
+    /*if(isset($_SESSION['rol'])){
         switch($_SESSION['rol']){
             case 1:
                 header('location: recepcionista/inicio.php');
@@ -17,7 +17,7 @@
 
             default:
         }
-    }
+    }*/
 
     if(isset($_POST['email']) && isset($_POST['pass'])){
         $email = $_POST['email'];
@@ -51,7 +51,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="shortcut icon" href="img/logo-header.png">
+    <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" cotent="ie-edge">
