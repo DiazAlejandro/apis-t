@@ -42,14 +42,14 @@ if (!$resultado) {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <br><br><br>
+                <br>
                 <div class="card ">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3 bg-gray text-light">Lista de cursos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
-                            <br><br><br>
+                            <br>
                             <table class="table table-dark table-sm">
                                 <thead id="fondo">
                                     <tr>
@@ -90,7 +90,7 @@ if (!$resultado) {
                                             <a href="update.php?clave=<?php echo $row['clave']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="controller/Instructor_delete.php?clave=<?php echo $fila['clave']?>" class="btn btn-danger">
+                                            <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave']?>" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
@@ -110,7 +110,6 @@ if (!$resultado) {
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
