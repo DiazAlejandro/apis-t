@@ -52,7 +52,6 @@
         </div>
     </nav>
 
-
     <div class=" bg-dark font-weight-bold lead text-white card-header">
         <h5> </h5>
     </div>
@@ -125,7 +124,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
