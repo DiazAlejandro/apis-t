@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <!-- Bootstrap CSS -->
@@ -57,7 +58,24 @@
             </div>
         </div>
     </nav>
-    <a href="registro_curso.php">Alta Curso</a><br>
-    <a href="registro_instructor.php">Registrar Instructor</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="tabla_curso.php">Cursos Registrados</a>
+                <a class="nav-link active" aria-current="page" href="tabla_instructor.php">Instructores Registrados</a>
+                <a class="nav-link active" aria-current="page" href="registro_curso.php">Alta Curso</a>
+                <a class="nav-link active" aria-current="page" href="registro_instructor.php">Alta Instructores</a>
+
+            </div>
+            </div>
+        </div>
+    </nav>
+
 </body>
 </html>
