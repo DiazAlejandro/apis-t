@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../css/reg-curso.css">
+        <link rel="stylesheet" href="../css/registro_curso.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
@@ -22,7 +22,7 @@
     <title>Registro de Instructor</title>
 </head>
 
-<body>
+<body id="fondo">
     <!-- Barra de navegación-->
     <nav class="navbar navbar-expand-lg  ">
         <div class="container">
@@ -42,59 +42,58 @@
         </div>
     </nav>
 
-    <div class=" bg-dark font-weight-bold lead text-white card-header">
-        <h5> </h5>
-    </div>
+    <div class="font-weight-bold card-header" id="barrita"></div>
+
     <!-- Contenido-->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card ">
+                <div class="card " id="contorno">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 text-light">Instructor</h1>
+                        <h1 class="font-weight-bold mb-3">Registrar datos del instructor</h1>
                     </div>
                     <div class="card-body">
                         <form action="../recepcionista/controller/Instructor.php" method="post">
                             <div class="form-group">
-                                <label for="txtclave">Nombre:<span class="text-danger">*</span></label>
-                                <input type="text" name="nombre" class="form-control" placeholder="Ingrese nombre">
+                                <label for="txtclave">Nombre:<span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="nombre" class="form-control" id="bord" placeholder="Ingrese nombre">
                             </div>
 
                             <div class="form-group">
-                                <label>Apellido paterno: <span class="text-danger">*</span></label>
-                                <input type="text" name="apellido_p" class="form-control"
+                                <label>Apellido paterno: <span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="apellido_p" class="form-control" id="bord"
                                     placeholder="Ingrese apellido paterno">
                             </div>
 
                             <div class="form-group">
-                                <label>Apellido materno: <span class="text-danger">*</span></label>
-                                <input type="text" name="apellido_m" class="form-control"
+                                <label>Apellido materno: <span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="apellido_m" class="form-control" id="bord"
                                     placeholder="Ingrese apellido materno">
                             </div>
 
                             <div class="form-group">
-                                <label>CURP:<span class="text-danger">*</span></label>
-                                <input type="text" name="curp" class="form-control" placeholder="Ingrese curp">
+                                <label>CURP:<span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="curp" class="form-control" id="bord" placeholder="Ingrese curp">
                             </div>
 
                             <div class="form-group">
-                                <label>Teléfono: <span class="text-danger">*</span></label>
-                                <input type="text" name="telefono" class="form-control"
+                                <label>Teléfono: <span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="telefono" class="form-control" id="bord"
                                     placeholder="Ingrese su número de teléfono">
                             </div>
 
                             <div class="form-group">
-                                <label>Correo electrónico <span class="text-danger">*</span></label>
-                                <input type="email" name="email" id="email" class="form-control"
+                                <label>Correo electrónico <span class="text-danger" id="marca">*</span></label>
+                                <input type="email" name="email" class="form-control" id="email" 
                                     placeholder="Ingresa tu correo electrónico">
                             </div>
-
-                            <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-success font-weight-bold text-dark">Registrar Instructor</button>
+                            <br>
+                            <button type="submit" name="accion" value="enviar" id="reg"
+                            class="btn btn-warning font-weight-bold" >Registrar</button>
                             <button type="reset" name="accion" value="restaurar"
-                                    class="btn btn-warning font-weight-bold ">Restaurar</button>
-                            <a class="btn btn-danger font-weight-bold text-dark" 
+                                    class="btn font-weight-bold" id="rest">Restaurar</button>
+                            <a class="btn font-weight-bold" id="btn"
                                     href="tabla_instructor.php">Cancelar</a>
                         </form>
                     </div>

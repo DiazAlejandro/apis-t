@@ -1,0 +1,92 @@
+#fondo{
+    background:rgb(250, 209, 75);
+}
+
+.navbar {
+    background-color:  #ffffff;
+    color: black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .75);
+    min-height: 70px;
+}
+
+.navbar-brand{
+    color: black;
+}
+
+.nav-link{
+    color: black;
+}
+
+.container{
+    align-items: center;
+}
+#texto-nav{
+    font-size: 25pt;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#barrita{
+    background-color: black;
+}
+
+.card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
+    display: inline;
+    display: block;
+    
+}
+
+#contorno{
+    padding: 3px 10px;
+    border: rgb(0, 0, 0) 5px solid;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(71, 71, 71);
+}
+
+.card-header{
+    color:black;
+    border: #000000 5px solid;
+}
+#cabeza{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+.card-body{
+    background-color: rgb(179, 179, 179);
+    color: black;
+    border: #000000 5px solid;
+}
+
+.table{
+    border: rgb(0, 0, 0) 3px solid;
+    width: 100%;
+}
+
+#t-body{
+    border: rgb(68, 68, 68) 2px solid;
+    color: black;
+    font-weight: bold;
+    background-color: blanchedalmond;
+}
+#t-head{
+    background-color: black;
+    color: white;
+}
+
+
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-spacing: 0;
+ }
+
+#btn{
+    border: rgb(0, 0, 0) 2px solid;
+    color: black;
+}

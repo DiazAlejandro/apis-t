@@ -1,0 +1,101 @@
+#fondo{
+    background:rgb(250, 209, 75);
+}
+
+.navbar {
+    background-color:  #ffffff;
+    color: black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .75);
+    min-height: 70px;
+}
+
+.navbar-brand{
+    color: black;
+}
+
+.nav-link{
+    color: black;
+}
+
+.container{
+    align-items: center;
+}
+
+#texto-nav{
+    font-size: 25pt;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#barrita{
+    background-color: black;
+}
+
+.card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
+    display: inline;
+    display: block;
+    
+}
+#contorno{
+    padding: 3px 10px;
+    border: rgb(0, 0, 0) 5px solid;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(71, 71, 71);
+ }
+.card-header{
+    color:black;
+    border: #000000 5px solid;
+}
+#cabeza{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+.card-body{
+    background-color: rgb(179, 179, 179);
+    color: black;
+    border: #000000 5px solid;
+}
+
+label{
+    font-weight: bold;
+}
+
+#bord{
+    border: #000000 2px solid;
+}
+
+#email{
+    border: #000000 2px solid;
+}
+
+#marca{
+    font-weight: bold; 
+    font-size: 20pt;
+}
+button{
+    font-size: medium;
+    font-size:10px;
+    width:140px;
+}
+
+#reg{
+    color: black;
+    border: #000000 2px solid;
+}
+
+#rest{
+    color: rgb(255, 255, 255);
+    background-color: black;
+    border: #000000 2px solid;
+}
+
+#btn{
+    color: black;
+    border: #000000 2px solid;
+    background-color: rgb(255, 24, 24);
+    width:140px;
+}

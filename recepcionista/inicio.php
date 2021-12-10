@@ -22,7 +22,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 
-    <link href="../css/inicio.css" rel="stylesheet">
+    <link href="../css/recep.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
@@ -32,7 +32,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Recepcionista</title>
 </head>
-<body>
+<body id="fondo">
+    <!--Barra de navegación-->
 <nav class="navbar navbar-expand-lg  ">
         <div class="container">
             <div class="form-group logo-img " >
@@ -49,16 +50,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#" id="home">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="../connect/cerrar_sesion.php" id="entrar">Cerrar Sesion</a>
+                        <a class="btn font-weight-bold" href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                  </ul>
             </div>
         </div>
     </nav>
-
+    <div class="font-weight-bold card-header" id="barrita"></div>
+ <!--Contenido
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Inicio</a>
@@ -76,6 +75,25 @@
             </div>
         </div>
     </nav>
-
+-->
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Administrador</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="registro_instructor.php"><i class="fas fa-user"></i>Alta de instructor</a></li>
+            <li><a href="tabla_instructor.php"><i class="fas fa-address-card"></i>Instructores registrados</a></li>
+            <li><a href="registro_curso.php"><i class="fas fa-project-diagram"></i>Alta de curso</a></li>
+            <li><a href="tabla_curso.php"><i class="fas fa-blog"></i>Cursos registrados</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
+        </ul> 
+        <div class="social_media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+</div>
 </body>
 </html>

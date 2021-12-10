@@ -1,5 +1,5 @@
 body{
-    background-color: #d4b505;
+    background-color: #e9ce36;
 }
 h1{
     color:rgb(255, 255, 255);
@@ -10,6 +10,9 @@ h1{
     padding: 10px;
     box-shadow: 0 0 50px  rgba(0, 0, 0, 0.9);
     color:rgb(0, 0, 0);
+    padding: 3px 10px;
+  border: rgb(104, 104, 104) 5px solid;
+  border-radius: 20px;
 }
 .form-control{
     margin-top:20px;

@@ -1,0 +1,32 @@
+#fondo{
+    background:rgb(250, 209, 75);
+}
+
+.navbar {
+    background-color:  #ffffff;
+    color: black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .75);
+    min-height: 70px;
+}
+
+.navbar-brand{
+    color: black;
+}
+
+.nav-link{
+    color: black;
+}
+
+#texto-nav{
+    font-size: 25pt;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#barrita{
+    background-color: black;
+}
+
+#flecha{
+    color: black;
+}

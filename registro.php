@@ -2,13 +2,14 @@
 <html lang="es">
 
 <head>
+    <link rel="shortcut icon" href="img/logo-header.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <link href="css/reg.css" rel="stylesheet">
+    <link href="css/reg_alumno.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
@@ -23,7 +24,7 @@
     <title>Registro</title>
 </head>
 
-<body>
+<body id="fondo">
      <!-- Barra de navegación-->
      <nav class="navbar navbar-expand-lg  ">
         <div class="container">
@@ -31,7 +32,7 @@
                 <img src="img/logo-header.png" width="80" height="80">
             </div>
             <div class="container-fluid">
-                <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
+                <a class="navbar-brand font-weight-bold lead" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center">
@@ -43,13 +44,13 @@
         </div>
     </nav>
 
-    <div class=" bg-dark font-weight-bold lead text-white card-header"></div>
+    <div class=" font-weight-bold lead card-header" id="barrita"></div>
     <!-- Contenido-->
     <section class="contact-box">
         <div class="row no-gutters bg-dark">
             <div class="col-xl-5 col-lg-12 register-bg">
                 <div class="position-absolute testiomonial p-4">
-                    <h3 class="font-weight-bold text-light">Instituto Apist-t</h3>
+                    <h3 class="font-weight-bold text-light" >Instituto Apist-t</h3>
                     <p class="lead text-light">Aprendizaje</p>
                 </div>
             </div>
@@ -65,35 +66,35 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="curp" class="form-control" placeholder="Ingrese curp">
+                                <input type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre">
+                                <input type="text" name="nombre" class="form-control" id="ing" placeholder="Ingrese su nombre">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido paterno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_p" class="form-control"
+                                <input type="text" name="apellido_p" class="form-control" id="ing"
                                     placeholder="Ingrese apellido paterno">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido materno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_m" class="form-control"
+                                <input type="text" name="apellido_m" class="form-control" id="ing"
                                     placeholder="Ingrese apellido materno">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Fecha de nacimiento: <span
                                         class="text-danger">*</span></label>
-                                <input type="date" name="fecha_nac" class="form-control"
+                                <input type="date" name="fecha_nac" class="form-control" id="ing"
                                     placeholder="Ingrese su fecha de nacimiento">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Edad: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="edad" class="form-control" placeholder="Ingrese su edad">
+                                <input type="text" name="edad" class="form-control" id="ing" placeholder="Ingrese su edad">
                             </div>
                             <div class="form-group col-md-6 mt-4  text-light">
                                 <label class="font-weight-bold ">Género: <span
@@ -119,28 +120,28 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="telefono" class="form-control"
+                                <input type="text" name="telefono" class="form-control" id="ing"
                                     placeholder="Ingrese su número de teléfono">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Calle: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="calle" class="form-control" placeholder="Ingrese su calle">
+                                <input type="text" name="calle" class="form-control" id="ing" placeholder="Ingrese su calle">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Colonia: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="colonia" class="form-control" placeholder="Ingrese su colonia">
+                                <input type="text" name="colonia" class="form-control" id="ing" placeholder="Ingrese su colonia">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Municipio: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="municipio" class="form-control"
+                                <input type="text" name="municipio" class="form-control" id="ing"
                                     placeholder="Ingrese su municipio">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CP:<span class="text-danger">*</span></label>
-                                <input type="text" name="cp" class="form-control"
+                                <input type="text" name="cp" class="form-control" id="ing"
                                     placeholder="Ingrese su código postal">
                             </div>
                         </div>
@@ -148,13 +149,13 @@
                         <p class="mb-4 font-weight-bold  text-warning mt-4">Estado de salud</p>
 
                         <div class="form-row mb-2">
-                            <div class="form-group mb-3  text-light">
+                            <div class="form-group mb-3  col-md-8 text-light">
                                 <label class="font-weight-bold">¿Cuenta con seguro médico?<span
-                                        class="text-danger">*</span></label>
+                                        class="text-danger" id="marca">*</span></label>
                                 <input type="radio" name="seguro_med" value="true">Si
                                 <input type="radio" name="seguro_med" value="false">No
-                            </div>
-                            <div class="form-group ">
+                            </div><br>
+                            <div class="form-group col-md-6"> 
                                 <label class="font-weight-bold text-light">Seleccione el tipo de servicio médico:<span
                                         class="text-danger">*</span></label>
                                 <select name="servicio" class="custom-select" id="servicio">
@@ -195,7 +196,7 @@
                                 <input type="radio" name="alergias" value="SI">Si
                                 <input type="radio" name="alergias" value="NO">No
                             </div>
-                            <div class="form-group col-md-8 text-light">
+                            <div class="form-group col-md-10 text-light">
                                 <label class="font-weight-bold">¿Presenta alguna Preescripción médica?<span
                                         class="text-danger">*</span></label>
                                 <input type="radio" name="prescripcion" value="SI">Si
@@ -230,8 +231,8 @@
                                        que todos los datos ingresados son correctos</label>
                                 </div>
                             </div>
-                            <div class="form-group mx-sm-5 pd-6">
-                                <button type="submit" class="btn btn-blue btn-lg ingresar " value="Registrarse"> Registrarse</button>
+                            <div class="form-group mx-sm-5">
+                                <button type="submit" class="btn btn-blue btn-lg ingresar" id="boton" value="Registrarse"> Registrarse</button>
                             </div>
                     </form>
                 </div>

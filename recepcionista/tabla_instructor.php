@@ -1,5 +1,4 @@
 <?php
-    include('template/cabecera.php');
     include("../connect/conectar.php");
     $resultado = mysqli_query($conexion,"SELECT * FROM instructor");
     if (!$resultado) {
@@ -18,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../css/tabla.css">
+    <link rel="stylesheet" href="../css/tabla_curs.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
@@ -33,21 +32,42 @@
 </head>
 
 
-<body>
+<body id="fondo">
+    <!-- Barra de navegación-->
+    <nav class="navbar navbar-expand-lg  ">
+        <div class="container">
+            <div class="form-group logo-img ">
+                <img src="../img/logo-header.png" width="80" height="80">
+            </div>
+            <div class="container-fluid">
+                <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="font-weight-bold card-header" id="barrita"></div>
+
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-14">
                 <br>
-                <div class="card ">
+                <div class="card " id="contorno">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray text-light">Lista de Instructores</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Instructores</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm">
-                                <thead id="fondo">
+                            <table class="table table-dark table-sm ">
+                                <thead >
                                     <tr>
                                         <th>CURP</th>
                                         <th>Nombre</th>
@@ -58,7 +78,7 @@
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="t-body">
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -96,9 +116,9 @@
                                     }
                                     ?>
                                 </tbody>
-    </table>
-    <div>
-                                <a class="btn btn-warning font-weight-bold" href="registro_instructor.php">Nuevo Instructor</a>
+                            </table>
+                            <div>
+                                <a class="btn btn-warning font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
                             </div>
                         </div>
                     </div>
@@ -111,7 +131,3 @@
 
 
 
-
-<?php
-    include('template/pie.php')
-?>
