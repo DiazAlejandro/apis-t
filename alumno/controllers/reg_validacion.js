@@ -2,6 +2,7 @@ function validar_formulario(){
 
 
 }
+
 function validarCurp(){
     var curp = document.getElementById('curp').value;
     curp.toUpperCase();

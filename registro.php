@@ -10,7 +10,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <link href="css/reg_alumno.css" rel="stylesheet">
-
+    <script src="alumno/controllers/reg_validacion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
@@ -66,7 +66,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp">
+                                <input type="text" name="curp" id="curp" class="form-control ing" onblur="validarCurp()"  id="ing" placeholder="Ingrese curp" maxlength="18" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
