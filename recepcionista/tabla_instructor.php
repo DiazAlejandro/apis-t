@@ -103,7 +103,7 @@
                                             echo $fila['correo_electronico'];
                                         ?></td>
                                         <td>
-                                            <a href="update.php?clave=<?php echo $row['clave']?>" class="btn btn-secondary">
+                                            <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a href="controller/Instructor_delete.php?curp=<?php echo $fila['curp']?>" class="btn btn-danger">

@@ -12,7 +12,7 @@
                         window.location.href = '../tabla_instructor.php';
                     </script>";
             $_SESSION['message_type'] = 'danger'; # Funcion de bootstrap
-            header('Location:../tabla_curso.php'); # Redireccionar el archivo
+            header('Location:../tabla_instructor.php'); # Redireccionar el archivo
         }else{
             $messaget = "INSTRUCTOR ACTUAL EN DESARROLLO";
                 echo "<script type='text/javascript'>
