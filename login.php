@@ -32,6 +32,7 @@
         if($row == true){
             $rol = $row[2];
             $_SESSION['rol'] = $rol;
+            $_SESSION['correo'] = $email;
             switch($_SESSION['rol']){
             case 2:
                 header('location: recepcionista/inicio.php');
@@ -43,7 +44,8 @@
             default:
         }
         }else{
-            echo "El usuario o contraseña son incorrectos";
+            $var = "El usuario o contraseña son incorrectos";
+            echo "<script> alert('".$var."'); </script>";
         }
     }
 ?>

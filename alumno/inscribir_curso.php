@@ -1,11 +1,28 @@
 <?php
-include("../connect/conectar.php");
-$resultado = mysqli_query($conexion,"SELECT * FROM curso");
-if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ' ;
-    exit;
-}
+    session_start();
+    if (!isset($_SESSION['rol'])) {
+        header('location: login.php');
+    } else {
+        if ($_SESSION['rol'] != 3) {
+            header('location: login.php');
+        }
+    }
+    include("../connect/conectar.php");
+    $resultado = mysqli_query($conexion,"SELECT * FROM curso");
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ' ;
+        exit;
+    }
+
+    $alumno = mysqli_query($conexion,"SELECT curp FROM alumno WHERE email='".$_SESSION['correo']."'");
+    if (mysqli_num_rows($alumno) > 0) {
+        while ($alf = mysqli_fetch_assoc($alumno)) {
+            //echo $alf['curp'];
+        }
+    }
+    
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +45,7 @@ if (!$resultado) {
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <title>Registro de Curso</title>
+    <title>Curso disponible - Alumno</title>
 </head>
 
 <body>
@@ -53,7 +70,30 @@ if (!$resultado) {
     </nav>
 
     <div class="font-weight-bold card-header" id="barrita"></div>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="inicio.php">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
@@ -66,14 +106,14 @@ if (!$resultado) {
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm">
+                            <table class="table table-responsive-sm table-dark table-sm">
                                 <thead >
                                     <tr>
                                         <th>Clave</th>
-                                        <th>Nombre del Curso</th>
+                                        <th>Curso</th>
                                         <th>Duración</th>
-                                        <th>Coste</th>
-                                        <th>Acciones</th>
+                                        <th>Costo</th>
+                                        <th>Inscripción</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -103,11 +143,8 @@ if (!$resultado) {
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="update.php?clave=<?php echo $row['clave']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave']?>" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
+                                            <a href="controllers/Inscribir_curso.php?clave=<?php echo $fila['clave']?>" class="btn btn-success">
+                                                INSCRIBIR
                                             </a>
                                         </td>
                                     </tr>
@@ -117,9 +154,6 @@ if (!$resultado) {
                                     ?>
                                 </tbody>
                             </table>
-                            <div>
-                                <a class="btn btn-warning font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
-                            </div>
                         </div>
                     </div>
                 </div>
