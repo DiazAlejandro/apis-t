@@ -42,13 +42,12 @@
             <div class="container-fluid">
                 <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                </li>
+            </ul>
+ 
         </div>
     </nav>
 
@@ -68,47 +67,47 @@
                             enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="txtclave">Clave:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" class="form-control" id="bord" name="txtclave"
-                                    placeholder="Ingresa la clave del curso">
+                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave"
+                                    placeholder="Ingresa la clave del curso" minlength="5" maxlength="5" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtNombre">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" class="form-control" id="bord" name="txtnombre"
-                                    placeholder="Ingresa el nombre del curso">
+                                <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" id="bord" name="txtnombre"
+                                    placeholder="Ingresa el nombre del curso" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtAsesor">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
-                                <select name="txtasesor" class="form-control" id="bord">
-                                 <option selected="true" disabled="disabled">Seleccione el nombre del instructor</option>
-                                <?php
-                                if (mysqli_num_rows($resultado) > 0) {
-                                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                                        echo '<option value="'.$fila['curp'].'">'.$fila['nombre'].' '.$fila['apellido_p'].' '.$fila['apellido_m'].'</option>';
-                                        
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" required>
+                                 <option value="" selected="true" disabled="disabled">Seleccione el nombre del instructor</option>
+                                    <?php
+                                    if (mysqli_num_rows($resultado) > 0) {
+                                        while ($fila = mysqli_fetch_assoc($resultado)) {
+                                            echo '<option value="'.$fila['curp'].'">'.$fila['nombre'].' '.$fila['apellido_p'].' '.$fila['apellido_m'].'</option>';
+                                            
+                                        }
                                     }
-                                }
-                                ?>
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="txtDuracion">Duración:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" class="form-control" id="bord" name="txtduracion"
-                                    placeholder="Ingresa la duración del curso">
+                                <input pattern="[A-Za-z0-9 ]+" type="text" class="form-control" id="bord" name="txtduracion"
+                                    placeholder="Ingresa la duración del curso" required>
                             </div>
                             <div class="form-group">
                                 <label for="timeHora">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" id="bord" name="timehora" id="idhora">
+                                <input type="time" class="form-control" id="bord" name="timehora" id="idhora" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPeriodo">Período de pago:<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input type="text" class="form-control" id="bord" name="txtperiodo" id="idperioso"
-                                    placeholder="Ingresa el periodo de pago">
+                                <input pattern="[A-Za-z ]+" type="text" class="form-control" id="bord" name="txtperiodo" id="idperioso"
+                                    placeholder="Ingresa el periodo de pago" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtCoste">Coste:<span class="text-danger" id="marca">*</span></label>
-                                <input type="number" class="form-control" id="bord" name="txtcoste"
-                                    placeholder="Ingresa el costo del curso">
+                                <input pattern="[0-9]+" type="number" class="form-control" id="bord" name="txtcoste"
+                                    placeholder="Ingresa el costo del curso" required>
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 

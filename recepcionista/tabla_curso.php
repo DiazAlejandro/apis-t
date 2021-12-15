@@ -45,13 +45,11 @@ if (!$resultado) {
             <div class="container-fluid">
                 <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -60,23 +58,24 @@ if (!$resultado) {
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-13">
                 <br>
-                <div class="card" id="contorno">
+                <div class="card " id="contorno">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3">Lista de cursos</h1>
+                    <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm">
+                            <table class="table table-dark table-sm ">
                                 <thead >
                                     <tr>
                                         <th>Clave</th>
                                         <th>Nombre del Curso</th>
                                         <th>Duración</th>
                                         <th>Coste</th>
-                                        <th>Acciones</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -108,7 +107,9 @@ if (!$resultado) {
                                         <td>
                                             <a href="update.php?clave=<?php echo $row['clave']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
-                                            </a>
+                                            </a> 
+                                        </td>
+                                        <td>
                                             <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave']?>" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
@@ -121,7 +122,7 @@ if (!$resultado) {
                                 </tbody>
                             </table>
                             <div>
-                                <a class="btn btn-warning font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
+                                <a class="btn btn-success font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
                             </div>
                         </div>
                     </div>

@@ -34,13 +34,11 @@
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold lead" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="index.php" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-dark" href="index.php" id="home">Regresar</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
