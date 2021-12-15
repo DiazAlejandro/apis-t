@@ -72,13 +72,15 @@
     font-weight: bold;
     background-color: blanchedalmond;
 }
-#t-head{
+
+#cabecera{
     background-color: black;
     color: white;
+    border: rgb(0, 0, 0) 2px solid;
 }
 
 
-th, td {
+td {
    width: 25%;
    text-align: left;
    vertical-align: top;

@@ -70,30 +70,26 @@
     <div class="container"></div>
 
     <div class="row justify-content-center pt-5 mt-5 mr-4">
-        <div class="col-md-6  col-sm-8 col-xL-4 col-lg-4 formulario ">
+        <div class="col-9 col-sm-8 col-md-6 col-lg-4 col-xL-4 formulario ">
 
             <div class="form-group text-center">
                 <div id=Login>
-
                     <div class="form-group apist-img">
                         <img src="img/logo-header.png">
                     </div>
-                    <div class="form-group mx-sm-5">
-                        <a type="button" class="btn  btn-sm-4 font-weight-bold btnP" href="">Alumno</a>
-                        <a type="button" class="btn  btn-sm-4 font-weight-bold btnP" href="">Administrador</a>
-                    </div>
+                    <br>
                     <h1 class="ti">Login</h1>
-                    <form action="#" method="post">
+                    <form name="formulario" action="#" method="post" id="formulario">
                         <div class="form-group mt-5 mx-sm-6" id="correo">
-                            <input type="email" name="email" id="email" class="form-control Input"
-                            placeholder="Ingrese su Correo Electrónico"><br><br>
+                            <input pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+" type="email" name="email" id="email" class="form-control Input"
+                            placeholder="Ingrese su Correo Electrónico" required><br><br>
                         </div>
                         <div class="form-group  mx-sm-6" id="contraseña">
-                            <input type="text" name="pass" id="password" class="form-control Input"
-                            placeholder="Ingrese su contraseña"><br><br>
+                            <input type="password" name="pass" id="password" class="form-control Input"
+                            placeholder="Ingrese su contraseña" minlength="4" required><br><br>
                         </div>
                         <div class="form-group mx-sm-5">
-                            <button type="submit" class="btn btn-blue btn-lg  ingresar " value="Iniciar Sesion" ><i
+                            <button type="submit" class="btn btn-blue btn-lg  ingresar " id="enviar" ><i
                                 class="fas fa-sign-in-alt"></i>  Iniciar Sesión</button>
                         </div>
                         <div>

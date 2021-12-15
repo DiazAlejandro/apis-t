@@ -28,13 +28,13 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <title>Registro de Curso</title>
+    <title>Registro de Instructor</title>
 </head>
 
 
 <body id="fondo">
     <!-- Barra de navegación-->
-    <nav class="navbar navbar-expand-lg  ">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <div class="form-group logo-img ">
                 <img src="../img/logo-header.png" width="80" height="80">
@@ -42,13 +42,11 @@
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -57,7 +55,7 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
+            <div class="col-md-13">
                 <br>
                 <div class="card " id="contorno">
                     <div class="card-header" id="cabeza">
@@ -75,7 +73,8 @@
                                         <th>A. Materno</th>
                                         <th>Telefono</th>
                                         <th>Correo electrónico</th>
-                                        <th>Acciones</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -106,6 +105,8 @@
                                             <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
+                                        </td>
+                                        <td>
                                             <a href="controller/Instructor_delete.php?curp=<?php echo $fila['curp']?>" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
@@ -118,7 +119,7 @@
                                 </tbody>
                             </table>
                             <div>
-                                <a class="btn btn-warning font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
+                                <a class="btn btn-success font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
                             </div>
                         </div>
                     </div>

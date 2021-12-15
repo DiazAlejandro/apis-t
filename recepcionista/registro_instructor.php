@@ -32,13 +32,12 @@
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
+            
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -57,36 +56,36 @@
                         <form action="../recepcionista/controller/Instructor.php" method="post">
                             <div class="form-group">
                                 <label for="txtclave">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="bord" placeholder="Ingrese nombre">
+                                <input type="text" name="nombre" class="form-control" id="bord" placeholder="Ingrese nombre" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Apellido paterno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_p" class="form-control" id="bord"
-                                    placeholder="Ingrese apellido paterno">
+                                    placeholder="Ingrese apellido paterno"required>
                             </div>
 
                             <div class="form-group">
                                 <label>Apellido materno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_m" class="form-control" id="bord"
-                                    placeholder="Ingrese apellido materno">
+                                    placeholder="Ingrese apellido materno" required>
                             </div>
 
                             <div class="form-group">
                                 <label>CURP:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="bord" placeholder="Ingrese curp">
+                                <input type="text" name="curp" class="form-control" id="bord" placeholder="Ingrese curp" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Teléfono: <span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="telefono" class="form-control" id="bord"
-                                    placeholder="Ingrese su número de teléfono">
+                                <input type="number" name="telefono" class="form-control" id="bord"
+                                    placeholder="Ingrese su número de teléfono" minlenght="10" maxlenght="10" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Correo electrónico <span class="text-danger" id="marca">*</span></label>
-                                <input type="email" name="email" class="form-control" id="email" 
-                                    placeholder="Ingresa tu correo electrónico">
+                                <input  pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+" type="email" name="email" class="form-control" id="email" 
+                                    placeholder="Ingresa tu correo electrónico" required>
                             </div>
                             <br>
                             <button type="submit" name="accion" value="enviar" id="reg"
