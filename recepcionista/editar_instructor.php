@@ -1,25 +1,24 @@
 <?php
-include("../connect/conectar.php");
-if (isset($_GET['curp'])){   
-    $curp = $_GET['curp'];
-    $update = "SELECT * FROM instructor WHERE curp = '$curp'";
-}
+    include("../connect/conectar.php");
+    if (isset($_GET['curp'])){   
+        $curp = $_GET['curp'];
+        $update = "SELECT * FROM instructor WHERE curp = '$curp'";
+    }
 
-$resultado = mysqli_query($conexion,$update);
+    $resultado = mysqli_query($conexion,$update);
 
-if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ' ;
-    exit;
-}
-else{
-    $fila = mysqli_fetch_assoc($resultado);
-    $nombre     = $fila['nombre'];
-    $apellido_p = $fila['apellido_p'];
-    $apellido_m = $fila['apellido_m'];
-    $telefono   = $fila['telefono'];
-    $correo     = $fila['correo_electronico'];
-}
-    
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ' ;
+        exit;
+    }
+    else{
+        $fila = mysqli_fetch_assoc($resultado);
+        $nombre     = $fila['nombre'];
+        $apellido_p = $fila['apellido_p'];
+        $apellido_m = $fila['apellido_m'];
+        $telefono   = $fila['telefono'];
+        $correo     = $fila['correo_electronico'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
