@@ -109,6 +109,10 @@
                                             <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i></i>
                                             </a>
+                                            
+                                            <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php

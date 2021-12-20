@@ -60,6 +60,12 @@
         </div>
     </nav>
     <h1>Bienvenido: </h1>
+    <?php
+        if (isset($_SESSION['email'])) {
+            $rol =$_SESSION['email'];
+            echo $rol;
+        }
+    ?>
 </body>
 
 </html>
