@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                        <a class="nav-link font-weight-bold" href="../connect/cerrar_sesion.php" id="entrar">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
@@ -90,10 +90,12 @@
                 <li class="nav-item text-light font-weight-bold">
                 <a class="nav-link disabled">Disabled</a>
                 </li>
+
             </ul>
             </div>
         </div>
     </nav>
+    <!-- Fin barra de navegación-->
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">

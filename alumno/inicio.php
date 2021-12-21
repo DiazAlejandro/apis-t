@@ -76,10 +76,16 @@
                 <li class="nav-item text-light font-weight-bold">
                 <a class="nav-link disabled">Disabled</a>
                 </li>
+
             </ul>
             </div>
         </div>
     </nav>
+    <!-- Fin barra de navegación-->
+
+
+
+
     <!--Contenido-->
     
     <h1>Bienvenido: </h1>
