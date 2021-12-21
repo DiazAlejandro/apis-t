@@ -70,7 +70,6 @@
                 <a class="nav-link active" aria-current="page" href="tabla_instructor.php">Instructores Registrados</a>
                 <a class="nav-link active" aria-current="page" href="registro_curso.php">Alta Curso</a>
                 <a class="nav-link active" aria-current="page" href="registro_instructor.php">Alta Instructores</a>
-
             </div>
             </div>
         </div>
