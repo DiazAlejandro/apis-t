@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="../alumno/controllers/reg_validacion.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -73,7 +74,7 @@
 
                             <div class="form-group">
                                 <label>CURP:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="bord" placeholder="Ingrese curp" required>
+                                <input type="text" id="curp" name="curp" onblur="validarCurp()" class="form-control" id="bord" placeholder="Ingrese curp" required>
                             </div>
 
                             <div class="form-group">

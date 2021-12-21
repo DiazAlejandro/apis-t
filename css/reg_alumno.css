@@ -73,6 +73,7 @@ p{
 .ing{
     border: 3px solid;
     border-color: black black rgb(207, 152, 0);
+    height: 30px;
 }
 
 #medio{

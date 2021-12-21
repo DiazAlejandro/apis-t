@@ -56,30 +56,27 @@
     </nav>
 
     <div class="font-weight-bold card-header" id="barrita"></div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg" id="barrita">
         <div class="container-fluid">
-            <a class="navbar-brand" href="inicio.php">Inicio</a>
+            <a class="navbar-brand text-light font-weight-bold" href="inicio.php">Inicio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                <a class="nav-link text-light font-weight-bold" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-                </li>
+
             </ul>
             </div>
         </div>
     </nav>
+    <!-- Fin barra de navegación-->
+
+
+
+
     <!--Contenido-->
     
 </body>
