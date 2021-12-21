@@ -74,35 +74,35 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input  class="ing" type="text" name="curp" id="curp" class="form-control" maxlength="18" onblur="validarCurp()" placeholder="Ingrese curp" maxlength="18" required>
+                                <input  type="text" name="curp" id="curp" class="form-control" maxlength="18" onblur="validarCurp()" placeholder="Ingrese curp" maxlength="18" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" onblur="validarNombre()" placeholder="Ingrese su nombre">
+                                <input type="text" name="nombre" class="form-control" id="nombre" onblur="validarNombre()" placeholder="Ingrese su nombre" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido paterno: <span
                                         class="text-danger">*</span></label>
                                 <input type="text" name="apellido_p" class="form-control" id="apellidoP" onblur="validarApellidoP()"
-                                    placeholder="Ingrese apellido paterno">
+                                    placeholder="Ingrese apellido paterno" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido materno: <span
                                         class="text-danger">*</span></label>
                                 <input type="text" name="apellido_m" class="form-control" id="apellidoM" onblur="validarApellidoM()"
-                                    placeholder="Ingrese apellido materno">
+                                    placeholder="Ingrese apellido materno" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Fecha de nacimiento: <span
                                         class="text-danger">*</span></label>
                                 <input type="date" name="fecha_nac" class="form-control" id="fecha_nac" 
-                                    placeholder="Ingrese su fecha de nacimiento" onblur="validarFecha()">
+                                    placeholder="Ingrese su fecha de nacimiento" onblur="validarFecha()" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Edad: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="edad" class="form-control" id="edad" maxlength="3" onblur="validarEdad()" placeholder="Ingrese su edad">
+                                <input type="text" name="edad" class="form-control" id="edad" maxlength="3" onblur="validarEdad()" placeholder="Ingrese su edad" require>
                             </div>
                             <div class="form-group col-md-6 mt-4  text-light">
                                 <label class="font-weight-bold ">Género: <span
@@ -139,17 +139,17 @@
                                 <label class="font-weight-bold text-light">Teléfono: <span
                                         class="text-danger">*</span></label>
                                 <input type="text" name="telefono" class="form-control" id="telefono" maxlength="10" onblur="validarTelefono()"
-                                    placeholder="Ingrese su número de teléfono">
+                                    placeholder="Ingrese su número de teléfono" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Calle: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="calle" class="form-control" id="calle" onblur="validarCalle()" placeholder="Ingrese su calle">
+                                <input type="text" name="calle" class="form-control" id="calle" onblur="validarCalle()" placeholder="Ingrese su calle" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Colonia: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="colonia" class="form-control" id="colonia" onblur="validarColonia()" placeholder="Ingrese su colonia">
+                                <input type="text" name="colonia" class="form-control" id="colonia" onblur="validarColonia()" placeholder="Ingrese su colonia" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Municipio: <span
@@ -187,7 +187,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">No. de seguridad social:</label>
                                 <input type="text" name="num_seguridad" id="num_seguridad" class="form-control"
-                                    placeholder="Ingresa tu número de seguridad social">
+                                    placeholder="Ingresa tu número de seguridad social" require maxlength="10">
                             </div>
                             <div class="form-group mb-3 text-light" >
                                 <label class="font-weight-bold ">¿Cómo considera su estado de salud?<span
@@ -222,7 +222,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light ">Observaciones generales:</label>
-                                <input type="text" name="observaciones"  class="ing"
+                                <input type="text" name="observaciones" 
                                     placeholder="Ingresa observaciones en caso de tenerlas">
                             </div>
                         </div>
@@ -416,6 +416,23 @@
                         </div> 
 
                         <div class="modal fade" id="ApellidoMModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">APELLIDO INVÁLIDO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Su APELLIDO MATERNO NO COINCIDE CON SU CURP, VERIFIQUE
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="registroFallido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
