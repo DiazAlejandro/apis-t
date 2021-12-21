@@ -32,13 +32,13 @@
         if($row == true){
             $rol = $row[2];
             $_SESSION['rol'] = $rol;
-            $_SESSION['correo'] = $email;
+            $_SESSION['email'] = $email;
             switch($_SESSION['rol']){
             case 2:
                 header('location: recepcionista/inicio.php');
             break;
             case 3:
-                header('location: /apis-t/alumno/inicio.php');
+                header('location: alumno/inicio.php');
             break;
 
             default:
