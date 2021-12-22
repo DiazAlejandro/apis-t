@@ -105,7 +105,7 @@ if (!$resultado2) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="tabla_alumno.php" id="home">Regresar</a>
+                        <a class="nav-link font-weight-bold text-dark" href="PerfilAlum.php?curp=<?php echo $curp ?>" id="home">Regresar</a>
                     </li>
                 </ul>
             </div>
@@ -124,7 +124,7 @@ if (!$resultado2) {
                         <h1 class="font-weight-bold mb-3">Editar datos del Alumno</h1>
                     </div>
                     <div class="card-body">
-                        <form action="controller/controller_alumno.php" method="post">
+                        <form action="controllers/editarDA.php" method="post">
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold text-light">CURP:<span class="text-danger">*</span></label>
@@ -295,7 +295,7 @@ if (!$resultado2) {
                                 </div>
                                 <br>
                                 <button type="submit" name="accion" value="enviar" id="reg" class="btn btn-warning font-weight-bold">Editar</button>
-                                <a class="btn font-weight-bold" id="btn" href="tabla_alumno.php">Cancelar</a>
+                                <a class="btn font-weight-bold" id="btn" href="PerfilAlum.php?curp=<?php echo $curp ?>">Cancelar</a>
                         </form>
                     </div>
                 </div>
