@@ -134,6 +134,7 @@ if (!$resultado2) {
                                 <span>
                                 <input type="hidden" name="old_curp" class="form-control" id="old_curp" value="<?php echo $curp?>">
                                 <input type="hidden" name="old_email" class="form-control" id="old_email" value="<?php echo $email?>">
+                                <input type="hidden" name="old_pass" class="form-control" id="old_pass" value="<?php echo $pass?>">
                                 </span>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold text-light">Nombre: <span class="text-danger">*</span></label>
