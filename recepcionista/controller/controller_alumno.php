@@ -23,6 +23,7 @@ $tutor_curp = "";
 
 $old_curp = $_POST['old_curp'];
 $old_email = $_POST['old_email'];
+$old_pass = $_POST['old_pass'];
 
 
 
@@ -37,9 +38,14 @@ $prescripcion = $_POST['prescripcion'];
 $observaciones = $_POST['observaciones'];
 
 $sqlUsuario = "UPDATE usuario 
-                    SET email ='$email', 
-                    pass = SHA1('$pass')
+                    SET email ='$email'
                     WHERE email = '$old_email'";
+if($pass!=$old_pass){
+    $sqlUsuario = "UPDATE usuario 
+    SET email ='$email', 
+    pass = SHA1('$pass')
+    WHERE email = '$old_email'";
+}
 
 if (mysqli_query($conexion, $sqlUsuario)) {
 
