@@ -14,27 +14,11 @@
         exit;
     }
 
+    $curp = "";
     $alumno = mysqli_query($conexion,"SELECT curp FROM alumno WHERE email='".$_SESSION['email']."'");
     if (mysqli_num_rows($alumno) > 0) {
         while ($alf = mysqli_fetch_assoc($alumno)) {
-            //echo $alf['curp'];
-        }
-    }
-
-    if (isset($_SESSION['email'])) {
-        include("../connect/conectar.php");
-        $email = $_SESSION['email'];
-        $update = "SELECT * FROM alumno WHERE email = '$email'";
-    
-        $resultado = mysqli_query($conexion, $update);
-        $curp = '';
-        if (!$resultado) {
-            echo 'No se pudo ejecutar la consulta: ';
-            exit;
-        } else {
-            $fila = mysqli_fetch_assoc($resultado);
-    
-            $curp = $fila['curp'];
+            $curp = $alf['curp'];
         }
     }
     
