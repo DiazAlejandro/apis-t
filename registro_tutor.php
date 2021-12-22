@@ -2,16 +2,15 @@
 <html lang="es">
 
 <head>
-    <link rel="shortcut icon" href="img/logo-header.png">
+<link rel="shortcut icon" href="img/logo-header.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <link href="css/reg_alumno.css" rel="stylesheet">
-
+    <script src="alumno/controllers/reg_validacion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
@@ -19,10 +18,18 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <title>Registro</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </head>
 
 <body id="fondo">
@@ -64,35 +71,35 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp">
+                                <input type="text" name="curp" class="form-control" id="curp" placeholder="Ingrese curp">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="ing" placeholder="Ingrese su nombre">
+                                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese su nombre">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido paterno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_p" class="form-control" id="ing"
+                                <input type="text" name="apellido_p" class="form-control" id="apellidoP"
                                     placeholder="Ingrese apellido paterno">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido materno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_m" class="form-control" id="ing"
+                                <input type="text" name="apellido_m" class="form-control" id="apellidoM"
                                     placeholder="Ingrese apellido materno">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Fecha de nacimiento: <span
                                         class="text-danger">*</span></label>
-                                <input type="date" name="fecha_nac" class="form-control" id="ing"
+                                <input type="date" name="fecha_nac" class="form-control" id="fecha_nac"
                                     placeholder="Ingrese su fecha de nacimiento">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Edad: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="edad" class="form-control" id="ing" placeholder="Ingrese su edad">
+                                <input type="text" name="edad" class="form-control" id="edad" placeholder="Ingrese su edad">
                             </div>
                             <div class="form-group col-md-6  text-light">
                                 <label class="font-weight-bold ">Género: <span
@@ -118,28 +125,28 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="telefono" class="form-control" id="ing"
+                                <input type="text" name="telefono" class="form-control" id="telefono"
                                     placeholder="Ingrese su número de teléfono">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Calle: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="calle" class="form-control" id="ing" placeholder="Ingrese su calle">
+                                <input type="text" name="calle" class="form-control" id="calle" placeholder="Ingrese su calle">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Colonia: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="colonia" class="form-control" id="ing" placeholder="Ingrese su colonia">
+                                <input type="text" name="colonia" class="form-control" id="colonia" placeholder="Ingrese su colonia">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Municipio: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="municipio" class="form-control" id="ing"
+                                <input type="text" name="municipio" class="form-control" id="municipio"
                                     placeholder="Ingrese su municipio">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CP:<span class="text-danger">*</span></label>
-                                <input type="text" name="cp" class="form-control" id="ing"
+                                <input type="text" name="cp" class="form-control" id="cp"
                                     placeholder="Ingrese su código postal">
                             </div>
                         </div>
@@ -147,13 +154,13 @@
                         <p class="mb-5 font-weight-bold text-warning">Estado de salud del alumno</p>
 
                         <div class="form-row mb-2">
-                            <div class="form-group mb-3  text-light">
+                            <div class="form-group mb-3  text-light col-md-8">
                                 <label class="font-weight-bold">¿Cuenta con seguro médico? <span
                                         class="text-danger">*</span></label>
                                 <input type="radio" name="seguro_med" value="true">Si
                                 <input type="radio" name="seguro_med" value="false">No
                             </div>
-                            <div class="form-group ">
+                            <div class="form-group col-md-8">
                                 <label class="font-weight-bold text-light">Seleccione el tipo de servicio médico:<span
                                         class="text-danger">*</span></label>
                                 <select name="servicio" class="custom-select" id="servicio">
@@ -164,12 +171,12 @@
                                     <option value="OTRO">OTRO</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-8">
                                 <label class="font-weight-bold text-light">No. de seguridad social:</label>
                                 <input type="text" name="num_seguridad" id="num_seguridad" class="form-control"
                                     placeholder="Ingresa tu número de seguridad social">
                             </div>
-                            <div class="form-group mb-3 text-light" >
+                            <div class="form-group mb-3 text-light col-lg-8" >
                                 <label class="font-weight-bold ">¿Cómo considera su estado de salud?<span
                                         class="text-danger">*</span></label>
                                 <input type="radio" name="estado" value="BUENO">Bueno
@@ -182,13 +189,12 @@
                                 <input type="radio" name="enfermedad" value="SI">Si
                                 <input type="radio" name="enfermedad" value="NO">No
                             </div>
-                            <div class="form-group mb-3  text-light">
-                                <label class="font-weight-bold ">¿Ha presentado síntomas de COVID-19 o algún
-                                    familiar cercano?<span class="text-danger">*</span></label>
+                            <div class="form-group mb-3  text-light col-lg-10">
+                                <label class="font-weight-bold ">¿Ha presentado síntomas de COVID-19 o algún familiar cercano?<span class="text-danger">*</span></label>
                                 <input type="radio" name="covid" value="true">Si
                                 <input type="radio" name="covid" value="false">No
                             </div>
-                            <div class="form-group mb-3  text-light">
+                            <div class="form-group mb-3  text-light col-lg-8">
                                 <label class="font-weight-bold ">¿Presenta Alergias?<span
                                         class="text-danger">*</span></label>
                                 <input type="radio" name="alergias" value="SI">Si
@@ -212,23 +218,23 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="curp_tutor" class="form-control" id="ing" placeholder="Ingrese curp">
+                                <input type="text" name="curp_tutor" class="form-control" id="curp" placeholder="Ingrese curp">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="nombre_tutor" class="form-control" id="ing" placeholder="Ingrese su nombre">
+                                <input type="text" name="nombre_tutor" class="form-control" id="nombre" placeholder="Ingrese su nombre">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido paterno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_p_tutor" class="form-control" id="ing"
+                                <input type="text" name="apellido_p_tutor" class="form-control" id="apellidoP"
                                     placeholder="Ingrese apellido paterno">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido materno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_m_tutor" class="form-control" id="ing"
+                                <input type="text" name="apellido_m_tutor" class="form-control" id="apellidoM"
                                     placeholder="Ingrese apellido materno">
                             </div>
                             <div class="form-group col-md-6">
@@ -245,29 +251,29 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono 1: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="telefono1" class="form-control" id="ing"
+                                <input type="text" name="telefono1" class="form-control" id="tel1"
                                     placeholder="Ingrese su número de teléfono">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono 2: </label>
-                                <input type="text" name="telefono2" class="form-control" id="ing"
+                                <input type="text" name="telefono2" class="form-control" id="tel2"
                                     placeholder="Ingrese un número de teléfono">
                             </div>
                         </div>
-                         <!--Datos de logeo-->
-                        <p class="mb-5 font-weight-bold text-warning">Datos del logeo</p>
+                        <!--Datos de logeo-->
+                        <p class="mb-5 font-weight-bold text-warning mt-4">Datos del logeo</p>
                         <div class="form-row mb-2">
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Correo electrónico <span
                                         class="text-danger">*</span></label>
-                                <input type="email" name="email" id="email" class="form-control"
-                                    placeholder="Ingresa tu correo electrónico">
+                                <input pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+" type="email" name="email" id="email" class="form-control Input"
+                            placeholder="Ingrese su Correo Electrónico" required><br><br>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Contraseña <span
                                         class="text-danger">*</span></label>
                                 <input type="password" name="pass" id="pass" class="form-control"
-                                    placeholder="Ingresa una contraseña">
+                                    placeholder="Ingresa una contraseña" require>
                             </div>
                             <div class="form-group mb-5">
                                 <div class="form-check">
@@ -276,8 +282,8 @@
                                        que todos los datos ingresados son correctos</label>
                                 </div>
                             </div>
-                            <div class="form-group mx-sm-5 pd-6">
-                                <button type="submit" class="btn btn-blue btn-lg ingresar " value="Registrarse"> Registrarse</button>
+                            <div class="form-group mx-sm-5">
+                                <button type="submit" class="btn btn-blue btn-lg ingresar" id="boton" value="Registrarse"> Registrarse</button>
                             </div>
                     </form>
                 </div>

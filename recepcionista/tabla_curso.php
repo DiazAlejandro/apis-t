@@ -102,7 +102,7 @@ if (!$resultado) {
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="update.php?clave=<?php echo $row['clave']?>" class="btn btn-secondary">
+                                            <a href="editar_curso.php?clave=<?php echo $fila['clave']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a> 
                                         </td>

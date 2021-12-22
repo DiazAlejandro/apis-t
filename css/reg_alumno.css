@@ -73,6 +73,42 @@ p{
 .ing{
     border: 3px solid;
     border-color: black black rgb(207, 152, 0);
+    height: 30px;
+}
+
+#curp{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#nombre{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#apellidoP{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#apellidoM{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#fecha_nac{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#edad{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#medioE{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
 }
 
 #medio{
@@ -110,6 +146,43 @@ p{
     border-color: black black rgb(207, 152, 0);
 }
 
+#telefono{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+#tel1{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+#tel2{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+#calle{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#colonia{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#municipio{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#cp{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#observaciones{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
 .register-bg {
     background-image: url(../img/a.JPG);
     background-size: cover;
@@ -128,7 +201,7 @@ p{
     font-size: 20pt;
 }
 
-.ingresar{
+#boton{
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     box-shadow:0 0 30px rgba(78, 79, 83, 0.9);

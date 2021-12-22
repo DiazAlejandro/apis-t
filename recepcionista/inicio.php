@@ -66,9 +66,6 @@
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                       </li>
@@ -76,37 +73,7 @@
               </div>
           </div>
       </nav>
-    <!--
-    <nav class="navbar navbar-expand-lg" id="barrita">
-        <div class="container-fluid">
-            <a class="navbar-brand text-light font-weight-bold" href="inicio.php">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item" style="border: 1px solid white">
-                <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
-                </li>
-                <li class="nav-item" style="border: 1px solid white">
-                <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
-                </li>
-                <li class="nav-item" style="border: 1px solid white">
-                <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                </li>
-                <li class="nav-item" style="border: 1px solid white">
-                <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                </li>
-                <li class="nav-item" style="border: 1px solid white">
-                <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                </li>
-                <li class="nav-item" style="border: 1px solid white">
-                <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav> -->
+
 </div>
 </body>
 </html>
