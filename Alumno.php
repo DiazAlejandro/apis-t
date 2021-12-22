@@ -7,7 +7,7 @@
     $apellido_m = $_POST['apellido_m'];
     $fecha_nac = $_POST['fecha_nac'];
     $genero = $_POST['genero'];
-    $medio = $_POST['medio'];
+    $medio = $_POST['medioE'];
     $edad = $_POST['edad'];
     $telefono = $_POST['telefono'];
     $calle = $_POST['calle'];
@@ -56,7 +56,10 @@
                         window.location.href = '../registro.php';
                     </script>";
             }                              
-        }else{            
+        }else{ 
+                       
         }
+    }else{
+        echo "<script type='text/javascript'>$('#registroFallido').modal('show'); </script>"; 
     }
 ?>
