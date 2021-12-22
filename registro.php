@@ -74,7 +74,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input  class="ing" type="text" name="curp" id="curp" class="form-control" maxlength="18" onblur="validarCurp()" placeholder="Ingrese curp" maxlength="18" required>
+                                <input type="text" name="curp" id="curp" class="form-control" maxlength="18" onblur="validarCurp()" placeholder="Ingrese curp" maxlength="18" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
@@ -182,6 +182,7 @@
                                     <option value="ISSTE">ISSTE</option>
                                     <option value="ISSEMYM">ISSEMYM</option>
                                     <option value="OTRO">OTRO</option>
+                                    <option value="OTRO">NINGUNO</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -222,7 +223,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light ">Observaciones generales:</label>
-                                <input type="text" name="observaciones"  class="ing"
+                                <input type="text" name="observaciones" class="form-control" id="observaciones"
                                     placeholder="Ingresa observaciones en caso de tenerlas">
                             </div>
                         </div>
