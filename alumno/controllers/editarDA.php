@@ -37,6 +37,9 @@ $alergias = $_POST['alergias'];
 $prescripcion = $_POST['prescripcion'];
 $observaciones = $_POST['observaciones'];
 
+
+
+
 $sqlUsuario = "UPDATE usuario 
                     SET email ='$email'
                     WHERE email = '$old_email'";
@@ -46,7 +49,6 @@ if($pass!=$old_pass){
     pass = SHA1('$pass')
     WHERE email = '$old_email'";
 }
-
 if (mysqli_query($conexion, $sqlUsuario)) {
 
    
@@ -87,26 +89,26 @@ if (mysqli_query($conexion, $sqlUsuario)) {
             $messaget = "SE GUARDARON LOS CAMBIOS CORRECTAMENTE";
             echo "<script type='text/javascript'>
                     alert('$messaget');
-                    window.location.href = '../tabla_alumno.php';
+                    window.location.href = '../inicio.php';
                 </script>";
         } else {
             $messagec = "ERROR DATOS DE ESTADO DE SALUD";
             echo "<script type='text/javascript'>
             alert('$messagec');
-            window.location.href = '../tabla_alumno.php';
+            window.location.href = '../inicio.php';
         </script>";
         }
     }else {
         $messagec = "ERROR DATOS DEL ALUMNO";
         echo "<script type='text/javascript'>
         alert('$messagec');
-        window.location.href = '../tabla_alumno.php';
+        window.location.href = '../inicio.php';
     </script>";
     }
 }else {
     $messagec = "ERROR DEL USAURIO";
     echo "<script type='text/javascript'>
     alert('$messagec');
-    window.location.href = '../tabla_alumno.php';
+    window.location.href = '../inicio.php';
 </script>";
 }
