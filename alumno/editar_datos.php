@@ -1,83 +1,79 @@
 <?php
-session_start();
-if (!isset($_SESSION['rol'])) {
-    header('location: login.php');
-} else {
-    if ($_SESSION['rol'] != 3) {
+    session_start();
+    if (!isset($_SESSION['rol'])) {
         header('location: login.php');
+    } else {
+        if ($_SESSION['rol'] != 3) {
+            header('location: login.php');
+        }
     }
-}
 
-include("../connect/conectar.php");
-if (isset($_GET['curp'])) {
-    $curp = $_GET['curp'];
-    $update = "SELECT * FROM alumno WHERE curp = '$curp'";
-}
+    include("../connect/conectar.php");
+    if (isset($_GET['curp'])) {
+        $curp = $_GET['curp'];
+        $update = "SELECT * FROM alumno WHERE curp = '$curp'";
+    }
 
-$resultado = mysqli_query($conexion, $update);
+    $resultado = mysqli_query($conexion, $update);
 
-if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ';
-    exit;
-} else {
-    $fila = mysqli_fetch_assoc($resultado);
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ';
+        exit;
+    } else {
+        $fila = mysqli_fetch_assoc($resultado);
 
-    $curp = $fila['curp'];
-    $nombre = $fila['nombre'];
-    $apellido_p = $fila['apellido_p'];
-    $apellido_m = $fila['apellido_m'];
-    $fecha_nac = $fila['fecha_nac'];
-    $genero = $fila['sexo'];
-    $medio = $fila['medio'];
-    $edad = $fila['edad'];
-    $telefono = $fila['telefono'];
-    $calle = $fila['calle'];
-    $colonia = $fila['colonia'];
-    $municipio = $fila['municipio'];
-    $cp = $fila['cp'];
-    $estatus = $fila['estatus'];
-    $email = $fila['email'];
-    $tutor_curp = $fila['tutor_curp'];
-}
-
-
-$updateU = "SELECT * FROM usuario WHERE email = '$email'";
-$resultado1 = mysqli_query($conexion, $updateU);
-
-if (!$resultado1) {
-    echo 'No se pudo ejecutar la consulta: ';
-    exit;
-} else {
-    $fila = mysqli_fetch_assoc($resultado1);
-
-    $pass = $fila['pass'];
-    $rol_id = $fila['rol_id'];
-}
+        $curp = $fila['curp'];
+        $nombre = $fila['nombre'];
+        $apellido_p = $fila['apellido_p'];
+        $apellido_m = $fila['apellido_m'];
+        $fecha_nac = $fila['fecha_nac'];
+        $genero = $fila['sexo'];
+        $medio = $fila['medio'];
+        $edad = $fila['edad'];
+        $telefono = $fila['telefono'];
+        $calle = $fila['calle'];
+        $colonia = $fila['colonia'];
+        $municipio = $fila['municipio'];
+        $cp = $fila['cp'];
+        $estatus = $fila['estatus'];
+        $email = $fila['email'];
+        $tutor_curp = $fila['tutor_curp'];
+    }
 
 
-$updateS = "SELECT * FROM estado_salud WHERE alumno_curp = '$curp'";
-$resultado2 = mysqli_query($conexion, $updateS);
+    $updateU = "SELECT * FROM usuario WHERE email = '$email'";
+    $resultado1 = mysqli_query($conexion, $updateU);
 
-if (!$resultado2) {
-    echo 'No se pudo ejecutar la consulta: ';
-    exit;
-} else {
-    $fila = mysqli_fetch_assoc($resultado2);
+    if (!$resultado1) {
+        echo 'No se pudo ejecutar la consulta: ';
+        exit;
+    } else {
+        $fila = mysqli_fetch_assoc($resultado1);
 
-    $seguro_med = $fila['seguro_med'];
-    $servicio = $fila['servicio'];
-    $num_seguridad = $fila['num_seguridad'];
-    $estado = $fila['estado'];
-    $enfermedad = $fila['enfermedad'];
-    $covid = $fila['covid'];
-    $alergias = $fila['alergias'];
-    $prescripcion = $fila['prescripcion'];
-    $observaciones = $fila['observaciones'];
-}
+        $pass = $fila['pass'];
+        $rol_id = $fila['rol_id'];
+    }
 
 
+    $updateS = "SELECT * FROM estado_salud WHERE alumno_curp = '$curp'";
+    $resultado2 = mysqli_query($conexion, $updateS);
 
+    if (!$resultado2) {
+        echo 'No se pudo ejecutar la consulta: ';
+        exit;
+    } else {
+        $fila = mysqli_fetch_assoc($resultado2);
 
+        $seguro_med = $fila['seguro_med'];
+        $servicio = $fila['servicio'];
+        $num_seguridad = $fila['num_seguridad'];
+        $estado = $fila['estado'];
+        $enfermedad = $fila['enfermedad'];
+        $covid = $fila['covid'];
+        $alergias = $fila['alergias'];
+        $prescripcion = $fila['prescripcion'];
+        $observaciones = $fila['observaciones'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -87,60 +83,64 @@ if (!$resultado2) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="../css/registro_curso.css">
+    <link rel="stylesheet" href="../css/tabla_curs.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <title>Editar Alumno</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    
+    <title>Editar Alumno</title>
 </head>
 
 <body id="fondo">
         <!-- Barra de navegación-->
-        <nav class="navbar navbar-expand-lg  ">
-            <div class="container">
-                <div class="form-group logo-img ">
-                    <img src="../img/logo-header.png" width="80" height="80">
-                </div>
-                <div class="container-fluid">
-                    <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
-                </div>
-                <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="form-group logo-img ">
+                <img src="../img/logo-header.png" width="80" height="80">
             </div>
-        </nav>
-
-        <nav class="navbar navbar-expand-lg navbar-light" id="barrita">
             <div class="container-fluid">
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" style="border: 1px solid white" href="pagos_realizados.php">Pagos Realizados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light" id="barrita">
+        <div class="container-fluid">
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" style="border: 1px solid white" href="pagos_realizados.php">Pagos Realizados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
         <!-- Fin barra de navegación-->
 
     <!-- Contenido-->
@@ -324,7 +324,7 @@ if (!$resultado2) {
                                 </div>
                                 <br>
                                 <button type="submit" name="accion" value="enviar" id="reg" class="btn btn-warning font-weight-bold">Editar</button>
-                                <a class="btn font-weight-bold" id="btn" href="PerfilAlum.php?curp=<?php echo $curp ?>">Cancelar</a>
+                                <a class="btn font-weight-bold" id="btn" href="perfil_alumno.php?curp=<?php echo $curp ?>">Cancelar</a>
                         </form>
                     </div>
                 </div>
