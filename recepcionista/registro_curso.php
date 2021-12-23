@@ -90,8 +90,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="txtDuracion">Duración:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z0-9 ]+" type="text" class="form-control" id="bord" name="txtduracion"
+                                <label for="txtDuracion">Duración: (SEMANAL)<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[0-9]+" type="text" class="form-control" id="bord" name="txtduracion"
                                     placeholder="Ingresa la duración del curso" required>
                             </div>
                             <div class="form-group">

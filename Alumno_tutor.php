@@ -7,7 +7,7 @@
     $apellido_m = $_POST['apellido_m'];
     $fecha_nac = $_POST['fecha_nac'];
     $genero = $_POST['genero'];
-    $medio = $_POST['medio'];
+    $medio = $_POST['medioE'];
     $edad = $_POST['edad'];
     $telefono = "9999999999";
     $calle = $_POST['calle'];

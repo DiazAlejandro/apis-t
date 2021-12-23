@@ -14,10 +14,11 @@
         exit;
     }
 
-    $alumno = mysqli_query($conexion,"SELECT curp FROM alumno WHERE email='".$_SESSION['correo']."'");
+    $curp = "";
+    $alumno = mysqli_query($conexion,"SELECT curp FROM alumno WHERE email='".$_SESSION['email']."'");
     if (mysqli_num_rows($alumno) > 0) {
         while ($alf = mysqli_fetch_assoc($alumno)) {
-            //echo $alf['curp'];
+            $curp = $alf['curp'];
         }
     }
     
@@ -45,12 +46,16 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     <title>Curso disponible - Alumno</title>
 </head>
 
 <body>
 <body id="fondo">
-    <!-- Barra de navegación-->
     <nav class="navbar navbar-expand-lg  ">
         <div class="container">
             <div class="form-group logo-img ">
@@ -62,36 +67,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="../connect/cerrar_sesion.php" id="entrar">Cerrar Sesion</a>
+                        <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="font-weight-bold card-header" id="barrita"></div>
-    <nav class="navbar navbar-expand-lg" id="barrita">
+    <nav class="navbar navbar-expand-lg navbar-light" id="barrita">
         <div class="container-fluid">
-            <a class="navbar-brand text-light font-weight-bold" href="inicio.php">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link active text-light font-weight-bold" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold" href="pagos_realizados.php">Pagos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-light font-weight-bold" href="#">Pricing</a>
-                </li>
-                <li class="nav-item text-light font-weight-bold">
-                <a class="nav-link disabled">Disabled</a>
-                </li>
-
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" style="border: 1px solid white" href="pagos_realizados.php">Pagos Realizados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -156,6 +158,9 @@
                                     ?>
                                 </tbody>
                             </table>
+                            <div>
+                                <a class="btn btn-danger font-weight-bold" id="btn" href="inicio.php">Regresar</a>
+                            </div>
                         </div>
                     </div>
                 </div>

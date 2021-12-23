@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: login.php');
+} else {
+    if ($_SESSION['rol'] != 3) {
+        header('location: login.php');
+    }
+}
+
 include("../connect/conectar.php");
 if (isset($_GET['curp'])) {
     $curp = $_GET['curp'];
@@ -90,29 +99,49 @@ if (!$resultado2) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <title>Editar Alumno</title>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </head>
 
-<body id="fondo">
-    <!-- Barra de navegación-->
-    <nav class="navbar navbar-expand-lg  ">
-        <div class="container">
-            <div class="form-group logo-img ">
-                <img src="../img/logo-header.png" width="80" height="80">
+<<body id="fondo">
+        <!-- Barra de navegación-->
+        <nav class="navbar navbar-expand-lg  ">
+            <div class="container">
+                <div class="form-group logo-img ">
+                    <img src="../img/logo-header.png" width="80" height="80">
+                </div>
+                <div class="container-fluid">
+                    <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
+                </div>
+                <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
             </div>
-            <div class="container-fluid">
-                <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="PerfilAlum.php?curp=<?php echo $curp ?>" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="font-weight-bold card-header" id="barrita"></div>
+        <nav class="navbar navbar-expand-lg navbar-light" id="barrita">
+            <div class="container-fluid">
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" style="border: 1px solid white" href="pagos_realizados.php">Pagos Realizados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Fin barra de navegación-->
 
     <!-- Contenido-->
     <div class="container">
