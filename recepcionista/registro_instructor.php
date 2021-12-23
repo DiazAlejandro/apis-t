@@ -1,7 +1,18 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['rol'])) {
+        header('location: login.php');
+    } else {
+        if ($_SESSION['rol'] != 2) {
+            header('location: /apis-t/login.php');
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="shortcut icon" href="../img/logo-header.png">
+    <link rel="shortcut icon" href="../img/logo-header.png">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +35,7 @@
 
 <body id="fondo">
     <!-- Barra de navegación-->
-    <nav class="navbar navbar-expand-lg  ">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <div class="form-group logo-img ">
                 <img src="../img/logo-header.png" width="80" height="80">
@@ -32,17 +43,48 @@
             <div class="container-fluid">
                 <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
-            <ul class="navbar-nav ml-auto text-center">
-                <li class="nav-item">
-                    <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
-                </li>
-            </ul>
- 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="font-weight-bold card-header" id="barrita"></div>
-
+    <nav class="navbar navbar-expand-lg navbar-light" id="barrita">
+        <div class="container-fluid">
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="tabs navbar-nav">
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- Contenido-->
     <div class="container">
         <div class="row justify-content-center">
@@ -56,24 +98,24 @@
                         <form action="../recepcionista/controller/Instructor.php" method="post">
                             <div class="form-group">
                                 <label class="font-weight-bold">CURP:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="curp" onblur="validarCurp()" class="form-control bord" id="curp" placeholder="Ingrese curp" required>
+                                <input type="text" name="curp" onblur="validarCurp()" class="form-control bord" id="curp" placeholder="Ingrese curp" style="border: 2px solid black" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="txtclave" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese nombre" onblur="validarNombre()" required>
+                                <input type="text" name="nombre" class="form-control" id="nombre" style="border: 2px solid black" placeholder="Ingrese nombre" onblur="validarNombre()" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Apellido paterno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_p" class="form-control" id="apellidoP"
-                                    placeholder="Ingrese apellido paterno" onblur="validarApellidoP()" required>
+                                    placeholder="Ingrese apellido paterno" style="border: 2px solid black" onblur="validarApellidoP()" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Apellido materno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_m" class="form-control" id="apellidoM" onblur="validarApellidoM()"
-                                    placeholder="Ingrese apellido materno" required>
+                                    placeholder="Ingrese apellido materno" style="border: 2px solid black" required>
                             </div>
 
                             
@@ -81,13 +123,13 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Teléfono: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="telefono" class="form-control" id="telefono" onblur="validarTelefonoT()"
-                                    placeholder="Ingrese su número de teléfono" minlenght="10" maxlenght="10" required>
+                                    placeholder="Ingrese su número de teléfono" style="border: 2px solid black" minlenght="10" maxlenght="10" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Correo electrónico <span class="text-danger" id="marca">*</span></label>
                                 <input  pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+" type="email" name="email" class="form-control"  
-                                    placeholder="Ingresa tu correo electrónico" required>
+                                    placeholder="Ingresa tu correo electrónico" style="border: 2px solid black" required>
                             </div>
                             <br>
                             <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-primary font-weight-bold" >Registrar</button>
