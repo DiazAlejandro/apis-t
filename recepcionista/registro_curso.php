@@ -151,9 +151,9 @@
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-primary font-weight-bold" id="btn">Registrar Curso</button>
-                            <button type="reset" name="accion" value="restaurar" class="btn font-weight-bold text-light" id="rest" style="background-color: black">Restaurar</button>
-                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php">Cancelar</a>
+                                   class="btn btn-primary font-weight-bold" id="btn" style="width: 150px;">Registrar Curso</button>
+                            <button type="reset" name="accion" value="restaurar" class="btn font-weight-bold text-light" id="rest" style="background-color: black; width: 150px;">Restaurar</button>
+                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php" style="width: 150px;">Cancelar</a>
                          </form>
                     </div>
                 </div>
