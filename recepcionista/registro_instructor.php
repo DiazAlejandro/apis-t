@@ -97,23 +97,23 @@
                     <div class="card-body">
                         <form action="../recepcionista/controller/Instructor.php" method="post">
                             <div class="form-group">
-                                <label>CURP:<span class="text-danger" id="marca">*</span></label>
+                                <label class="font-weight-bold">CURP:<span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="curp" onblur="validarCurp()" class="form-control bord" id="curp" placeholder="Ingrese curp" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="txtclave">Nombre:<span class="text-danger" id="marca">*</span></label>
+                                <label for="txtclave" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese nombre" onblur="validarNombre()" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Apellido paterno: <span class="text-danger" id="marca">*</span></label>
+                                <label class="font-weight-bold">Apellido paterno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_p" class="form-control" id="apellidoP"
                                     placeholder="Ingrese apellido paterno" onblur="validarApellidoP()" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Apellido materno: <span class="text-danger" id="marca">*</span></label>
+                                <label class="font-weight-bold">Apellido materno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_m" class="form-control" id="apellidoM" onblur="validarApellidoM()"
                                     placeholder="Ingrese apellido materno" required>
                             </div>
@@ -121,23 +121,20 @@
                             
 
                             <div class="form-group">
-                                <label>Teléfono: <span class="text-danger" id="marca">*</span></label>
+                                <label class="font-weight-bold">Teléfono: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="telefono" class="form-control" id="telefono" onblur="validarTelefonoT()"
                                     placeholder="Ingrese su número de teléfono" minlenght="10" maxlenght="10" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Correo electrónico <span class="text-danger" id="marca">*</span></label>
+                                <label class="font-weight-bold">Correo electrónico <span class="text-danger" id="marca">*</span></label>
                                 <input  pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+" type="email" name="email" class="form-control"  
                                     placeholder="Ingresa tu correo electrónico" required>
                             </div>
                             <br>
-                            <button type="submit" name="accion" value="enviar" id="reg"
-                            class="btn btn-warning font-weight-bold" >Registrar</button>
-                            <button type="reset" name="accion" value="restaurar"
-                                    class="btn font-weight-bold" id="rest">Restaurar</button>
-                            <a class="btn font-weight-bold" id="btn"
-                                    href="tabla_instructor.php">Cancelar</a>
+                            <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-primary font-weight-bold" >Registrar</button>
+                            <button type="reset" name="accion" value="restaurar" id="rest" class="btn font-weight-bold text-light" style="background-color: black">Restaurar</button>
+                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_instructor.php">Cancelar</a>
 
 
 

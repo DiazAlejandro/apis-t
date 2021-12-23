@@ -27,6 +27,7 @@
     font-weight: bold;
 }
 
+
 #barrita{
     background-color: black
 }
@@ -54,6 +55,7 @@
     background-color: rgb(255, 255, 255);
     text-align: center;
 }
+ 
 .card-body{
     background-color: rgb(179, 179, 179);
     color: black;
@@ -94,6 +96,17 @@ button{
 }
 
 #btn{
+    color: black;
+    border: #000000 2px solid;
+    background-color: rgb(255, 24, 24);
+    width:140px;
+}
+
+#color{
+    color: rgb(0, 0, 0);
+}
+
+#bo{
     color: black;
     border: #000000 2px solid;
     background-color: rgb(255, 24, 24);

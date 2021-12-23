@@ -103,3 +103,8 @@ td {
     color: black;
 }
 
+#rest{
+    border: rgb(0, 0, 0) 2px solid;
+    background-color: black;
+    color: white;  
+}

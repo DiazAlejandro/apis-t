@@ -151,13 +151,12 @@
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-warning font-weight-bold" id="reg">Registrar Curso</button>
+                                   class="btn btn-primary font-weight-bold" id="reg">Registrar Curso</button>
                             <button type="reset" name="accion" value="restaurar"
                                     class="btn font-weight-bold" id="rest">Restaurar</button>
                             <a class="btn font-weight-bold" id="btn"
                                     href="tabla_curso.php">Cancelar</a>
-                            
-                        </form>
+                         </form>
                     </div>
                 </div>
             </div>

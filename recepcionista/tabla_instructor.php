@@ -39,7 +39,7 @@
 
 <body id="fondo">
     <!-- Barra de navegación-->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg  ">
         <div class="container">
             <div class="form-group logo-img ">
                 <img src="../img/logo-header.png" width="80" height="80">
