@@ -165,9 +165,10 @@
                     </div>
                     <div class="card-body">
                         <form action="controller/controller_alumno.php" method="post">
+                        <p class="mb-5 font-weight-bold mt-4">DATOS PERSONALES</p>
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">CURP:<span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">CURP:<span class="text-danger">*</span></label>
                                     <input type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp" value="<?php echo $curp ?>">
                                 
                                 </div>
@@ -177,26 +178,26 @@
                                 <input type="hidden" name="old_pass" class="form-control" id="old_pass" value="<?php echo $pass?>">
                                 </span>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Nombre: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Nombre: <span class="text-danger">*</span></label>
                                     <input type="text" name="nombre" class="form-control" id="ing" value="<?php echo $nombre ?>" placeholder="Ingrese su nombre">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Apellido paterno: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Apellido paterno: <span class="text-danger">*</span></label>
                                     <input type="text" name="apellido_p" class="form-control" id="ing" value="<?php echo $apellido_p ?>" placeholder="Ingrese apellido paterno">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Apellido materno: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Apellido materno: <span class="text-danger">*</span></label>
                                     <input type="text" name="apellido_m" class="form-control" id="ing" value="<?php echo $apellido_m ?>" placeholder="Ingrese apellido materno">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Fecha de nacimiento: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Fecha de nacimiento: <span class="text-danger">*</span></label>
                                     <input type="date" name="fecha_nac" class="form-control" id="ing" value="<?php echo $fecha_nac ?>" placeholder="Ingrese su fecha de nacimiento">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Edad: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Edad: <span class="text-danger">*</span></label>
                                     <input type="text" name="edad" class="form-control" id="ing" value="<?php echo $edad ?>" placeholder="Ingrese su edad">
                                 </div>
-                                <div class="form-group col-md-6 mt-4  text-light">
+                                <div class="form-group col-md-6 mt-4">
                                     <label class="font-weight-bold ">Género: <span class="text-danger">*</span></label>
                                     <input type="radio" name="genero" value="M" 
                                     <?php if ($genero=='M') { ?> checked <?php } ?>>Masculino
@@ -204,7 +205,7 @@
                                     <?php if ($genero=='F') { ?> checked <?php } ?>>Femenino
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Medio: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Medio: <span class="text-danger">*</span></label>
                                     <select name="medio" class="custom-select" id="medio" value="<?php echo $medio ?>">
                                         <option selected="true" disabled="disabled">Seleccione</option>
                                         <option value="Redes Sociales"
@@ -218,34 +219,34 @@
                             </div>
 
                             <!--Datos de localización-->
-                            <p class="mb-5 font-weight-bold ">Datos de localización</p>
+                            <p class="mb-5 font-weight-bold ">DATOS DE LOCALIZACIÓN</p>
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Teléfono: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Teléfono: <span class="text-danger">*</span></label>
                                     <input type="text" name="telefono" class="form-control" id="ing" value="<?php echo $telefono ?>" placeholder="Ingrese su número de teléfono">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Calle: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Calle: <span class="text-danger">*</span></label>
                                     <input type="text" name="calle" class="form-control" id="ing" value="<?php echo $calle ?>" placeholder="Ingrese su calle">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Colonia: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Colonia: <span class="text-danger">*</span></label>
                                     <input type="text" name="colonia" class="form-control" id="ing" value="<?php echo $colonia ?>" placeholder="Ingrese su colonia">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Municipio: <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Municipio: <span class="text-danger">*</span></label>
                                     <input type="text" name="municipio" class="form-control" id="ing" value="<?php echo $municipio ?>" placeholder="Ingrese su municipio">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">CP:<span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">CP:<span class="text-danger">*</span></label>
                                     <input type="text" name="cp" class="form-control" id="ing" value="<?php echo $cp ?>" placeholder="Ingrese su código postal">
                                 </div>
                             </div>
                             <!--Datos de salud-->
-                            <p class="mb-4 font-weight-bold  mt-4">Estado de salud</p>
+                            <p class="mb-4 font-weight-bold  mt-4">ESTADO DE SALUD</p>
 
                             <div class="form-row mb-2">
-                                <div class="form-group mb-3  col-md-8 text-light">
+                                <div class="form-group mb-3 col-md-8">
                                     <label class="font-weight-bold">¿Cuenta con seguro médico?<span class="text-danger" id="marca">*</span></label>
                                     <input type="radio" name="seguro_med" value="true"
                                     <?php if ($seguro_med==1) { ?> checked <?php } ?>
@@ -255,7 +256,7 @@
                                     <?php if ($seguro_med==0) { ?> checked <?php } ?>>No
                                 </div><br>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Seleccione el tipo de servicio médico:<span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Seleccione el tipo de servicio médico:<span class="text-danger">*</span></label>
                                     <select name="servicio" class="custom-select" id="servicio">
                                         <option selected="true" disabled="disabled">Seleccione</option>
                                         <option value="IMSS"
@@ -269,10 +270,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">No. de seguridad social:</label>
+                                    <label class="font-weight-bold">No. de seguridad social:</label>
                                     <input type="text" name="num_seguridad" id="num_seguridad" class="form-control" value="<?php echo $num_seguridad ?>" placeholder="Ingresa tu número de seguridad social">
                                 </div>
-                                <div class="form-group mb-3 text-light">
+                                <div class="form-group mb-3">
                                     <label class="font-weight-bold ">¿Cómo considera su estado de salud?<span class="text-danger">*</span></label>
                                     <input type="radio" name="estado" value="BUENO"
                                     <?php if ($estado=='BUENO') { ?> checked <?php } ?>>Bueno
@@ -281,28 +282,28 @@
                                     <input type="radio" name="estado" value="MALO"
                                     <?php if ($estado=='MALO') { ?> checked <?php } ?>>Malo
                                 </div>
-                                <div class="form-group mb-3  text-light">
+                                <div class="form-group mb-3">
                                     <label class="font-weight-bold">¿Padece alguna enfermedad crónica?<span class="text-danger">*</span></label>
                                     <input type="radio" name="enfermedad" value="SI"
                                     <?php if ($enfermedad=='SI') { ?> checked <?php } ?>>Si
                                     <input type="radio" name="enfermedad" value="NO"
                                     <?php if ($enfermedad=='NO') { ?> checked <?php } ?>>No
                                 </div>
-                                <div class="form-group mb-3  text-light">
+                                <div class="form-group mb-3">
                                     <label class="font-weight-bold ">¿Ha presentado síntomas de COVID-19 o algún
                                         familiar cercano?<span class="text-danger">*</span></label>
                                     <input type="radio" name="covid" value="true"
                                     <?php if ($estado==1) { ?> checked <?php } ?>>Si
                                     <input type="radio" name="covid" value="false" <?php if ($estado==0) { ?> checked <?php } ?>>No
                                 </div>
-                                <div class="form-group mb-3  text-light">
+                                <div class="form-group mb-3">
                                     <label class="font-weight-bold ">¿Presenta Alergias?<span class="text-danger">*</span></label>
                                     <input type="radio" name="alergias" value="SI"
                                     <?php if ($alergias=='SI') { ?> checked <?php } ?>>Si
                                     <input type="radio" name="alergias" value="NO"
                                      <?php if ($alergias=='NO') { ?> checked <?php } ?>>No
                                 </div>
-                                <div class="form-group col-md-10 text-light">
+                                <div class="form-group col-md-10">
                                     <label class="font-weight-bold">¿Presenta alguna Preescripción médica?<span class="text-danger">*</span></label>
                                     <input type="radio" name="prescripcion" value="SI"
                                     <?php if ($prescripcion=='SI') { ?> checked <?php } ?>>Si
@@ -310,32 +311,26 @@
                                     <?php if ($prescripcion=='NO') { ?> checked <?php } ?>>No
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Observaciones generales:</label>
+                                    <label class="font-weight-bold">Observaciones generales:</label>
                                     <input type="text" name="observaciones" id="observaciones" class="form-control" value="<?php echo $observaciones ?>" placeholder="Ingresa observaciones en caso de tenerlas">
                                 </div>
                             </div>
 
                             <!--Datos de logeo-->
-                            <p class="mb-5 font-weight-bold mt-4">Datos del logeo</p>
+                            <p class="mb-5 font-weight-bold mt-4">DATOS DEL LOGEO</p>
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Correo electrónico <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Correo electrónico <span class="text-danger">*</span></label>
                                     <input type="email" name="email" id="email" class="form-control" value="<?php echo $email ?>" placeholder="Ingresa tu correo electrónico">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="font-weight-bold text-light">Contraseña <span class="text-danger">*</span></label>
+                                    <label class="font-weight-bold">Contraseña <span class="text-danger">*</span></label>
                                     <input type="password" name="pass" id="pass" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña">
                                 </div>
-                                <div class="form-group mb-5">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" checked disabled>
-                                        <label class="form-check-label text-light">Al seleccionar esta casilla aceptas
-                                            que todos los datos ingresados son correctos</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <button type="submit" name="accion" value="enviar" id="reg" class="btn btn-warning font-weight-bold">Editar</button>
-                                <a class="btn font-weight-bold" id="btn" href="tabla_alumno.php">Cancelar</a>
+                            </div>
+                                <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-primary" style="width:90px">Editar</button>
+                                <a class="btn font-weight-bold btn-danger" id="btn" href="perfil_alumno.php?curp=<?php echo $curp ?>">Cancelar</a>
+                        
                         </form>
                     </div>
                 </div>
