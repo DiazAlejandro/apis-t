@@ -104,7 +104,7 @@ if (!$resultado2) {
 
 </head>
 
-<<body id="fondo">
+<body id="fondo">
         <!-- Barra de navegación-->
         <nav class="navbar navbar-expand-lg  ">
             <div class="container">
