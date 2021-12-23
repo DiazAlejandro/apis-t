@@ -93,7 +93,6 @@ if (!isset($_SESSION['rol'])) {
             </div>
         </div>
     </nav>
-    <!-- Contenido-->
     <!--Formulario-->
     <div class="container">
         <div class="row justify-content-center">
@@ -106,25 +105,28 @@ if (!isset($_SESSION['rol'])) {
                     <div class="card-body">
                         <form action="../recepcionista/controller/Pago.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="txtfolio">Folio:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtfolio" placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
+                                <label for="txtfolio" class="font-weight-bold">Folio:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" style="border: 2px solid black" name="txtfolio"
+                                    placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtFecha">Fecha:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" id="bord" name="txtfecha" placeholder="Ingresa la fecha del pago" required>
+                                <label for="txtFecha" class="font-weight-bold">Fecha:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: 2px solid black" name="txtfecha"
+                                    placeholder="Ingresa la fecha del pago" required>
                             </div>
                             <div class="form-group">
-                                <label for="timeHora">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" id="bord" name="timehora" id="idhora" required>
+                                <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
+                                <input type="time" class="form-control" style="border: 2px solid black" name="timehora" id="idhora" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtConcepto">Concepto:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="number" class="form-control" id="bord" name="txtconcepto" placeholder="Ingresa el concepto del pago" required>
+                                <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[0-9]+" type="number" class="form-control" style="border: 2px solid black" name="txtconcepto"
+                                    placeholder="Ingresa el concepto del pago" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtAlumno">Alumno:<span class="text-danger" id="marca">*</span></label>
-                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" required>
-                                    <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
+                                <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: 2px solid black" required>
+                                 <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -137,10 +139,8 @@ if (!isset($_SESSION['rol'])) {
 
 
                             <br><br>
-                            <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-primary font-weight-bold" id="reg">Registrar Pago</button>
-                            <a class="btn font-weight-bold" id="btn"
-                                    href="tabla_curso.php">Cancelar</a>
+                            <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-primary font-weight-bold" >Registrar Pago</button>
+                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php">Cancelar</a>
                             
                         </form>
                     </div>

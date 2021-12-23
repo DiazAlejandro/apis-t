@@ -106,18 +106,18 @@
                         <form action="../recepcionista/controller/Curso.php" method="POST"
                             enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="txtclave">Clave:<span class="text-danger" id="marca">*</span></label>
+                                <label for="txtclave" class="font-weight-bold">Clave:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave"
-                                    placeholder="Ingresa la clave del curso" minlength="5" maxlength="5" required>
+                                    placeholder="Ingresa la clave del curso" style="border: 2px solid black" minlength="5" maxlength="5" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtNombre">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" id="bord" name="txtnombre"
-                                    placeholder="Ingresa el nombre del curso" required>
+                                <label for="txtNombre" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" name="txtnombre"
+                                    placeholder="Ingresa el nombre del curso"  style="border: 2px solid black" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtAsesor">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
-                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" required>
+                                <label for="txtAsesor" class="font-weight-bold">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: 2px solid black" required>
                                  <option value="" selected="true" disabled="disabled">Seleccione el nombre del instructor</option>
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
@@ -130,32 +130,30 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="txtDuracion">Duración: (SEMANAL)<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="text" class="form-control" id="bord" name="txtduracion"
+                                <label for="txtDuracion" class="font-weight-bold">Duración: (SEMANAL)<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[0-9]+" type="text" class="form-control" style="border: 2px solid black" name="txtduracion"
                                     placeholder="Ingresa la duración del curso" required>
                             </div>
                             <div class="form-group">
-                                <label for="timeHora">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" id="bord" name="timehora" id="idhora" required>
+                                <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
+                                <input type="time" class="form-control" style="border: 2px solid black" name="timehora" id="idhora" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPeriodo">Período de pago:<span
+                                <label for="exampleInputPeriodo" class="font-weight-bold">Período de pago:<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z ]+" type="text" class="form-control" id="bord" name="txtperiodo" id="idperioso"
+                                <input pattern="[A-Za-z ]+" type="text" class="form-control" style="border: 2px solid black" name="txtperiodo" id="idperioso"
                                     placeholder="Ingresa el periodo de pago" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtCoste">Coste:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="number" class="form-control" id="bord" name="txtcoste"
+                                <label for="txtCoste" class="font-weight-bold">Coste:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[0-9]+" type="number" class="form-control" style="border: 2px solid black" name="txtcoste"
                                     placeholder="Ingresa el costo del curso" required>
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-primary font-weight-bold" id="reg">Registrar Curso</button>
-                            <button type="reset" name="accion" value="restaurar"
-                                    class="btn font-weight-bold" id="rest">Restaurar</button>
-                            <a class="btn font-weight-bold" id="btn"
-                                    href="tabla_curso.php">Cancelar</a>
+                                   class="btn btn-primary font-weight-bold" id="btn">Registrar Curso</button>
+                            <button type="reset" name="accion" value="restaurar" class="btn font-weight-bold text-light" id="rest" style="background-color: black">Restaurar</button>
+                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php">Cancelar</a>
                          </form>
                     </div>
                 </div>
