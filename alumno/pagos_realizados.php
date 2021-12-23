@@ -19,13 +19,13 @@
         $email = $_SESSION['email'];
         $update = "SELECT * FROM alumno WHERE email = '$email'";
 
-        $resultado = mysqli_query($conexion, $update);
+        $resultadoCurp = mysqli_query($conexion, $update);
         $curp = '';
-        if (!$resultado) {
+        if (!$resultadoCurp) {
             echo 'No se pudo ejecutar la consulta: ';
             exit;
         } else {
-            $fila = mysqli_fetch_assoc($resultado);
+            $fila = mysqli_fetch_assoc($resultadoCurp);
 
             $curp = $fila['curp'];
         }
