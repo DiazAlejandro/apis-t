@@ -66,40 +66,40 @@
                     <h1 class="font-weight-bold mb-3 text-light">Registro de datos</h1>
 
                     <p class="mb-5 font-weight-bold text-warning">Datos del alumno</p>
-                    <form action="Alumno_tutor.php" method="POST">
+                    <form action="Alumno_tutor.php" name="informacion" method="POST">
                     <div class="form-row mb-2">
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="curp" placeholder="Ingrese curp">
+                                <input type="text" name="curp" class="form-control" id="curp" maxlength="18" onblur="validarCurp()" placeholder="Ingrese curp" maxlength="18" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                                <input type="text" name="nombre" class="form-control" id="nombre" onblur="validarNombre()" placeholder="Ingrese su nombre" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido paterno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_p" class="form-control" id="apellidoP"
-                                    placeholder="Ingrese apellido paterno">
+                                <input type="text" name="apellido_p" class="form-control" id="apellidoP" onblur="validarApellidoP()"
+                                    placeholder="Ingrese apellido paterno" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido materno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_m" class="form-control" id="apellidoM"
-                                    placeholder="Ingrese apellido materno">
+                                <input type="text" name="apellido_m" class="form-control" id="apellidoM" onblur="validarApellidoM()" 
+                                    placeholder="Ingrese apellido materno" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Fecha de nacimiento: <span
                                         class="text-danger">*</span></label>
                                 <input type="date" name="fecha_nac" class="form-control" id="fecha_nac"
-                                    placeholder="Ingrese su fecha de nacimiento">
+                                    placeholder="Ingrese su fecha de nacimiento" onblur="validarFecha()" required>>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Edad: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="edad" class="form-control" id="edad" placeholder="Ingrese su edad">
+                                <input type="text" name="edad" class="form-control" id="edad" maxlength="3" onblur="validarEdad()" placeholder="Ingrese su edad" required>
                             </div>
                             <div class="form-group col-md-6  text-light">
                                 <label class="font-weight-bold ">Género: <span
@@ -110,7 +110,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Medio:  <span
                                         class="text-danger">*</span></label>
-                                <select name="medio" class="custom-select" id="medio">
+                                <select name="medioE" class="custom-select" id="medioE" onblur="validarMedioE()" required>
                                     <option selected="true" disabled="disabled">Seleccione</option>
                                     <option value="Redes Sociales">Redes Sociales</option>
                                     <option value="Promotor">Promotor</option>
@@ -125,29 +125,29 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="telefono" class="form-control" id="telefono"
-                                    placeholder="Ingrese su número de teléfono">
+                                <input type="text" name="telefono" class="form-control" id="telefono" maxlength="10" onblur="validarTelefono()"
+                                    placeholder="Ingrese su número de teléfono" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Calle: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="calle" class="form-control" id="calle" placeholder="Ingrese su calle">
+                                <input type="text" name="calle" class="form-control" id="calle" onblur="validarCalle()" placeholder="Ingrese su calle" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Colonia: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="colonia" class="form-control" id="colonia" placeholder="Ingrese su colonia">
+                                <input type="text" name="colonia" class="form-control" id="colonia" onblur="validarColonia()" placeholder="Ingrese su colonia" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Municipio: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="municipio" class="form-control" id="municipio"
-                                    placeholder="Ingrese su municipio">
+                                <input type="text" name="municipio" class="form-control" id="municipio" onblur="validarMunicipio()"
+                                    placeholder="Ingrese su municipio" require>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CP:<span class="text-danger">*</span></label>
                                 <input type="text" name="cp" class="form-control" id="cp"
-                                    placeholder="Ingrese su código postal">
+                                    placeholder="Ingrese su código postal" onblur="validarCP()" require>
                             </div>
                         </div>
                         <!--Datos de salud-->
@@ -218,29 +218,29 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CURP:<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="curp_tutor" class="form-control" id="curp" placeholder="Ingrese curp">
+                                <input type="text" name="curp_tutor" class="form-control" id="curp_tutor" maxlength="18" onblur="validarCurpTutor()" placeholder="Ingrese curp" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Nombre: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="nombre_tutor" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                                <input type="text" name="nombre_tutor" class="form-control" id="nombreT" onblur="validarNombreT()" placeholder="Ingrese su nombre" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido paterno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_p_tutor" class="form-control" id="apellidoP"
-                                    placeholder="Ingrese apellido paterno">
+                                <input type="text" name="apellido_p_tutor" class="form-control" id="apellidoPT" onblur="validarApellidoPT()"
+                                    placeholder="Ingrese apellido paterno" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Apellido materno: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="apellido_m_tutor" class="form-control" id="apellidoM"
-                                    placeholder="Ingrese apellido materno">
+                                <input type="text" name="apellido_m_tutor" class="form-control" id="apellidoMT" onblur="validarApellidoMT()"
+                                    placeholder="Ingrese apellido materno" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Parentesco: <span
                                 class="text-danger">*</span></label>
-                                    <select name="parentesco" class="custom-select" id="parentesco">
+                                    <select name="parentesco" class="custom-select" id="parentesco" required>
                                         <option selected="true" disabled="disabled">Seleccione</option>
                                         <option value="Madre">Madre</option>
                                         <option value="Padre">Padre</option>
@@ -251,15 +251,223 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono 1: <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="telefono1" class="form-control" id="tel1"
-                                    placeholder="Ingrese su número de teléfono">
+                                <input type="text" name="telefono1" class="form-control" id="tel1" maxlength="10" onblur="validarTelefonoT()"
+                                    placeholder="Ingrese su número de teléfono" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Teléfono 2: </label>
-                                <input type="text" name="telefono2" class="form-control" id="tel2"
+                                <input type="text" name="telefono2" class="form-control" id="tel2" maxlength="10"
                                     placeholder="Ingrese un número de teléfono">
                             </div>
                         </div>
+
+                        <!--Modales -->
+                        <div class="modal fade" id="campoObligatorioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">CAMPO OBLIGATORIO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        RELLENE ESTE CAMPO
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="nombreModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Aviso - Nombre</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        EL NOMBRE NO COINCIDE CON LA CURP
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="validaCp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">CÓDIGO POSTAL</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        INGRESE UN CÓDIGO POSTAL VÁLIDO
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="campoVacioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">AVISO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ESTE CAMPO NO PUEDE ESTAR VACÍO
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="validarMedioE" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">AVISO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        SELECCIONE EL MEDIO POR EL CUAL SE ENTERÓ DE NUESTROS SERVICIOS
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="edadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Aviso - Edad</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        La edad que ingresaste no es válida
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="modal fade" id="curpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">CURP</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Verifique su CURP
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="modal fade" id="validarTelefono" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">TELEFONO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        INGRESE UN NÚMERO TELEFÓNICO VÁLIDO
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+
+
+                        <div class="modal fade" id="fechaCurpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">FECHA DE NACIMIENTO INVÁLIDA</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        La fecha de su CURP no coincide con la de nacimiento
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
+                        <div class="modal fade" id="ApellidoPModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">APELLIDO INVÁLIDO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Su APELLIDO PATERNO NO COINCIDE CON SU CURP, VERIFIQUE
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="ApellidoMModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">APELLIDO INVÁLIDO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Su APELLIDO MATERNO NO COINCIDE CON SU CURP, VERIFIQUE
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="modal fade" id="registroFallido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">APELLIDO INVÁLIDO</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Su APELLIDO MATERNO NO COINCIDE CON SU CURP, VERIFIQUE
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
+
                         <!--Datos de logeo-->
                         <p class="mb-5 font-weight-bold text-warning mt-4">Datos del logeo</p>
                         <div class="form-row mb-2">

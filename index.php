@@ -43,7 +43,7 @@
                 <span class="navbar-toggler-icon "></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="#" id="home">Home </a>
@@ -60,7 +60,7 @@
                         <a class="nav-link font-weight-bold" href="login.php" id="entrar">Ingresar</a>
                     </li>
                  </ul>
-            </div>
+            
         </div>
     </nav>
     <div class=" font-weight-bold lead" id="barrita"></div>

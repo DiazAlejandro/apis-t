@@ -78,6 +78,12 @@
                     <div class="card-body">
                         <form action="../recepcionista/controller/Instructor_update.php" method="post">
                             <div class="form-group">
+                                <label>CURP:<span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="curp" class="form-control" id="curp" value="<?php echo $curp?>">
+                                <input type="hidden" name="old_curp" class="form-control" id="old_curp" value="<?php echo $curp?>">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="txtclave">Nombre:<span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="nombre" class="form-control" id="nombre" value = "<?php echo $nombre?>">
                             </div>
@@ -92,12 +98,6 @@
                                 <label>Apellido materno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_m" class="form-control" id="apellido_m"
                                 value = "<?php echo $apellido_m?>">
-                            </div>
-
-                            <div class="form-group">
-                                <label>CURP:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="curp" value="<?php echo $curp?>">
-                                <input type="hidden" name="old_curp" class="form-control" id="old_curp" value="<?php echo $curp?>">
                             </div>
 
                             <div class="form-group">

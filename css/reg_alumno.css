@@ -81,6 +81,25 @@ p{
     border-color: black black rgb(207, 152, 0);
 }
 
+#nombreT{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+#apellidoPT{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#apellidoMT{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
+#curp_tutor{
+    border: 3px solid;
+    border-color: black black rgb(207, 152, 0);
+}
+
 #nombre{
     border: 3px solid;
     border-color: black black rgb(207, 152, 0);

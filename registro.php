@@ -59,7 +59,6 @@
             <div class="col-xl-5 col-lg-12 register-bg">
                 <div class="position-absolute testiomonial p-4">
                     <h3 class="font-weight-bold text-light" >Instituto Apist-t</h3>
-                    <p class="lead text-light">Aprendizaje</p>
                 </div>
             </div>
             <!-- Formulario -->
@@ -104,26 +103,16 @@
                                         class="text-danger">*</span></label>
                                 <input type="text" name="edad" class="form-control" id="edad" maxlength="3" onblur="validarEdad()" placeholder="Ingrese su edad" required>
                             </div>
-                            <div class="form-group col-md-6 mt-4  text-light">
+                            <div class="form-group col-md-6  text-light">
                                 <label class="font-weight-bold ">Género: <span
                                         class="text-danger">*</span></label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="genero" id="genero" value="F">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Femenino
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="genero" id="genero" value="M">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Masculino
-                                            </label>
-                                        </div>
+                                <input type="radio" name="genero" value="M" >Masculino
+                                <input type="radio" name="genero" value="F">Femenino
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">Medio:  
                                     <span class="text-danger">*</span></label>
-                                <select name="medioE" class="custom-select" id="medioE" onblur="validarMedioE()">
+                                <select name="medioE" class="custom-select" id="medioE" onblur="validarMedioE()" required>
                                     <option selected="true" disabled="disabled">Seleccione</option>
                                     <option value="Redes Sociales">Redes Sociales</option>
                                     <option value="Promotor">Promotor</option>
@@ -160,7 +149,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold text-light">CP:<span class="text-danger">*</span></label>
                                 <input type="text" name="cp" class="form-control" id="cp" maxlength="5"
-                                    placeholder="Ingrese su código postal">
+                                    placeholder="Ingrese su código postal" onblur="validarCP()" required>
                             </div>
                         </div>
                         <!--Datos de salud-->
@@ -170,19 +159,19 @@
                             <div class="form-group mb-3  col-md-8 text-light">
                                 <label class="font-weight-bold">¿Cuenta con seguro médico?<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input type="radio" name="seguro_med" value="true">Si
-                                <input type="radio" name="seguro_med" value="false">No
+                                <input type="radio" name="seguro_med" id="seguro_med_si" value="true">Si
+                                <input type="radio" name="seguro_med" id="seguro_med_no" value="false">No
                             </div><br>
                             <div class="form-group col-md-6"> 
                                 <label class="font-weight-bold text-light">Seleccione el tipo de servicio médico:<span
                                         class="text-danger">*</span></label>
-                                <select name="servicio" class="custom-select" id="servicio">
+                                <select name="servicio" class="custom-select" id="servicio" required >
                                     <option selected="true" disabled="disabled">Seleccione</option>
                                     <option value="IMSS">IMSS</option>
                                     <option value="ISSTE">ISSTE</option>
                                     <option value="ISSEMYM">ISSEMYM</option>
                                     <option value="OTRO">OTRO</option>
-                                    <option value="OTRO">NINGUNO</option>
+                                    <option value="NINGUNO">NINGUNO</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -365,22 +354,6 @@
                             </div>
                         </div>  
 
-                        <div class="modal fade" id="fechaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">FECHA</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Seleccione una fecha válida
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
 
                         <div class="modal fade" id="fechaCurpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

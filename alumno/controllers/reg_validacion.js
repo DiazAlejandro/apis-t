@@ -1,4 +1,4 @@
-function validar_formulario(){
+function validar_formulario() {
 
 
 }
@@ -15,19 +15,28 @@ function iniciar() {
     valFecha = document.getElementById("fecha_nac");
     valFecha.addEventListener("change", validarFecha, true);
     valMedioE = document.getElementById("medioE");
-    valMedioE.addEventListener("change",validarMedioE, true);
+    valMedioE.addEventListener("change", validarMedioE, true);
     valTelefono = document.getElementById("telefono");
-    valTelefono.addEventListener("change",validarTelefono,true);
+    valTelefono.addEventListener("change", validarTelefono, true);
     valCp = document.getElementById("cp");
-    valCp.addEventListener("change",validarCP,true);
+    valCp.addEventListener("change", validarCP, true);
     valCalle = document.getElementById("calle");
-    valCalle.addEventListener("change",validarCalle,true);
+    valCalle.addEventListener("change", validarCalle, true);
     valColonia = document.getElementById("colonia");
-    valColonia.addEventListener("change",validarCalle,true);
+    valColonia.addEventListener("change", validarCalle, true);
     valMunicipio = document.getElementById("municipio");
-    valMunicipio.addEventListener("change",validarMunicipio,true);
+    valMunicipio.addEventListener("change", validarMunicipio, true);
+
+
     document.informacion.addEventListener("invalid", validacion, true);
     document.getElementById("boton").addEventListener("click", enviar, false);
+    
+}
+
+
+function validarSeguro(){ 
+    console.log("Please Select Your Gender");
+
 }
 
 function validacion(e) {
@@ -42,181 +51,279 @@ function enviar() {
     }
 }
 
-function validarNombre(){
+function validarNombreT() {
+    var name = document.getElementById('nombreT').value;
+    var curp = document.getElementById('curp_tutor').value;
+    if (name == "") {
+        document.getElementById('nombreT').style.background = '#FFDDDD';
+    } else {
+        if (curp.charAt(3) == name.charAt(0)) {
+            document.getElementById('nombreT').style.background = '#FFFFFF';
+        } else {
+            $('#nombreModal').modal('show');
+            document.getElementById('nombreT').style.background = '#FFDDDD';
+            document.getElementById('nombreT').value = "";
+        }
+    }
+}
+
+function validarNombre() {
     var name = document.getElementById('nombre').value;
     var curp = document.getElementById('curp').value;
-    if(name == ""){
+    if (name == "") {
         valnombre.style.background = '#FFDDDD';
-    }else{
-        if(curp.charAt(3)==name.charAt(0)){
+    } else {
+        if (curp.charAt(3) == name.charAt(0)) {
             valnombre.style.background = '#FFFFFF';
-        }else{
-            $('#nombreModal').modal('show'); 
+        } else {
+            $('#nombreModal').modal('show');
             valnombre.style.background = '#FFDDDD';
             valnombre.value = "";
         }
     }
 }
 
-function validarApellidoP(){
+function validarApellidoP() {
     var ap1 = document.getElementById('apellidoP').value;
-    var curp = document.getElementById('curp').value.substring(0,2);
+    var curp = document.getElementById('curp').value.substring(0, 2);
     var primerV = "";
-    var cons    = "";
+    var cons = "";
     var regexVocal = /^[aeiouAEIOU].*/i;
     var regexConso = /^[BCDFGHJKLMNÑPQRSTVWXYZbcdfghjklmnñpqrstvwxyz].*/i;
     for (var i = 0; i < ap1.length; i++) {
-        if (ap1.charAt(i).match(regexVocal)){
-            primerV= primerV + ap1.charAt(i);
+        if (ap1.charAt(i).match(regexVocal)) {
+            primerV = primerV + ap1.charAt(i);
         }
-        if (ap1.charAt(i).match(regexConso)){
-            cons= cons + ap1.charAt(i);
+        if (ap1.charAt(i).match(regexConso)) {
+            cons = cons + ap1.charAt(i);
         }
     }
 
-    var iniciales = cons.charAt(0)+primerV.charAt(0);
-    console.log("INICIALES: "+iniciales);
-    if(ap1 == ""){
+    var iniciales = cons.charAt(0) + primerV.charAt(0);
+    console.log("INICIALES: " + iniciales);
+    if (ap1 == "") {
         valApellidoP.style.background = '#FFDDDD';
-    }else{
-        if (curp == iniciales){
+    } else {
+        if (curp == iniciales) {
             valApellidoP.style.background = '#FFFFFF';
-        }else{
-            $('#ApellidoPModal').modal('show'); 
+        } else {
+            $('#ApellidoPModal').modal('show');
             valApellidoP.style.background = '#FFDDDD';
             valApellidoP.value = "";
         }
-        
+
     }
 }
 
-function validarApellidoM(){
+function validarApellidoPT() {
+    var ap1 = document.getElementById('apellidoPT').value;
+    var curp = document.getElementById('curp_tutor').value.substring(0, 2);
+    var primerV = "";
+    var cons = "";
+    var regexVocal = /^[aeiouAEIOU].*/i;
+    var regexConso = /^[BCDFGHJKLMNÑPQRSTVWXYZbcdfghjklmnñpqrstvwxyz].*/i;
+    for (var i = 0; i < ap1.length; i++) {
+        if (ap1.charAt(i).match(regexVocal)) {
+            primerV = primerV + ap1.charAt(i);
+        }
+        if (ap1.charAt(i).match(regexConso)) {
+            cons = cons + ap1.charAt(i);
+        }
+    }
+
+    var iniciales = cons.charAt(0) + primerV.charAt(0);
+    console.log("INICIALES: " + iniciales);
+    if (ap1 == "") {
+        document.getElementById('apellidoPT').style.background = '#FFDDDD';
+    } else {
+        if (curp == iniciales) {
+            document.getElementById('apellidoPT').style.background = '#FFFFFF';
+        } else {
+            $('#ApellidoPModal').modal('show');
+            document.getElementById('apellidoPT').style.background = '#FFDDDD';
+            document.getElementById('apellidoPT').value = "";
+        }
+
+    }
+}
+
+function validarApellidoM() {
     var ap2 = document.getElementById('apellidoM').value;
-    var curp = document.getElementById('curp').value.substring(2,3);
-    var app  = document.getElementById('apellidoM').value.substring(0,1);
-    if(ap2==""){
+    var curp = document.getElementById('curp').value.substring(2, 3);
+    var app = document.getElementById('apellidoM').value.substring(0, 1);
+    if (ap2 == "") {
         valApellidoM.style.background = '#FFDDDD';
-    }else{
-        if (curp == app){
+    } else {
+        if (curp == app) {
             valApellidoM.style.background = '#FFFFFF';
-        }else{
-            $('#ApellidoPModal').modal('show'); 
+        } else {
+            $('#ApellidoMModal').modal('show');
             valApellidoM.style.background = '#FFDDDD';
             valApellidoM.value = "";
         }
-        
+
     }
 }
 
-function validarEdad(){
-    var ve = valedad.value;
-    const regex = /^[0-9]*$/;
-    const numero = regex.test(ve); 
-    if(!numero || ve < 18){
-        $('#edadModal').modal('show'); 
-        valedad.value = "";
-        valedad.style.background = '#FFDDDD';
-    }else{
-        
-        valedad.style.background = '#FFFFFF';
-    } 
+
+function validarApellidoMT() {
+    var ap2 = document.getElementById('apellidoMT').value;
+    var curp = document.getElementById('curp_tutor').value.substring(2, 3);
+    var app = document.getElementById('apellidoMT').value.substring(0, 1);
+    if (ap2 == "") {
+        document.getElementById('apellidoMT').style.background = '#FFDDDD';
+    } else {
+        if (curp == app) {
+            document.getElementById('apellidoMT').style.background = '#FFFFFF';
+        } else {
+            $('#ApellidoPModal').modal('show');
+            document.getElementById('apellidoMT').style.background = '#FFDDDD';
+            document.getElementById('apellidoMT').value = "";
+        }
+
+    }
 }
 
-function validarCurp(){
+
+function validarEdad() {
+    var ve = valedad.value;
+    const regex = /^[0-9]*$/;
+    const numero = regex.test(ve);
+    if (!numero || ve < 18) {
+        $('#edadModal').modal('show');
+        valedad.value = "";
+        valedad.style.background = '#FFDDDD';
+    } else {
+        valedad.style.background = '#FFFFFF';
+    }
+}
+
+function validarCurpTutor() {
+    var curp = document.getElementById('curp_tutor').value;
+    curp.toUpperCase();
+    if (!curpValida(curp)) {
+        $('#curpModal').modal('show');
+        document.getElementById('curp_tutor').value = "";
+        document.getElementById('curp_tutor').style.background = '#FFDDDD';
+    } else {
+        document.getElementById('curp_tutor').style.background = '#FFFFFF';
+    }
+
+    console.log(curp);
+}
+
+function validarCurp() {
     var curp = document.getElementById('curp').value;
     curp.toUpperCase();
-    if(!curpValida(curp)){
-        $('#curpModal').modal('show'); 
+    if (!curpValida(curp)) {
+        $('#curpModal').modal('show');
         document.getElementById('curp').value = "";
         document.getElementById('curp').style.background = '#FFDDDD';
-    }else{
+    } else {
         document.getElementById('curp').style.background = '#FFFFFF';
     }
 
     console.log(curp);
 }
 
-function validarFecha(){
-    if (valFecha.value == ""){
+function validarFecha() {
+    if (valFecha.value == "") {
         console.log("Fecha vacía");
         valFecha.style.background = '#FFDDDD';
-        $('#fechaModal').modal('show'); 
-    }  
-    var dateSelected = valFecha.value.substring(2,4)+""+valFecha.value.substring(5,7)+""+valFecha.value.substring(8,11);
-    var curp = document.getElementById('curp').value.substring(4,10);
-    if (dateSelected == curp){
-        valFecha.style.background = '#FFFFFF';
-    }else{
-        $('#fechaCurpModal').modal('show'); 
-        valFecha.style.background = '#FFDDDD';
-        valFecha.value = "";
+        //$('#fechaModal').modal('show');
+    } else {
+        var dateSelected = valFecha.value.substring(2, 4) + "" + valFecha.value.substring(5, 7) + "" + valFecha.value.substring(8, 11);
+        var curp = document.getElementById('curp').value.substring(4, 10);
+        if (dateSelected == curp) {
+            valFecha.style.background = '#FFFFFF';
+        } else {
+            $('#fechaCurpModal').modal('show');
+            valFecha.style.background = '#FFDDDD';
+            valFecha.value = "";
+        }
     }
 }
 
-function validarMedioE(){
-    if (valMedioE.value == 'Seleccione'){
-        $('#validarMedioE').modal('show'); 
+function validarMedioE() {
+    if (valMedioE.value == 'Seleccione') {
+        $('#validarMedioE').modal('show');
         valMedioE.style.background = '#FFDDDD';
         valMedioE.focus();
-    }else{
+    } else {
         valMedioE.style.background = '#FFFFFF';
     }
 }
 
-function validarTelefono(){
+function validarTelefono() {
     const regex = /^[0-9]*$/;
-    const numero = regex.test(valTelefono.value); 
+    const numero = regex.test(valTelefono.value);
 
-    if (!numero || valTelefono.value.length < 10 || valTelefono.value.length > 10){
+    if (!numero || valTelefono.value.length < 10 || valTelefono.value.length > 10) {
         valTelefono.value = "";
         valTelefono.style.background = '#FFDDDD';
         valTelefono.focus();
-        $('#validarTelefono').modal('show'); 
-    }else{
+        $('#validarTelefono').modal('show');
+    } else {
         valTelefono.style.background = '#FFFFFF';
     }
 }
 
-function validarCP(){
+function validarTelefonoT() {
     const regex = /^[0-9]*$/;
-    const numero = regex.test(valCp.value); 
+    const numero = regex.test(document.getElementById("tel1").value);
 
-    if (!numero || valCp.value.length < 5 || valCp.value.length > 5){
+    if (!numero || document.getElementById("tel1").value.length < 10 || document.getElementById("tel1").value.length > 10) {
+        document.getElementById("tel1").value = "";
+        document.getElementById("tel1").style.background = '#FFDDDD';
+        document.getElementById("tel1").focus();
+        $('#validarTelefono').modal('show');
+    } else {
+        document.getElementById("tel1").style.background = '#FFFFFF';
+    }
+}
+
+function validarCP() {
+    const regex = /^[0-9]*$/;
+    const numero = regex.test(valCp.value);
+
+    if (!numero || valCp.value.length < 5 || valCp.value.length > 5) {
         valCp.value = "";
         valCp.style.background = '#FFDDDD';
         valCp.focus();
-        $('#validaCp').modal('show'); 
-    }else{
+        $('#validaCp').modal('show');
+    } else {
         valCp.style.background = '#FFFFFF';
     }
 }
 
-function validarCalle(){
-    if (valCalle.value == ""){
-        $('#campoObligatorioModal').modal('show'); 
-        
+
+
+function validarCalle() {
+    if (valCalle.value == "") {
+        $('#campoObligatorioModal').modal('show');
+
         valCalle.style.background = '#FFDDDD';
-    }else{
+    } else {
         valCalle.style.background = '#FFFFFF';
     }
 }
 
-function validarMunicipio(){
-    if (valMunicipio.value == ""){
-        $('#campoObligatorioModal').modal('show'); 
-        
+function validarMunicipio() {
+    if (valMunicipio.value == "") {
+        $('#campoObligatorioModal').modal('show');
+
         valMunicipio.style.background = '#FFDDDD';
-    }else{
+    } else {
         valMunicipio.style.background = '#FFFFFF';
     }
 }
 
-function validarColonia(){
-    if (valColonia.value == ""){
-        $('#campoObligatorioModal').modal('show'); 
-        
+function validarColonia() {
+    if (valColonia.value == "") {
+        $('#campoObligatorioModal').modal('show');
+
         valColonia.style.background = '#FFDDDD';
-    }else{
+    } else {
         valColonia.style.background = '#FFFFFF';
     }
 }
@@ -248,10 +355,10 @@ function curpValida(curp) {
 }
 
 
-window.onload = function(){
+window.onload = function () {
     try {
         validar_formulario();
-    }catch(error){
+    } catch (error) {
         console.log(error);
         console.log("Error - Cargando Datos");
     }

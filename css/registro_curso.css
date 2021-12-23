@@ -64,7 +64,7 @@ label{
     font-weight: bold;
 }
 
-#bord{
+.bord{
     border: #000000 2px solid;
 }
 
