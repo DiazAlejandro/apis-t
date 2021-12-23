@@ -16,7 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <link rel="stylesheet" href="../css/tabla_curs.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
         rel="stylesheet">
@@ -34,19 +33,20 @@
 
 <body id="fondo">
     <!-- Barra de navegación-->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg  ">
         <div class="container">
             <div class="form-group logo-img ">
                 <img src="../img/logo-header.png" width="80" height="80">
             </div>
             <div class="container-fluid">
-                <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
+                <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
             <ul class="navbar-nav ml-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
                 </li>
             </ul>
+ 
         </div>
     </nav>
 

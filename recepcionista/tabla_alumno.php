@@ -40,15 +40,14 @@
                 <img src="../img/logo-header.png" width="80" height="80">
             </div>
             <div class="container-fluid">
-                <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
+                <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-dark" href="inicio.php" id="home">Regresar</a>
+                </li>
+            </ul>
+ 
         </div>
     </nav>
 
@@ -75,7 +74,9 @@
                                         <th>A. Materno</th>
                                         <th>Telefono</th>
                                         <th>Estatus</th>
-                                        <th>Acciones</th>
+                                        <th>Editar</th>
+                                        <th>Ver</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -106,10 +107,13 @@
                                             <a href="editar_alumno.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
+                                        </td>
+                                        <td>
                                             <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i></i>
                                             </a>
-                                            
+                                        </td>
+                                        <td>
                                             <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
