@@ -139,8 +139,8 @@ if (!isset($_SESSION['rol'])) {
 
 
                             <br><br>
-                            <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-primary font-weight-bold" >Registrar Pago</button>
-                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php">Cancelar</a>
+                            <button type="submit" name="accion" value="enviar" style="width: 150px;"id="btn" class="btn btn-primary font-weight-bold" >Registrar Pago</button>
+                            <a class="btn font-weight-bold btn-danger" style="width: 150px;" id="btn" href="tabla_curso.php">Cancelar</a>
                             
                         </form>
                     </div>
