@@ -72,11 +72,13 @@
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-</div>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Complimiento de cursos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 </body>
 </html>
