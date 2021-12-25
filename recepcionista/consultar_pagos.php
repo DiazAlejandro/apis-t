@@ -96,11 +96,11 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
+            <div class="col-md-12">
                 <br>
-                <div class="card">
+                <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Alumnos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Consulta de pagos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
@@ -112,11 +112,8 @@
                                         <th>Nombre</th>
                                         <th>A. Paterno</th>
                                         <th>A. Materno</th>
-                                        <th>Telefono</th>
                                         <th>Estatus</th>
-                                        <th>Editar</th>
                                         <th>Ver</th>
-                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -138,24 +135,11 @@
                                             echo $fila['apellido_m'];
                                         ?></td>
                                         <td><?php
-                                            echo $fila['telefono'];
-                                        ?></td>
-                                        <td><?php
                                             echo $fila['estatus'];
                                         ?></td>
                                         <td>
-                                            <a href="editar_alumno.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
+                                            <a href="historial_pagos.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -173,6 +157,3 @@
     </div>
 </body>
 </html>
-
-
-

@@ -103,7 +103,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br>
-                <div class="card" id="contorno">
+                <div class="card">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3">Lista de cursos</h1>
                     </div>

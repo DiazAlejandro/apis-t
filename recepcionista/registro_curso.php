@@ -88,6 +88,9 @@
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -98,26 +101,27 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card" id="contorno">
+                <div class="card" >
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3 ">Registrar datos del curso</h1>
                     </div>
                     <div class="card-body">
                         <form action="../recepcionista/controller/Curso.php" method="POST"
                             enctype="multipart/form-data">
-                            <div class="form-group">
+                            <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
                                 <label for="txtclave" class="font-weight-bold">Clave:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave"
-                                    placeholder="Ingresa la clave del curso" style="border: 2px solid black" minlength="5" maxlength="5" required>
+                                    placeholder="Ingresa la clave del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" minlength="5" maxlength="5" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="txtNombre" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" name="txtnombre"
-                                    placeholder="Ingresa el nombre del curso"  style="border: 2px solid black" required>
+                                    placeholder="Ingresa el nombre del curso"  style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="txtAsesor" class="font-weight-bold">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
-                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: 2px solid black" required>
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                  <option value="" selected="true" disabled="disabled">Seleccione el nombre del instructor</option>
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
@@ -129,29 +133,30 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="txtDuracion" class="font-weight-bold">Duración: (SEMANAL)<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="text" class="form-control" style="border: 2px solid black" name="txtduracion"
+                                <input pattern="[0-9]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtduracion"
                                     placeholder="Ingresa la duración del curso" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" style="border: 2px solid black" name="timehora" id="idhora" required>
+                                <input type="time" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="exampleInputPeriodo" class="font-weight-bold">Período de pago:<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z ]+" type="text" class="form-control" style="border: 2px solid black" name="txtperiodo" id="idperioso"
+                                <input pattern="[A-Za-z ]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtperiodo" id="idperioso"
                                     placeholder="Ingresa el periodo de pago" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="txtCoste" class="font-weight-bold">Coste:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="number" class="form-control" style="border: 2px solid black" name="txtcoste"
+                                <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtcoste"
                                     placeholder="Ingresa el costo del curso" required>
                             </div>
                             <br><br>
+                         </div>
                             <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-primary font-weight-bold" id="btn" style="width: 150px;">Registrar Curso</button>
+                                   class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Registrar Curso</button>
                             <button type="reset" name="accion" value="restaurar" class="btn font-weight-bold text-light" id="rest" style="background-color: black; width: 150px;">Restaurar</button>
                             <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php" style="width: 150px;">Cancelar</a>
                          </form>

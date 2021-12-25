@@ -8,14 +8,58 @@
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
+    if (isset($_GET['curp'])) {
+        $curp = $_GET['curp'];
+        $update = "SELECT * FROM pago WHERE alumno_curp = '$curp'";
     }
+    $resultado = mysqli_query($conexion, $update);
+
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ';
+        exit;
+    } 
+    
+    
+    include("../connect/conectar.php");
+if (isset($_GET['folio'])) {
+    $folio = $_GET['folio'];
+    $update = "SELECT * FROM pago WHERE folio = '$folio'";
+}
+$resultadoa = mysqli_query($conexion, $update);
+
+if (!$resultadoa) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+} else {
+    $fila = mysqli_fetch_assoc($resultadoa);
+
+    $folio = $fila['folio'];
+    $fecha = $fila['fecha'];
+    $hora = $fila['hora'];
+    $concepto = $fila['concepto'];
+    $alumno_curp = $fila['alumno_curp'];
+}
+    $updatea = "SELECT * FROM alumno WHERE curp = '$alumno_curp'";
+
+
+$resultadoa = mysqli_query($conexion, $updatea);
+
+if (!$resultadoa) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+} else {
+    $fila = mysqli_fetch_assoc($resultadoa);
+
+    $curp = $fila['curp'];
+    $nombre = $fila['nombre'];
+    $apellido_p = $fila['apellido_p'];
+    $apellido_m = $fila['apellido_m'];
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -34,7 +78,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Instructores registrados</title>
+    <title>Historial de pagos</title>
 </head>
 
 <body id="fondo">
@@ -53,7 +97,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </nav>
 
@@ -93,86 +137,77 @@
         </div>
     </nav>
 
-    <!--Contenido-->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-14">
-                <br>
-                <div class="card">
-                    <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Alumnos</h1>
-                    </div>
-                    <div class="card-body" id="cuerpo">
-                        <div class="col-md-12">
-                            <br>
-                            <table class="table table-dark table-sm ">
-                                <thead >
-                                    <tr>
-                                        <th>CURP</th>
-                                        <th>Nombre</th>
-                                        <th>A. Paterno</th>
-                                        <th>A. Materno</th>
-                                        <th>Telefono</th>
-                                        <th>Estatus</th>
-                                        <th>Editar</th>
-                                        <th>Ver</th>
-                                        <th>Eliminar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="t-body">
+
+        <!--Contenido-->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-13 col-lg-10">
+                    <br>
+                    <div class="card">
+                        <div class="card-header" id="cabeza">
+                            <h1 class="font-weight-bold mb-3 bg-gray">Historial de pagos</h1>
+                        </div>
+                        <div class="card-body" id="cuerpo">
+                            <div class="col-md-12">
+                                <br>
+                            
+                                <label for="txtAlumno" class="font-weight-bold" style="font-size: 15pt;">NOMBRE:</label>
+                                <label style="font-size: 15pt;" value="<?php echo $curp ?>">
                                     <?php
-                                    if (mysqli_num_rows($resultado) > 0) {
-                                        while ($fila = mysqli_fetch_assoc($resultado)) {
+                                      echo $nombre . ' ' . $apellido_m . ' ' . $apellido_p;
                                     ?>
-                                    <tr>
-                                        <td><?php
-                                            echo $fila['curp'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_p'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_m'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['telefono'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['estatus'];
-                                        ?></td>
-                                        <td>
-                                            <a href="editar_alumno.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
-                                            <i class="fas fa-eye"></i></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php
+                                </label>
+                                <br><br>
+                                <table class="table table-dark table-sm ">
+                                    <thead>
+                                        <tr>
+                                            <th>Folio de pago</th>
+                                            <th>Fecha</th>
+                                            <th>Hora</th>
+                                            <th>Concepto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="t-body">
+                                        <?php
+                                        if (mysqli_num_rows($resultado) > 0) {
+                                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['folio'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['fecha'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['hora'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['concepto'];
+                                                                ?>
+                                                    </td>
+                                                </tr>
+                                        <?php
+                                            }
                                         }
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                        ?>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <a class="btn btn-danger font-weight-bold" id="btn" href="consultar_pagos.php">Regresar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
-
-
-

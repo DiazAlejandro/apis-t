@@ -81,6 +81,9 @@
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -90,47 +93,47 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card " id="contorno">
+                <div class="card " >
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3">Registrar datos del instructor</h1>
                     </div>
                     <div class="card-body">
                         <form action="../recepcionista/controller/Instructor.php" method="post">
-                            <div class="form-group">
+                        <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
                                 <label class="font-weight-bold">CURP:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="curp" onblur="validarCurp()" class="form-control bord" id="curp" placeholder="Ingrese curp" style="border: 2px solid black" required>
+                                <input type="text" name="curp" onblur="validarCurp()" class="form-control bord" id="curp" placeholder="Ingrese curp" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="txtclave" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" style="border: 2px solid black" placeholder="Ingrese nombre" onblur="validarNombre()" required>
+                                <input type="text" name="nombre" class="form-control" id="nombre" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" placeholder="Ingrese nombre" onblur="validarNombre()" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Apellido paterno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_p" class="form-control" id="apellidoP"
-                                    placeholder="Ingrese apellido paterno" style="border: 2px solid black" onblur="validarApellidoP()" required>
+                                    placeholder="Ingrese apellido paterno" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" onblur="validarApellidoP()" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Apellido materno: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="apellido_m" class="form-control" id="apellidoM" onblur="validarApellidoM()"
-                                    placeholder="Ingrese apellido materno" style="border: 2px solid black" required>
+                                    placeholder="Ingrese apellido materno" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
 
-                            
-
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Teléfono: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="telefono" class="form-control" id="telefono" onblur="validarTelefonoT()"
-                                    placeholder="Ingrese su número de teléfono" style="border: 2px solid black" minlenght="10" maxlenght="10" required>
+                                    placeholder="Ingrese su número de teléfono" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" minlenght="10" maxlenght="10" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Correo electrónico <span class="text-danger" id="marca">*</span></label>
                                 <input  pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+" type="email" name="email" class="form-control"  
-                                    placeholder="Ingresa tu correo electrónico" style="border: 2px solid black" required>
+                                    placeholder="Ingresa tu correo electrónico" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
+                        <div>
                             <br>
                             <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-primary font-weight-bold" >Registrar</button>
                             <button type="reset" name="accion" value="restaurar" id="rest" class="btn font-weight-bold text-light" style="background-color: black">Restaurar</button>

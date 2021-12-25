@@ -101,6 +101,9 @@
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                    </li>
                 </ul>
             </div>
         </div>

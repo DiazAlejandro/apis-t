@@ -89,6 +89,9 @@ if (!isset($_SESSION['rol'])) {
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -98,48 +101,49 @@ if (!isset($_SESSION['rol'])) {
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card" id="contorno">
+                <div class="card">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3 ">Registrar pago</h1>
                     </div>
                     <div class="card-body">
                         <form action="../recepcionista/controller/Pago.php" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="txtfolio" class="font-weight-bold">Folio:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" style="border: 2px solid black" name="txtfolio"
-                                    placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtFecha" class="font-weight-bold">Fecha:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: 2px solid black" name="txtfecha"
-                                    placeholder="Ingresa la fecha del pago" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" style="border: 2px solid black" name="timehora" id="idhora" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="number" class="form-control" style="border: 2px solid black" name="txtconcepto"
-                                    placeholder="Ingresa el concepto del pago" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
-                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: 2px solid black" required>
-                                 <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
-                                    <?php
-                                    if (mysqli_num_rows($resultado) > 0) {
-                                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                                            echo '<option value="' . $fila['curp'] . '">' . $fila['nombre'] . ' ' . $fila['apellido_p'] . ' ' . $fila['apellido_m'] . '</option>';
+                            <div class="form-row mb-2">
+                                <div class="form-group col-md-6">
+                                    <label for="txtfolio" class="font-weight-bold">Folio:<span class="text-danger" id="marca">*</span></label>
+                                    <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfolio"
+                                        placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtFecha" class="font-weight-bold">Fecha:<span class="text-danger" id="marca">*</span></label>
+                                    <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfecha"
+                                        placeholder="Ingresa la fecha del pago" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
+                                    <input type="time" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
+                                    <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtconcepto"
+                                        placeholder="Ingresa el concepto del pago" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
+                                    <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                    <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
+                                        <?php
+                                        if (mysqli_num_rows($resultado) > 0) {
+                                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                                echo '<option value="' . $fila['curp'] . '">' . $fila['nombre'] . ' ' . $fila['apellido_p'] . ' ' . $fila['apellido_m'] . '</option>';
+                                            }
                                         }
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-
+                                        ?>
+                                    </select>
+                                </div>
+                             </div>
 
                             <br><br>
-                            <button type="submit" name="accion" value="enviar" style="width: 150px;"id="btn" class="btn btn-primary font-weight-bold" >Registrar Pago</button>
+                            <button type="submit" name="accion" value="enviar" style="width: 150px;"id="btn" class="btn btn-warning font-weight-bold" >Registrar Pago</button>
                             <a class="btn font-weight-bold btn-danger" style="width: 150px;" id="btn" href="tabla_curso.php">Cancelar</a>
                             
                         </form>

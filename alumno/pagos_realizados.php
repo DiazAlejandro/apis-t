@@ -106,7 +106,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-13 col-lg-10">
                     <br>
-                    <div class="card" id="contorno">
+                    <div class="card">
                         <div class="card-header" id="cabeza">
                             <h1 class="font-weight-bold mb-3 bg-gray">Historial de pagos</h1>
                         </div>
