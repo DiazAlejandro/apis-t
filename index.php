@@ -10,12 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-
     <link href="css/index.css" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -36,14 +33,14 @@
                 <img src="img/logo-header.png" width="80" height="80">
             </div>
             <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold lead ">INSTITUTO APIS-T</a>
+                <a class="navbar-brand" id="texto-nav">INSTITUTO APIS-T</a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="#" id="home">Home </a>
@@ -60,7 +57,7 @@
                         <a class="nav-link font-weight-bold" href="login.php" id="entrar">Ingresar</a>
                     </li>
                  </ul>
-            </div>
+            
         </div>
     </nav>
     <div class=" font-weight-bold lead" id="barrita"></div>

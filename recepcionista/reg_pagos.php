@@ -1,40 +1,44 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
-    } else {
-        if ($_SESSION['rol'] != 2) {
-            header('location: /apis-t/login.php');
-        }
+include("../connect/conectar.php");
+$resultado = mysqli_query($conexion, "SELECT * FROM alumno");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
+
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: login.php');
+} else {
+    if ($_SESSION['rol'] != 2) {
+        header('location: /apis-t/login.php');
     }
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
-    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/recep.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <link rel="stylesheet" href="../css/tabla_curs.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Instructores registrados</title>
+    <title>Registro de Instructor</title>
 </head>
 
 <body id="fondo">
@@ -53,7 +57,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </nav>
 
@@ -89,87 +93,62 @@
             </div>
         </div>
     </nav>
-
-    <!--Contenido-->
+    <!--Formulario-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
-                <br>
-                <div class="card " id="contorno">
+            <div class="col-md-8">
+                <br><br><br>
+                <div class="card" id="contorno">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Alumnos</h1>
+                        <h1 class="font-weight-bold mb-3 ">Registrar pago</h1>
                     </div>
-                    <div class="card-body" id="cuerpo">
-                        <div class="col-md-12">
-                            <br>
-                            <table class="table table-dark table-sm ">
-                                <thead >
-                                    <tr>
-                                        <th>CURP</th>
-                                        <th>Nombre</th>
-                                        <th>A. Paterno</th>
-                                        <th>A. Materno</th>
-                                        <th>Telefono</th>
-                                        <th>Estatus</th>
-                                        <th>Editar</th>
-                                        <th>Ver</th>
-                                        <th>Eliminar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="t-body">
+                    <div class="card-body">
+                        <form action="../recepcionista/controller/Pago.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="txtfolio" class="font-weight-bold">Folio:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" style="border: 2px solid black" name="txtfolio"
+                                    placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFecha" class="font-weight-bold">Fecha:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: 2px solid black" name="txtfecha"
+                                    placeholder="Ingresa la fecha del pago" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
+                                <input type="time" class="form-control" style="border: 2px solid black" name="timehora" id="idhora" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[0-9]+" type="number" class="form-control" style="border: 2px solid black" name="txtconcepto"
+                                    placeholder="Ingresa el concepto del pago" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: 2px solid black" required>
+                                 <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php
-                                            echo $fila['curp'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_p'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_m'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['telefono'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['estatus'];
-                                        ?></td>
-                                        <td>
-                                            <a href="editar_alumno.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
-                                            <i class="fas fa-eye"></i></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php
+                                            echo '<option value="' . $fila['curp'] . '">' . $fila['nombre'] . ' ' . $fila['apellido_p'] . ' ' . $fila['apellido_m'] . '</option>';
                                         }
                                     }
                                     ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                </select>
+                            </div>
+
+
+                            <br><br>
+                            <button type="submit" name="accion" value="enviar" style="width: 150px;"id="btn" class="btn btn-primary font-weight-bold" >Registrar Pago</button>
+                            <a class="btn font-weight-bold btn-danger" style="width: 150px;" id="btn" href="tabla_curso.php">Cancelar</a>
+                            
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
+
 </html>
-
-
-

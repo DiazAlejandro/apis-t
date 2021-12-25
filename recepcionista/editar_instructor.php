@@ -8,33 +8,49 @@
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
+    if (isset($_GET['curp'])){   
+        $curp = $_GET['curp'];
+        $update = "SELECT * FROM instructor WHERE curp = '$curp'";
+    }
+
+    $resultado = mysqli_query($conexion,$update);
+
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ' ;
         exit;
     }
+    else{
+        $fila = mysqli_fetch_assoc($resultado);
+        $nombre     = $fila['nombre'];
+        $apellido_p = $fila['apellido_p'];
+        $apellido_m = $fila['apellido_m'];
+        $telefono   = $fila['telefono'];
+        $correo     = $fila['correo_electronico'];
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/recep.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <link rel="stylesheet" href="../css/tabla_curs.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Instructores registrados</title>
+    <title>Registro de Instructor</title>
 </head>
 
 <body id="fondo">
@@ -53,7 +69,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </nav>
 
@@ -90,79 +106,60 @@
         </div>
     </nav>
 
-    <!--Contenido-->
+    <!-- Contenido-->
+
+    <!-- Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
-                <br>
+            <div class="col-md-8">
+                <br><br><br>
                 <div class="card " id="contorno">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Alumnos</h1>
+                        <h1 class="font-weight-bold mb-3">Editar datos del instructor</h1>
                     </div>
-                    <div class="card-body" id="cuerpo">
-                        <div class="col-md-12">
+                    <div class="card-body">
+                        <form action="../recepcionista/controller/Instructor_update.php" method="post">
+                            <div class="form-group">
+                                <label>CURP:<span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="curp" class="form-control" id="curp" value="<?php echo $curp?>">
+                                <input type="hidden" name="old_curp" class="form-control" id="old_curp" value="<?php echo $curp?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtclave">Nombre:<span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="nombre" class="form-control" id="nombre" value = "<?php echo $nombre?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Apellido paterno: <span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="apellido_p" class="form-control" id="apellido_p"
+                                value = "<?php echo $apellido_p?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Apellido materno: <span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="apellido_m" class="form-control" id="apellido_m"
+                                value = "<?php echo $apellido_m?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Teléfono: <span class="text-danger" id="marca">*</span></label>
+                                <input type="text" name="telefono" class="form-control" id="telefono"
+                                value = "<?php echo $telefono?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Correo electrónico <span class="text-danger" id="marca">*</span></label>
+                                <input type="email" name="email" class="form-control" id="email" 
+                                value = "<?php echo $correo?>">
+                            </div>
+
                             <br>
-                            <table class="table table-dark table-sm ">
-                                <thead >
-                                    <tr>
-                                        <th>CURP</th>
-                                        <th>Nombre</th>
-                                        <th>A. Paterno</th>
-                                        <th>A. Materno</th>
-                                        <th>Telefono</th>
-                                        <th>Estatus</th>
-                                        <th>Editar</th>
-                                        <th>Ver</th>
-                                        <th>Eliminar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="t-body">
-                                    <?php
-                                    if (mysqli_num_rows($resultado) > 0) {
-                                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php
-                                            echo $fila['curp'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_p'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_m'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['telefono'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['estatus'];
-                                        ?></td>
-                                        <td>
-                                            <a href="editar_alumno.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
-                                            <i class="fas fa-eye"></i></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
+                            <button type="submit" name="accion" value="enviar" id="reg"
+                            class="btn btn-warning font-weight-bold" >Editar</button>
+                            <a class="btn font-weight-bold" id="btn"
+                                    href="tabla_instructor.php">Cancelar</a>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -170,6 +167,3 @@
     </div>
 </body>
 </html>
-
-
-

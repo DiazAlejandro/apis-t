@@ -11,9 +11,14 @@
         $curp = $_GET['curp'];
         
     }
+    $name ="";
+    if (isset($_GET['name'])) {
+        $name = $_GET['name'];
+        
+    }
     include("../connect/conectar.php");
-        $resultado = mysqli_query($conexion,"SELECT * FROM inscripcion where alumno_curp = '$curp'");
-        if (!$resultado) {
+    $resultado = mysqli_query($conexion,"SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
+    if (!$resultado) {
             echo 'No se pudo ejecutar la consulta: ' ;
             exit;
         }
@@ -115,7 +120,7 @@
                                         <th>FOLIO</th>
                                         <th>FECHA INICIO</th>
                                         <th>FECHA FINAL</th>
-                                        <th>ALUMNO CURP</th>
+                                        <th>ALUMNO</th>
                                         <th>CURSO</th>
                                         <th>CUMPLIMIENTO</th>
                                         <th>MARCAR CUMPLIDO</th>
@@ -136,17 +141,17 @@
                                         <td><?php
                                             echo $fila['fecha_fin'];
                                         ?></td>
-                                        <td><?php
-                                            echo $fila['alumno_curp'];
+                                        <td class="text-uppercase"><?php
+                                            echo $name;
                                         ?></td>
                                         <td><?php
-                                            echo $fila['curso_clave'];
+                                            echo $fila['nombre'];
                                         ?></td>
                                         <td><?php
                                             echo $fila['cumplimiento'];
                                         ?></td>
                                         <td>
-                                            <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>" class="btn btn-success">
+                                            <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i></i>
                                             </a>
                                         </td>

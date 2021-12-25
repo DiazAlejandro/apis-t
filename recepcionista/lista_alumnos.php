@@ -138,7 +138,7 @@
                                             echo $fila['estatus'];
                                         ?></td>
                                         <td>
-                                            <a href="cumplimiento.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
+                                            <a href="cumplimiento.php?curp=<?php echo $fila['curp']?>&name=<?php echo $fila['nombre'].' '.$fila['apellido_p'].' '.$fila['apellido_m']?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i></i>
                                             </a>
                                         </td>

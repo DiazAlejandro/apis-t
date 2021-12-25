@@ -7,14 +7,47 @@
             header('location: /apis-t/login.php');
         }
     }
-    
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM instructor");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
+
+    if (isset($_GET['clave'])){   
+        $clave = $_GET['clave'];
+        $update = "SELECT * FROM curso WHERE clave = '$clave'";
+    }
+
+    $instructores = mysqli_query($conexion,"SELECT * FROM instructor");
+    if (!$instructores) {
+        echo 'No se pudo ejecutar la consulta de instructores' ;
         exit;
     }
+
+    $resultado = mysqli_query($conexion,$update);
+
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta del curso: ' ;
+        exit;
+    }
+    else{
+        $fila = mysqli_fetch_assoc($resultado);
+        $nombre = $fila['nombre'];
+        $duracion = $fila['duracion'];
+        $hora = $fila['hora'];
+        $periodo_pago = $fila['periodo_pago'];
+        $costo = $fila['costo'];
+        $instructor_curp = $fila['instructor_curp'];
+    }
+
+    $instructor = mysqli_query($conexion,"SELECT * FROM instructor WHERE curp = '$instructor_curp'");
+    if(!$instructor){
+        echo 'error al encontrar instructor'; 
+    }
+    else{
+        $fila = mysqli_fetch_assoc($instructor);
+        $nombre_instructor = $fila['nombre'];
+        $apellido_p = $fila['apellido_p'];
+        $apellido_m = $fila['apellido_m'];
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -93,6 +126,8 @@
         </div>
     </nav>
 
+    <!-- Contenido-->
+
     <!--Formulario-->
     <div class="container">
         <div class="row justify-content-center">
@@ -100,61 +135,66 @@
                 <br><br><br>
                 <div class="card" id="contorno">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 ">Registrar datos del curso</h1>
+                        <h1 class="font-weight-bold mb-3 ">Editar datos del curso</h1>
                     </div>
                     <div class="card-body">
-                        <form action="../recepcionista/controller/Curso.php" method="POST"
+                        <form action="../recepcionista/controller/Curso_update.php" method="POST"
                             enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="txtclave" class="font-weight-bold">Clave:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave"
-                                    placeholder="Ingresa la clave del curso" style="border: 2px solid black" minlength="5" maxlength="5" required>
+                                <label for="txtclave">Clave:<span class="text-danger" id="marca">*</span></label>
+                                <input type="hidden" name="old_clave" class="form-control" id="old_clave" value="<?php echo $clave?>">
+                                <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave" value = "<?php echo $clave?>"
+                                    placeholder="Ingresa la clave del curso" minlength="5" maxlength="5" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtNombre" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" name="txtnombre"
-                                    placeholder="Ingresa el nombre del curso"  style="border: 2px solid black" required>
+                                <label for="txtNombre">Nombre:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" id="bord" name="txtnombre" value = "<?php echo $nombre?>"
+                                    placeholder="Ingresa el nombre del curso" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtAsesor" class="font-weight-bold">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
-                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: 2px solid black" required>
-                                 <option value="" selected="true" disabled="disabled">Seleccione el nombre del instructor</option>
+                                <label for="txtAsesor">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" required>
+                                    <option value="<?php echo $instructor_curp?>" selected><?php echo $nombre_instructor.' '.$apellido_p.' '.$apellido_m?> </option>
                                     <?php
-                                    if (mysqli_num_rows($resultado) > 0) {
-                                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                                            echo '<option value="'.$fila['curp'].'">'.$fila['nombre'].' '.$fila['apellido_p'].' '.$fila['apellido_m'].'</option>';
-                                            
+                                    if (mysqli_num_rows($instructores) > 0) {
+                                        while ($fila = mysqli_fetch_assoc($instructores)) {
+                                            if($fila['curp'] != $instructor_curp){
+                                                echo '<option value="'.$fila['curp'].'">'.$fila['nombre'].' '.$fila['apellido_p'].' '.$fila['apellido_m'].'</option>';
+                                            }
                                         }
                                     }
                                     ?>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="txtDuracion" class="font-weight-bold">Duración: (SEMANAL)<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="text" class="form-control" style="border: 2px solid black" name="txtduracion"
+                                <label for="txtDuracion">Duración:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[A-Za-z0-9 ]+" type="text" class="form-control" id="bord" name="txtduracion" value = "<?php echo $duracion?>"
                                     placeholder="Ingresa la duración del curso" required>
                             </div>
                             <div class="form-group">
-                                <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" style="border: 2px solid black" name="timehora" id="idhora" required>
+                                <label for="timeHora">Hora:<span class="text-danger" id="marca">*</span></label>
+                                <input type="time" class="form-control" id="bord" name="timehora" id="idhora" value = "<?php echo $hora?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPeriodo" class="font-weight-bold">Período de pago:<span
+                                <label for="exampleInputPeriodo">Período de pago:<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z ]+" type="text" class="form-control" style="border: 2px solid black" name="txtperiodo" id="idperioso"
+                                <input pattern="[A-Za-z ]+" type="text" class="form-control" id="bord" name="txtperiodo" id="idperioso" value = "<?php echo $periodo_pago?>"
                                     placeholder="Ingresa el periodo de pago" required>
                             </div>
                             <div class="form-group">
-                                <label for="txtCoste" class="font-weight-bold">Coste:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="number" class="form-control" style="border: 2px solid black" name="txtcoste"
+                                <label for="txtCoste">Coste:<span class="text-danger" id="marca">*</span></label>
+                                <input pattern="[0-9]+" type="number" class="form-control" id="bord" name="txtcoste" value = "<?php echo $costo?>"
                                     placeholder="Ingresa el costo del curso" required>
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 
-                                   class="btn btn-primary font-weight-bold" id="btn" style="width: 150px;">Registrar Curso</button>
-                            <button type="reset" name="accion" value="restaurar" class="btn font-weight-bold text-light" id="rest" style="background-color: black; width: 150px;">Restaurar</button>
-                            <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php" style="width: 150px;">Cancelar</a>
-                         </form>
+                                   class="btn btn-warning font-weight-bold" id="reg">Editar Curso</button>
+                            <button type="reset" name="accion" value="restaurar"
+                                    class="btn font-weight-bold" id="rest">Restaurar</button>
+                            <a class="btn font-weight-bold" id="btn"
+                                    href="tabla_curso.php">Cancelar</a>
+                            
+                        </form>
                     </div>
                 </div>
             </div>

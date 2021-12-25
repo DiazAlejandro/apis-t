@@ -28,6 +28,16 @@
 
 #barrita{
     background-color: black;
+    color:#ffffff;
+}
+
+#entrar{
+    font-size: medium;
+    width:140px;
+    color: black;
+    border: #000000 2px solid;
+    background-color: rgb(255, 255, 255);
+    width:140px;
 }
 
 .card {
@@ -72,13 +82,15 @@
     font-weight: bold;
     background-color: blanchedalmond;
 }
-#t-head{
+
+#cabecera{
     background-color: black;
     color: white;
+    border: rgb(0, 0, 0) 2px solid;
 }
 
 
-th, td {
+td {
    width: 25%;
    text-align: left;
    vertical-align: top;
@@ -90,3 +102,10 @@ th, td {
     border: rgb(0, 0, 0) 2px solid;
     color: black;
 }
+
+#rest{
+    border: rgb(0, 0, 0) 2px solid;
+    background-color: black;
+    color: white;  
+}
+
