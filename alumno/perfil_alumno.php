@@ -175,7 +175,6 @@
                                     <div class="form-group col-md-6">
                                     <label class="font-weight-bold">CURP:<span class="text-danger">*</span></label>
                                     <input disabled type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" value="<?php echo $curp ?>">
-
                                 </div>
                                 <span>
                                     <input disabled type="hidden" name="old_curp" class="form-control" id="old_curp" value="<?php echo $curp ?>">

@@ -254,7 +254,7 @@
                                         <option value="ISSEMYM"
                                     <?php if ($servicio=='ISSEMYM') { ?> selected <?php } ?>>ISSEMYM</option>
                                         <option value="OTRO"
-                                    <?php if ($servicio=='OTRO') { ?> selected <?php } ?>>OTRO</option>
+                        s            <?php if ($servicio=='OTRO') { ?> selected <?php } ?>>OTRO</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
