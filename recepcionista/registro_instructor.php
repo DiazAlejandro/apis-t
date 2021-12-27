@@ -32,6 +32,7 @@
 
     <title>Registro de Instructor</title>
     <script src="controller/validadorInstructor.js"></script>
+    
 </head>
 
 <body id="fondo">
