@@ -10,21 +10,31 @@
     $txtperiodo=(isset($_POST['txtperiodo']))?$_POST['txtperiodo']:"";
     $acccion=(isset($_POST['acccion']))?$_POST['acccion']:"";
 
+    $consultaExiste = "SELECT * FROM curso WHERE clave='$txtclave'";
+    $resultadoExiste = mysqli_query($conexion, $consultaExiste);
+    if (mysqli_num_rows($resultadoExiste)>0){
+        //Existe
+        $messaget = "YA EXISTE UN CURSO ASOCIADO A ESTA CLAVE";
+        echo "<script type='text/javascript'>
+                alert('$messaget');
+                window.location.href = '../registro_curso.php';
+            </script>";
+    }else{
+        $sqlCurso = "INSERT INTO `curso`(`clave`, `nombre`, `duracion`, `hora`, `periodo_pago`, `costo`, `instructor_curp`) 
+        VALUES ('$txtclave','$txtnombre','$txtduracion','$timehora','$txtperiodo','$txtcoste','$txtasesor')";
 
-    $sqlCurso = "INSERT INTO `curso`(`clave`, `nombre`, `duracion`, `hora`, `periodo_pago`, `costo`, `instructor_curp`) 
-    VALUES ('$txtclave','$txtnombre','$txtduracion','$timehora','$txtperiodo','$txtcoste','$txtasesor')";
-
-if (mysqli_query($conexion,$sqlCurso)){
-    $messaget = "SE REGISTRO El CURSO CORRECTAMENTE";
+        if (mysqli_query($conexion, $sqlCurso)) {
+            $messaget = "SE REGISTRO El CURSO CORRECTAMENTE";
             echo "<script type='text/javascript'>
-                    alert('$messaget');
-                    window.location.href = '../tabla_curso.php';
+                            alert('$messaget');
+                            window.location.href = '../tabla_curso.php';
+                        </script>";
+        } else {
+            $messagec = "NO SE AGREGÓ EL CURSO";
+            echo "<script type='text/javascript'>
+                    alert('$messagec');
+                    window.location.href = '../registro_curso.php';
                 </script>";
-}else{
-    $messagec = "NO SE AGREGÓ EL CURSO";
-    echo "<script type='text/javascript'>
-            alert('$messagec');
-            window.location.href = '../registro_curso.php';
-        </script>";
-}
+        }
+    }
 ?>
