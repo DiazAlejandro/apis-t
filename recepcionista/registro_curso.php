@@ -144,10 +144,15 @@
                                 <input type="time" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="exampleInputPeriodo" class="font-weight-bold">Período de pago:<span
+                                <label for="exampleInputPeriodo" class="font-weight-bold">Periodo de pago:<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z ]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtperiodo" id="idperioso"
-                                    placeholder="Ingresa el periodo de pago" required>
+                                <select name="" id="" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                    <option value="" selected="true" disabled="disabled">Seleccione periodo de pago</option>
+                                    <option value="POR DIA">POR DIA</option>
+                                    <option value="SEMANAL">SEMANAL</option>
+                                    <option value="MENSUAL">MENSUAL</option>
+                                    <option value="ANUAL">ANUAL</option>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="txtCoste" class="font-weight-bold">Coste:<span class="text-danger" id="marca">*</span></label>
