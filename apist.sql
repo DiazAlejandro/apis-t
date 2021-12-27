@@ -115,7 +115,7 @@ CREATE TABLE inscripcion(
   fecha_fin DATE NOT NULL,
   alumno_curp VARCHAR(18) NOT NULL,
   curso_clave VARCHAR(5) NOT NULL,
-  cumplimiento VARCHAR(25) NOT NULL
+  cumplimiento VARCHAR(25)
   FOREIGN KEY (alumno_curp)
 REFERENCES alumno(curp)
 ON DELETE CASCADE

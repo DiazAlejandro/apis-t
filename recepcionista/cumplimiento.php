@@ -107,7 +107,7 @@
         <div class="row justify-content-center">
             <div class="col-md-14">
                 <br>
-                <div class="card " id="contorno">
+                <div class="card " >
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3 bg-gray">Consulta de pagos</h1>
                     </div>
@@ -124,6 +124,7 @@
                                         <th>CURSO</th>
                                         <th>CUMPLIMIENTO</th>
                                         <th>MARCAR CUMPLIDO</th>
+                                        <th>GENERAR CONSTANCIA</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -152,7 +153,12 @@
                                         ?></td>
                                         <td>
                                             <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
-                                            <i class="fas fa-eye"></i></i>
+                                            <i class="fas fa-check"></i></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                        <a href="constancia.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-info">
+                                            <i class="fas fa-print"></i></i>
                                             </a>
                                         </td>
                                     </tr>

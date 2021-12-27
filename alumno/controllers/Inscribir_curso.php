@@ -27,9 +27,9 @@
         //echo $fecha_final;
 
         $folio=mt_rand(1,99999);
-
-        $sqlInscribir = "INSERT INTO `inscripcion`(`folio`, `fecha_inicio`, `fecha_fin`, `alumno_curp`, `curso_clave`) 
-                    VALUES ('$folio','$fecha_actual','$fecha_final','$curpA','$clave')";
+        $cumplimiento = "PENDIENTE";
+        $sqlInscribir = "INSERT INTO `inscripcion`(`folio`, `fecha_inicio`, `fecha_fin`, `alumno_curp`, `curso_clave`,`cumplimiento`) 
+                    VALUES ('$folio','$fecha_actual','$fecha_final','$curpA','$clave','$cumplimiento')";
                     //echo $sqlInscribir;
 
         if (mysqli_query($conexion,$sqlInscribir)){

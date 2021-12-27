@@ -37,7 +37,8 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Registro de Instructor</title>
+    <title>Registro de curso</title>
+    <script src="controller/validacionCurso.js"></script>
 </head>
 
 <body id="fondo">
@@ -136,7 +137,7 @@
                             <div class="form-group col-md-6">
                                 <label for="txtDuracion" class="font-weight-bold">Duración: (SEMANAL)<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[0-9]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtduracion"
-                                    placeholder="Ingresa la duración del curso" required>
+                                    placeholder="Ingresa la duración del curso" maxlength="2" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
@@ -150,8 +151,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="txtCoste" class="font-weight-bold">Coste:<span class="text-danger" id="marca">*</span></label>
-                                <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtcoste"
-                                    placeholder="Ingresa el costo del curso" required>
+                                <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtcoste" maxlength="6"
+                                    placeholder="Ingresa el costo del curso" id="costo" onblur="validarCosto()" required>
                             </div>
                             <br><br>
                          </div>

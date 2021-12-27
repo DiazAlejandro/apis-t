@@ -31,6 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <title>Registro de Instructor</title>
+    <script src="controller/validadorInstructor.js"></script>
 </head>
 
 <body id="fondo">
@@ -84,6 +85,9 @@
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
                     </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Complimiento</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -125,7 +129,7 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Teléfono: <span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="telefono" class="form-control" id="telefono" onblur="validarTelefonoT()"
-                                    placeholder="Ingrese su número de teléfono" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" minlenght="10" maxlenght="10" required>
+                                    placeholder="Ingrese su número de teléfono" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" maxlength="10" required>
                             </div>
 
                             <div class="form-group col-md-6">
@@ -135,7 +139,7 @@
                             </div>
                         <div>
                             <br>
-                            <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-primary font-weight-bold" >Registrar</button>
+                            <button type="submit" name="accion" value="enviar" id="btn" class="btn btn-warning font-weight-bold" >Registrar</button>
                             <button type="reset" name="accion" value="restaurar" id="rest" class="btn font-weight-bold text-light" style="background-color: black">Restaurar</button>
                             <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_instructor.php">Cancelar</a>
 

@@ -135,12 +135,12 @@
                                         </td>
                                         <td>
                                             <?php
-                                                echo $fila['duracion'];
+                                                echo $fila['duracion']." SEMANA(S)";
                                             ?>
                                         </td>
                                         <td>
                                             <?php
-                                                echo $fila['costo'];
+                                                echo "$ ".$fila['costo'];
                                             ?>
                                         </td>
                                         <td>
