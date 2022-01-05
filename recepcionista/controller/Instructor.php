@@ -23,13 +23,13 @@
                     VALUES ('$curp', '$nombre', '$apellido_m', '$apellido_p', '$telefono', '$email')";
 
     if (mysqli_query($conexion,$sqlInstructor)){
-        $messaget = "REGISTRO AGREGADO CORRECTAMENTE";
+        $messaget = "INSTRUCTOR AGREGADO CORRECTAMENTE";
         echo "<script type='text/javascript'>
                 alert('$messaget');
                 window.location.href = '../tabla_instructor.php';
             </script>";
     }else{
-        $messagec = "NO SE AGREGÓ EL INSTRUCTOR";
+        $messagec = "NO SE AGREGÓ EL INSTRUCTOR \n VERIFIQUE LOS DATOS";
         echo "<script type='text/javascript'>
                 alert('$messagec');
                 window.location.href = '../registro_instructor.php';
