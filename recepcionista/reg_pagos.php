@@ -38,7 +38,7 @@ if (!isset($_SESSION['rol'])) {
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Registro de Instructor</title>
+    <title>Registro de pagos</title>
 </head>
 
 <body id="fondo">
@@ -119,11 +119,11 @@ if (!isset($_SESSION['rol'])) {
                                 <div class="form-group col-md-6">
                                     <label for="txtFecha" class="font-weight-bold">Fecha:<span class="text-danger" id="marca">*</span></label>
                                     <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfecha"
-                                        placeholder="Ingresa la fecha del pago" required>
+                                        placeholder="Ingresa la fecha del pago" value="<?php echo date("Y-m-d");?>" readonly >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
-                                    <input type="time" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" required>
+                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value="<?php date_default_timezone_set('America/Mexico_City');  echo date("h:i:s a");?>" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
