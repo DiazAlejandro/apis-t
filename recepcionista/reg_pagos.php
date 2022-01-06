@@ -131,8 +131,10 @@ if (!isset($_SESSION['rol'])) {
                                         placeholder="Ingresa el concepto del pago" required>
                                 </div>
                                 <div class="form-group col-md-6">
+                                    Alumno seleccionado <span style="font-weight: bold;" id="alumno_sel"></span>
+                                    <br>
                                     <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
-                                    <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                    <select pattern="[A-Za-z0-9]+" id="curp_alumno" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                     <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
                                         <?php
                                         if (mysqli_num_rows($resultado) > 0) {
@@ -141,7 +143,73 @@ if (!isset($_SESSION['rol'])) {
                                             }
                                         }
                                         ?>
+                                        
                                     </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtEstado" class="font-weight-bold">Estado:<span class="text-danger" id="marca">*</span></label>
+                                    <select name="txtEstado" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                        <option value="" selected="true" disabled="disabled">Seleccione un estado</option>
+                                        <option value="PAGO ACREDITADO">PAGO PARCIAL</option>
+                                        <option value="PAGO ACREDITADO">PAGO COMPLETO</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtInscripcion" class="font-weight-bold">Seleccione Curso:<span class="text-danger" id="marca">*</span></label>
+                                    <select id= "inscripcion" name="txtEstado" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                        <option value="" selected="true" disabled="disabled">Seleccione curso</option>
+                                        <!-- Agregamos la libreria Jquery -->
+                                        <script
+                                        src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                        crossorigin="anonymous"></script>
+
+                                        <!-- Iniciamos el segmento de codigo javascript -->
+                                        <script type="text/javascript">
+                                            $(document).ready(function(){
+                                            var inscripcion = $('#inscripcion');
+                                            var alumno_sel = $('#alumno_sel');
+                                            //Ejecutar accion al cambiar de opcion en el select de las bandas
+                                            $('#curp_alumno').change(function(){
+                                            var curp = $(this).val(); //obtener el id seleccionado
+                                                
+                                            if(curp !== ''){ //verificar haber seleccionado una opcion valida
+                                                console.log(curp);
+                                                /*Inicio de llamada ajax*/
+                                                $.ajax({
+                                                data: {curp:curp}, //variables o parametros a enviar, formato => nombre_de_variable:contenido
+                                                dataType: 'html', //tipo de datos que esperamos de regreso
+                                                type: 'POST', //mandar variables como post o get
+                                                url: '/apis-t/recepcionista/controller/get_cursos.php' //url que recibe las variables
+                                                }).done(function(data){ //metodo que se ejecuta cuando ajax ha completado su ejecucion             
+
+                                                inscripcion.html(data); //establecemos el contenido html de discos con la informacion que regresa ajax             
+                                                inscripcion.prop('disabled', false); //habilitar el select
+                                                });
+                                                /*fin de llamada ajax*/
+
+                                            }else{ //en caso de seleccionar una opcion no valida
+                                                inscripcion.val(''); //seleccionar la opcion "- Seleccione -", osea como reiniciar la opcion del select
+                                                inscripcion.prop('disabled', true); //deshabilitar el select
+                                            }    
+                                            });
+
+                                            //mostrar una leyenda con el disco seleccionado
+                                            $('#inscripcion').change(function(){
+                                            $('#alumno_sel').html($(this).val() + ' - ' + $('#inscripcion option:selected').text());
+                                            });
+
+                                        });
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtDescripcion" class="font-weight-bold">Descripcion:<span class="text-danger" id="marca">*</span></label>
+                                    <textarea name="txtdescripcion" class="form-control" placeholder="Ingrese la descripción del pago" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" rows="5" cols="50"></textarea>
+
                                 </div>
                              </div>
 

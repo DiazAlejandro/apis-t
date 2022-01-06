@@ -10,7 +10,7 @@
        
     $sqlPago = "INSERT INTO pago (folio,fecha,hora,concepto,alumno_curp) 
                     VALUES ('$folio','$fecha','$hora','$concepto','$alumno_curp')";
-
+    
     if (mysqli_query($conexion,$sqlPago)){
         $messaget = "REGISTRO AGREGADO CORRECTAMENTE";
         echo "<script type='text/javascript'>
