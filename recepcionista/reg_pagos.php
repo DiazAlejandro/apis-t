@@ -159,7 +159,7 @@ if (!isset($_SESSION['rol'])) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtInscripcion" class="font-weight-bold">Seleccione Curso:<span class="text-danger" id="marca">*</span></label>
-                                    <select id= "inscripcion" name="txtEstado" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                    <select id= "inscripcion" name="txtInscripcion" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                         <option value="" selected="true" disabled="disabled">Seleccione curso</option>
                                         <!-- Agregamos la libreria Jquery -->
                                         <script
@@ -209,7 +209,6 @@ if (!isset($_SESSION['rol'])) {
                                 <div class="form-group col-md-6">
                                     <label for="txtDescripcion" class="font-weight-bold">Descripcion:<span class="text-danger" id="marca">*</span></label>
                                     <textarea name="txtdescripcion" class="form-control" placeholder="Ingrese la descripción del pago" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" rows="5" cols="50"></textarea>
-
                                 </div>
                              </div>
 

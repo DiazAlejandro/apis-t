@@ -3,8 +3,9 @@
     $curp = filter_input(INPUT_POST, 'curp'); //obtenemos el parametro que viene de ajax
     if ($curp != '') { //verificamos nuevamente que sea una opcion valida     
         /*Obtenemos los discos de la banda seleccionada*/
-        $consultaCursosA = 'SELECT curso.nombre,
-                                    curso.clave
+        $consultaCursosA = 'SELECT  curso.nombre,
+                                    curso.clave,
+                                    inscripcion.folio
                                     FROM curso INNER JOIN inscripcion 
                                         ON curso.clave = inscripcion.curso_clave 
                                             INNER JOIN alumno
@@ -18,7 +19,7 @@
 <?php
     if (mysqli_num_rows($resultado) > 0) {
         while ($fila = mysqli_fetch_assoc($resultado)) {
-            echo '<option value="' . $fila['clave'] . '">' . $fila['nombre'] . '</option>';
+            echo '<option value="' . $fila['folio'] . '">' . $fila['clave'] . ' '. $fila['nombre'].'</option>';
         }
     }
 ?>
