@@ -60,7 +60,7 @@ class PDF extends tFPDF{
         $this->SetFont('DejaVu-Italic','',8);
         $this->SetTextColor(80);
         // Número de página
-        $this->Cell(0,10,'Este documento solo tiene valides dentro de la Institución APIS-T',0,0,'C');
+        $this->Cell(0,10,'Este documento solo tiene validez dentro de la Institución APIS-T',0,0,'C');
     }
 }
 
