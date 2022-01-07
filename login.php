@@ -34,6 +34,9 @@
             $_SESSION['rol'] = $rol;
             $_SESSION['email'] = $email;
             switch($_SESSION['rol']){
+            case 1:
+                header('location: administrador/inicio.php');
+            break;
             case 2:
                 header('location: recepcionista/inicio.php');
             break;
