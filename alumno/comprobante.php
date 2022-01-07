@@ -1,10 +1,19 @@
 <?php
-require('../tfpdf/tfpdf.php');
-include("../connect/conectar.php");
+    require('../tfpdf/tfpdf.php');
+    include("../connect/conectar.php");
 
-if (isset($_GET['folio'])){   
-    $folio = $_GET['folio'];
-}
+    session_start();
+    if (!isset($_SESSION['rol'])) {
+        header('location: login.php');
+    } else {
+        if ($_SESSION['rol'] != 3) {
+            header('location: login.php');
+        }
+    }
+
+    if (isset($_GET['folio'])){   
+        $folio = $_GET['folio'];
+    }
 
 $pago = mysqli_query($conexion, "SELECT * FROM pago WHERE folio = '$folio'");
 if (!$pago) {
@@ -116,4 +125,3 @@ $pdf->SetFont('Bold','',14);
 $pdf->Cell(100,10,$hora,0,0);
 
 $pdf->Output();
-?>
