@@ -120,6 +120,7 @@
                                             <th>Fecha</th>
                                             <th>Hora</th>
                                             <th>Concepto</th>
+                                            <th>Comprobante</th>
                                         </tr>
                                     </thead>
                                     <tbody id="t-body">
@@ -131,6 +132,7 @@
                                                     <td>
                                                         <?php
                                                                 echo $fila['folio'];
+                                                                $folio =  $fila['folio'];
                                                                 ?>
                                                     </td>
                                                     <td>
@@ -147,6 +149,9 @@
                                                         <?php
                                                                 echo $fila['concepto'];
                                                                 ?>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-primary font-weight-bold center" id="btn" href="comprobante.php?folio=<?php echo $folio?>">Generar</a>
                                                     </td>
                                                 </tr>
                                         <?php
