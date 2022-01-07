@@ -68,28 +68,16 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
                     </li>
                 </ul>
             </div>
@@ -117,8 +105,6 @@
                                         <th>A. Materno</th>
                                         <th>Telefono</th>
                                         <th>Correo electrónico</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -145,16 +131,6 @@
                                         <td><?php
                                             echo $fila['correo_electronico'];
                                         ?></td>
-                                        <td>
-                                            <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="controller/Instructor_delete.php?curp=<?php echo $fila['curp']?>" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
                                     </tr>
                                     <?php
                                         }
@@ -162,9 +138,6 @@
                                     ?>
                                 </tbody>
                             </table>
-                            <div>
-                                <a class="btn btn-success font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
-                            </div>
                         </div>
                     </div>
                 </div>
