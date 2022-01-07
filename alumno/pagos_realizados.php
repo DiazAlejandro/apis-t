@@ -151,7 +151,7 @@
                                                                 ?>
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-primary font-weight-bold center" id="btn" href="comprobante.php?folio=<?php echo $folio?>">Generar</a>
+                                                        <a class="btn btn-success font-weight-bold center" id="btn" href="comprobante.php?folio=<?php echo $folio?>">Generar</a>
                                                     </td>
                                                 </tr>
                                         <?php
