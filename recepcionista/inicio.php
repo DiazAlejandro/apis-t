@@ -7,6 +7,23 @@
             header('location: /apis-t/login.php');
         }
     }
+
+    if (isset($_SESSION['email'])) {
+        include("../connect/conectar.php");
+        $email = $_SESSION['email'];
+        $update = "SELECT * FROM alumno WHERE email = '$email'";
+        $resultado = mysqli_query($conexion, $update);
+        $curp = '';
+        if (!$resultado) {
+            echo 'No se pudo ejecutar la consulta: ';
+            exit;
+        } else {
+            $fila = mysqli_fetch_assoc($resultado);
+
+            $sexo = $fila['sexo'];
+            $nombre = $fila['nombre'];
+        }
+    }
 ?>
 
 
@@ -94,6 +111,21 @@
         </div>
     </nav>
 
+    <div class="text-left" >
+        <img src="../img/a.JPG" class="float-xl-end rounded" width="350" height="350" > 
+        <div class="col-md-6 p-lg-10 mx-3 my-5">    
+            <?php 
+            if ($sexo == 'M') echo '<h1>Bienvenido '.$nombre.' </h1>';
+            else echo '<h1>Bienvenida '.$nombre.' </h1>';
+            ?>
+            <h1></h1><p></p>
+            <p class="lead fw-normal text-justify">Esta es la página de Inicio del Sistema de Gestión de Inscripciones del Instituto APIS-T. </p>
+            <p class="lead fw-normal text-justify">En la barra superior encontrará todas las funciones necesarias para la correcta administración de las inscripciones de los alumnos a los cursos, así como de los pagos.</p>
+            <p class="lead fw-normal text-justify">Le deseamos lo mejor y esperamos la página le sea de mucha utilidad.</p>
+            <p class="lead fw-normal text-justify">No olvide cuidarse y seguir las indicaciones para el cuidado de su salud.</p>
+        </div>
+    </div>
+
 </body>
 
-</html>
+</html> 
