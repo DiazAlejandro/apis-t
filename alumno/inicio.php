@@ -98,7 +98,64 @@ if (isset($_SESSION['email'])) {
     </nav>
 
     <!--Contenido-->
-    
+    <div class="container">
+        <br><br>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>BIENVENIDO...</h3>
+                <br>
+                <h5>Capacítate y construye tu conocimiento</h5>
+                <p style="text-align: justify;">
+                    Esta es su página principal, en la cuál podrá realizar distintas acciones que se encuentran en la barra de navegación ubicada en la parte superior.
+                    <br><br>
+                    Brindamos experiencias prácticas y vivenciales de herramientas tecnológicas que potencializarán la calidad de las actividades que desarrolle cada uno de nuestros estudiantes.
+                </p>
+            </div>
+            <div class="col-sm-8">
+                <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-ride="carousel">
+                    <ol class="carousel-indicators" id="flecha">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../img/al-1.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../img/al-2.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../img/al-3.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../img/al-4.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
