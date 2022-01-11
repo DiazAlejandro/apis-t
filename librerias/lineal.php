@@ -1,14 +1,14 @@
 <?php
     include("../connect/conectar.php");
-    $sql = "SELECT ";
+    $sql = "SELECT SUM(concepto), fecha FROM pago GROUP BY fecha";
 
     $result = mysqli_query($conexion,$sql);
     $valoresY = array();
     $valoresX = array();
 
     while ($ver = mysqli_fetch_row($result)){
-        $valoresY[]=$ver[1];
-        $valoresX[]=$ver[0];
+        $valoresY[]=$ver[0];
+        $valoresX[]=$ver[1];
     }
 
     $datosX = json_encode($valoresX);
@@ -36,7 +36,20 @@
     var trace1 = {
         x: datosX,
         y: datosY,
-        type: 'scatter'
+        type: 'bar',
+        marker: {
+
+color: 'rgb(158,202,225)',
+
+line: {
+
+  color: 'rgb(8,48,107)',
+
+  width: 1.5
+
+}
+
+}
     };
     /** 
     var trace2 = {
@@ -45,7 +58,7 @@
         type: 'scatter'
     };*/
 
-    var data = [trace1, trace2];
+    var data = [trace1];
 
     Plotly.newPlot('grafica_lineal', data);
 </script>
