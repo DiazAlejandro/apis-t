@@ -136,6 +136,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -316,7 +319,7 @@
                                     <input type="password" name="pass" id="pass" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña">
                                 </div>
                             </div>
-                                <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-primary" style="width:90px">Editar</button>
+                                <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-success" style="width:90px">Editar</button>
                                 <a class="btn font-weight-bold btn-danger" id="btn" href="perfil_alumno.php?curp=<?php echo $curp ?>">Cancelar</a>
                         </form>
                     </div>

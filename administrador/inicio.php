@@ -35,6 +35,7 @@ if (!isset($_SESSION['rol'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!--Plotly-->
     <script src="../librerias/plotly-2.8.3.min.js"></script>
+    
     <title>Inicio - Administrador</title>
 </head>
 

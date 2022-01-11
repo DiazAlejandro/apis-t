@@ -115,7 +115,7 @@
                                         <th>Nombre</th>
                                         <th>A. Paterno</th>
                                         <th>A. Materno</th>
-                                        <th>Telefono</th>
+                                        <th>Télefono</th>
                                         <th>Correo electrónico</th>
                                         <th>Editar</th>
                                         <th>Eliminar</th>

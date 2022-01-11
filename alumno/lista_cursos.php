@@ -1,26 +1,26 @@
-<!--Lista de cursos inscriptos -->
+<!--Lista de cursos inscritos -->
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
-    } else {
-        if ($_SESSION['rol'] != 3) {
-            header('location: /apis-t/login.php');
-        }
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: login.php');
+} else {
+    if ($_SESSION['rol'] != 3) {
+        header('location: /apis-t/login.php');
     }
-    if (isset($_GET['curp'])) {
-        $curp = $_GET['curp'];
-        
-    }
-    include("../connect/conectar.php");
-        $resultado = mysqli_query($conexion,"SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
-        if (!$resultado) {
-            echo 'No se pudo ejecutar la consulta: ' ;
-            exit;
-        }
+}
+if (isset($_GET['curp'])) {
+    $curp = $_GET['curp'];
+}
+include("../connect/conectar.php");
+$resultado = mysqli_query($conexion, "SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </nav>
 
@@ -69,7 +69,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="tabs navbar-nav">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item">
@@ -92,25 +92,24 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
+            <div class="col-md-12">
                 <br>
-                <div class="card " id="contorno">
+                <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Consulta de pagos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">CURSOS</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
                             <table class="table table-dark table-sm ">
-                                <thead >
+                                <thead>
                                     <tr>
-                                        <th>FOLIO</th>
+                                        <th>CLAVE</th>
+                                        <th>NOMBRE</th>
+                                        <th>HORA</th>
+                                        <th>DURACIÓN</th>
                                         <th>FECHA INICIO</th>
                                         <th>FECHA FINAL</th>
-                                        <th>CURSO</th>
-                                        <th>DURACION</th>
-                                        <th>COSTO</th>
-                                        <th>CUMPLIMIENTO</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -118,34 +117,32 @@
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
-                                    <tr>
-                                        <td><?php
-                                            echo $fila['folio'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['fecha_inicio'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['fecha_fin'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                         <td>
-                                            <?php
-                                                echo $fila['duracion']." SEMANA(S)";
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo "$ ".$fila['costo'];
-                                            ?>
-                                        </td>
-                                        
-                                        <td><?php
-                                            echo $fila['cumplimiento'];
-                                        ?></td>
-                                    </tr>
+                                            <tr>
+                                                <td><?php
+                                                    echo $fila['clave'];
+                                                    ?>
+                                                </td>
+
+                                                <td><?php
+                                                    echo $fila['nombre'];
+                                                    ?>
+                                                </td>
+                                                <td><?php
+                                                    echo $fila['hora'];
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    echo $fila['duracion'] . " SEMANA(S)";
+                                                    ?>
+                                                </td>
+                                                <td><?php
+                                                    echo $fila['fecha_inicio'];
+                                                    ?></td>
+                                                <td><?php
+                                                    echo $fila['fecha_fin'];
+                                                    ?></td>
+                                            </tr>
                                     <?php
                                         }
                                     }
@@ -159,4 +156,5 @@
         </div>
     </div>
 </body>
+
 </html>
