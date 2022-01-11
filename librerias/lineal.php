@@ -2,13 +2,13 @@
     include("../connect/conectar.php");
     $sql = "SELECT SUM(concepto), fecha FROM pago GROUP BY fecha";
 
-    $result = mysqli_query($conexion,$sql);
+    $result = mysqli_query($conexion, $sql);
     $valoresY = array();
     $valoresX = array();
 
-    while ($ver = mysqli_fetch_row($result)){
-        $valoresY[]=$ver[0];
-        $valoresX[]=$ver[1];
+    while ($ver = mysqli_fetch_row($result)) {
+        $valoresY[] = $ver[0];
+        $valoresX[] = $ver[1];
     }
 
     $datosX = json_encode($valoresX);
@@ -19,10 +19,10 @@
 <div id="grafica_lineal"></div>
 
 <script type="text/javascript">
-    function crearCadenaLineal(json){
+    function crearCadenaLineal(json) {
         var parsed = JSON.parse(json);
         var arr = [];
-        for (var x in parsed){
+        for (var x in parsed) {
             arr.push(parsed[x]);
         }
         return arr;
@@ -38,18 +38,12 @@
         y: datosY,
         type: 'bar',
         marker: {
-
-color: 'rgb(158,202,225)',
-
-line: {
-
-  color: 'rgb(8,48,107)',
-
-  width: 1.5
-
-}
-
-}
+            color: 'rgb(158,202,225)',
+            line: {
+                color: 'rgb(8,48,107)',
+                width: 1.5
+            }
+        }
     };
     /** 
     var trace2 = {
