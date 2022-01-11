@@ -38,12 +38,14 @@
         y: datosY,
         type: 'bar',
         marker: {
-            color: 'rgb(158,202,225)',
-            line: {
-                color: 'rgb(8,48,107)',
-                width: 1.5
+            color: 'rgb(68,204,31)'
             }
-        }
+    };
+
+    var trace2 = {
+        x: datosX,
+        y: datosY,
+        type: 'scatter'
     };
     /** 
     var trace2 = {
@@ -52,7 +54,7 @@
         type: 'scatter'
     };*/
 
-    var data = [trace1];
+    var data = [trace1, trace2];
 
     Plotly.newPlot('grafica_lineal', data);
 </script>

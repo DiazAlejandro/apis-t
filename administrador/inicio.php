@@ -99,23 +99,23 @@ if (!isset($_SESSION['rol'])) {
     <br>
     <div class="container">
         <div class="card">
-        <div class="card-header">
-            <h3>Gráficas actuales</h3>
-        </div>
-        <div class="card-body">
-        <div class="row">
-                            <div class="col-sm-6">
-                                <div id="carga_lineal"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div id="carga_barras"></div>
-                            </div>
-                        </div>
+            <div class="card-header" style="text-align: center;">
+                <h1 class="font-weight-bold mb-3">Gráficas actuales</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>Género</h3>
+                        <div id="carga_lineal"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>Pagos</h3>
+                        <div id="carga_barras"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    </div>
-
 </body>
 
 </html>
