@@ -112,7 +112,7 @@
                 <br>
                 <div class="card " >
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Consulta de pagos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Cumplimiento</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">

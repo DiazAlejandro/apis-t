@@ -95,6 +95,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
+                    </li>
                 </ul>
             </div>
         </div>

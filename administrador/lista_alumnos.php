@@ -99,11 +99,11 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
+            <div class="col-md-12">
                 <br>
-                <div class="card " id="contorno">
+                <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de alumnos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Alumnos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
@@ -132,10 +132,10 @@
                                             echo $fila['nombre'];
                                         ?></td>
                                         <td class="text-uppercase"><?php
-                                            echo $fila['apellido_p'];
+                                            echo $fila['apellido_m'];
                                         ?></td>
                                         <td class="text-uppercase"><?php
-                                            echo $fila['apellido_m'];
+                                            echo $fila['apellido_p'];
                                         ?></td>
                                         <td class="text-uppercase"><?php
                                             echo $fila['estatus'];
