@@ -1,14 +1,13 @@
-
 <?php
-// Inicializar la sesión.
-// Si está usando session_name("algo"), ¡no lo olvide ahora!
+// Initialize the session.
+// If you are using session_name("something"), don't forget it now!
 session_start();
 
-// Destruir todas las variables de sesión.
+// Unset all of the session variables.
 $_SESSION = array();
 
-// Si se desea destruir la sesión completamente, borre también la cookie de sesión.
-// Nota: ¡Esto destruirá la sesión, y no la información de la sesión!
+// If it's desired to kill the session, also delete the session cookie.
+// Note: This will destroy the session, and not just the session data!
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -17,7 +16,6 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Finalmente, destruir la sesión.
+// Finally, destroy the session.
 session_destroy();
-header("location:../index.php");
 ?>
