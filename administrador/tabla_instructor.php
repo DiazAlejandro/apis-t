@@ -4,6 +4,7 @@
         header('location: login.php');
     } else {
         if ($_SESSION['rol'] != 1) {
+            echo "hola";
             header('location: /apis-t/login.php');
         }
     }

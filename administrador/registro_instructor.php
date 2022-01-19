@@ -103,7 +103,7 @@
                         <h1 class="font-weight-bold mb-3">Registrar datos del instructor</h1>
                     </div>
                     <div class="card-body">
-                        <form action="../recepcionista/controller/Instructor.php" method="post">
+                        <form action="controller/Instructor.php" method="post">
                         <div class="form-row mb-2">
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">CURP:<span class="text-danger" id="marca">*</span></label>

@@ -1,6 +1,5 @@
 <?php
     include("../../connect/conectar.php");
-    include("../registro_instructor.php");
     //Datos del Instructor 
     $nombre = $_POST['nombre'];
     $apellido_p = $_POST['apellido_p'];

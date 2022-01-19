@@ -110,7 +110,7 @@
                         <h1 class="font-weight-bold mb-3 ">Registrar datos del curso</h1>
                     </div>
                     <div class="card-body">
-                        <form action="../recepcionista/controller/Curso.php" method="POST"
+                        <form action="controller/Curso.php" method="POST"
                             enctype="multipart/form-data">
                             <div class="form-row mb-2">
                             <div class="form-group col-md-6">
