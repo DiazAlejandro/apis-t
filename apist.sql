@@ -3,7 +3,7 @@ USE base_apist;
 -- -----------------------------------------------------
 -- Tabla roels
 -- -----------------------------------------------------
-CREATE TABLE rol(
+CREATE TABLE IF NOT EXISTS rol(
     id_rol INT PRIMARY KEY AUTO_INCREMENT, 
     rol VARCHAR(45) NOT NULL
 );
@@ -11,7 +11,7 @@ CREATE TABLE rol(
 -- -----------------------------------------------------
 -- Tabla usuarios
 -- -----------------------------------------------------
-CREATE TABLE usuario(
+CREATE TABLE IF NOT EXISTS usuario(
     email VARCHAR(45) PRIMARY KEY, 
     pass  VARCHAR(40),
     rol_id INT, 
@@ -21,7 +21,7 @@ CREATE TABLE usuario(
 -- -----------------------------------------------------
 -- Tabla tutor
 -- -----------------------------------------------------
-CREATE TABLE tutor(
+CREATE TABLE IF NOT EXISTS tutor(
   curp VARCHAR(18) PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido_p VARCHAR(45) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE tutor(
 -- -----------------------------------------------------
 -- Tabla alumno
 -- -----------------------------------------------------
-CREATE TABLE alumno(
+CREATE TABLE IF NOT EXISTS alumno(
   curp VARCHAR(18) PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido_p VARCHAR(45) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE alumno(
   -- -----------------------------------------------------
 -- Tabla instructor
 -- -----------------------------------------------------
-  CREATE TABLE instructor(
+  CREATE TABLE IF NOT EXISTS instructor(
     curp VARCHAR(18) PRIMARY KEY NOT NULL,
     nombre VARCHAR(45) NOT NULL,
     apellido_p VARCHAR(45) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE alumno(
   -- -----------------------------------------------------
 -- Tabla pago
 -- -----------------------------------------------------
-CREATE TABLE pago(
+CREATE TABLE IF NOT EXISTS pago(
   folio VARCHAR(5) PRIMARY KEY NOT NULL,
   fecha DATE NOT NULL,
   hora TIME NOT NULL,
@@ -92,7 +92,7 @@ ON UPDATE CASCADE
 -- -----------------------------------------------------
 -- Tabla curso
 -- -----------------------------------------------------
-CREATE TABLE curso(
+CREATE TABLE IF NOT EXISTS curso(
   clave VARCHAR(5) PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   duracion VARCHAR(30) NOT NULL,
@@ -109,13 +109,13 @@ ON UPDATE CASCADE
   -- -----------------------------------------------------
 -- Tabla inscripcion
 -- -----------------------------------------------------
-CREATE TABLE inscripcion(
+CREATE TABLE IF NOT EXISTS inscripcion(
   folio VARCHAR(5) PRIMARY KEY NOT NULL,
   fecha_inicio DATE NOT NULL,
   fecha_fin DATE NOT NULL,
   alumno_curp VARCHAR(18) NOT NULL,
   curso_clave VARCHAR(5) NOT NULL,
-  cumplimiento VARCHAR(25)
+  cumplimiento VARCHAR(25),
   FOREIGN KEY (alumno_curp)
 REFERENCES alumno(curp)
 ON DELETE CASCADE
@@ -129,7 +129,7 @@ ON UPDATE CASCADE
   -- -----------------------------------------------------
 -- Tabla detalle_pago
 -- -----------------------------------------------------
-CREATE TABLE detalle_pago(
+CREATE TABLE IF NOT EXISTS detalle_pago(
   descripcion VARCHAR(45) NOT NULL,
   estado VARCHAR(45) NOT NULL,
   pago_folio VARCHAR(5) NOT NULL,
@@ -147,7 +147,7 @@ ON UPDATE CASCADE
   -- -----------------------------------------------------
 -- Tabla estado_salud
 -- -----------------------------------------------------
-CREATE TABLE estado_salud(
+CREATE TABLE IF NOT EXISTS estado_salud(
    seguro_med TINYINT NOT NULL,
    servicio VARCHAR(45) NOT NULL,
    num_seguridad VARCHAR(45),
@@ -163,3 +163,18 @@ REFERENCES alumno(curp)
 ON DELETE CASCADE
 ON UPDATE CASCADE
 );
+
+INSERT INTO rol (id_rol, rol)
+VALUES (1, "administrador");
+
+INSERT INTO rol (id_rol, rol)
+VALUES (2, "recepcionista");
+
+INSERT INTO rol (id_rol, rol)
+VALUES (3, "alumno");
+
+INSERT INTO usuario (email, pass, rol_id)
+VALUES ("admin@hotmail.com", "6eeafaef013319822a1f30407a5353f778b59790", 1);
+
+INSERT INTO usuario (email, pass, rol_id)
+VALUES ("recepcionista@hotmail.com", "6eeafaef013319822a1f30407a5353f778b59790", 2);
