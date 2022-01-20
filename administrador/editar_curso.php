@@ -144,7 +144,7 @@
                         <h1 class="font-weight-bold mb-3 ">Editar datos del curso</h1>
                     </div>
                     <div class="card-body">
-                        <form action="../recepcionista/controller/Curso_update.php" method="POST"
+                        <form action="controller/Curso_update.php" method="POST"
                             enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="txtclave">Clave:<span class="text-danger" id="marca">*</span></label>
@@ -184,8 +184,13 @@
                             <div class="form-group">
                                 <label for="exampleInputPeriodo">Período de pago:<span
                                         class="text-danger" id="marca">*</span></label>
-                                <input pattern="[A-Za-z ]+" type="text" class="form-control" id="bord" name="txtperiodo" id="idperioso" value = "<?php echo $periodo_pago?>"
-                                    placeholder="Ingresa el periodo de pago" required>
+                                <select id="" name="txtperiodo" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                    <option value="" selected="true" disabled="disabled">Seleccione periodo de pago</option>
+                                    <option value="POR DIA">POR DIA</option>
+                                    <option value="SEMANAL">SEMANAL</option>
+                                    <option value="MENSUAL">MENSUAL</option>
+                                    <option value="ANUAL">ANUAL</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="txtCoste">Coste:<span class="text-danger" id="marca">*</span></label>
@@ -197,7 +202,7 @@
                                    class="btn btn-warning font-weight-bold" id="reg">Editar Curso</button>
                             <button type="reset" name="accion" value="restaurar"
                                     class="btn font-weight-bold" id="rest">Restaurar</button>
-                            <a class="btn font-weight-bold" id="btn"
+                            <a class="btn btn-danger font-weight-bold" id="btn"
                                     href="tabla_curso.php">Cancelar</a>
                             
                         </form>
