@@ -165,7 +165,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card " id="contorno">
+                <div class="card ">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3">Editar datos del Alumno</h1>
                     </div>
@@ -175,7 +175,7 @@
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">CURP:<span class="text-danger">*</span></label>
-                                    <input type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp" value="<?php echo $curp ?>">
+                                    <input type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp" value="<?php echo $curp ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 
                                 </div>
                                 <span>
@@ -185,23 +185,23 @@
                                 </span>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Nombre: <span class="text-danger">*</span></label>
-                                    <input type="text" name="nombre" class="form-control" id="ing" value="<?php echo $nombre ?>" placeholder="Ingrese su nombre">
+                                    <input type="text" name="nombre" class="form-control" id="ing" value="<?php echo $nombre ?>" placeholder="Ingrese su nombre" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Apellido paterno: <span class="text-danger">*</span></label>
-                                    <input type="text" name="apellido_p" class="form-control" id="ing" value="<?php echo $apellido_p ?>" placeholder="Ingrese apellido paterno">
+                                    <input type="text" name="apellido_p" class="form-control" id="ing" value="<?php echo $apellido_p ?>" placeholder="Ingrese apellido paterno" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Apellido materno: <span class="text-danger">*</span></label>
-                                    <input type="text" name="apellido_m" class="form-control" id="ing" value="<?php echo $apellido_m ?>" placeholder="Ingrese apellido materno">
+                                    <input type="text" name="apellido_m" class="form-control" id="ing" value="<?php echo $apellido_m ?>" placeholder="Ingrese apellido materno" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Fecha de nacimiento: <span class="text-danger">*</span></label>
-                                    <input type="date" name="fecha_nac" class="form-control" id="ing" value="<?php echo $fecha_nac ?>" placeholder="Ingrese su fecha de nacimiento">
+                                    <input type="date" name="fecha_nac" class="form-control" id="ing" value="<?php echo $fecha_nac ?>" placeholder="Ingrese su fecha de nacimiento" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Edad: <span class="text-danger">*</span></label>
-                                    <input type="text" name="edad" class="form-control" id="ing" value="<?php echo $edad ?>" placeholder="Ingrese su edad">
+                                    <input type="text" name="edad" class="form-control" id="ing" value="<?php echo $edad ?>" placeholder="Ingrese su edad" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6 mt-4">
                                     <label class="font-weight-bold ">Género: <span class="text-danger">*</span></label>
@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Medio: <span class="text-danger">*</span></label>
-                                    <select name="medio" class="custom-select" id="medio" value="<?php echo $medio ?>">
+                                    <select name="medio" class="custom-select" id="medio" value="<?php echo $medio ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                         <option selected="true" disabled="disabled">Seleccione</option>
                                         <option value="Redes Sociales"
                                         <?php if ($medio=='Redes Sociales') { ?> selected <?php } ?>>Redes Sociales</option>
@@ -229,23 +229,23 @@
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Teléfono: <span class="text-danger">*</span></label>
-                                    <input type="text" name="telefono" class="form-control" id="ing" value="<?php echo $telefono ?>" placeholder="Ingrese su número de teléfono">
+                                    <input type="text" name="telefono" class="form-control" id="ing" value="<?php echo $telefono ?>" placeholder="Ingrese su número de teléfono" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Calle: <span class="text-danger">*</span></label>
-                                    <input type="text" name="calle" class="form-control" id="ing" value="<?php echo $calle ?>" placeholder="Ingrese su calle">
+                                    <input type="text" name="calle" class="form-control" id="ing" value="<?php echo $calle ?>" placeholder="Ingrese su calle" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Colonia: <span class="text-danger">*</span></label>
-                                    <input type="text" name="colonia" class="form-control" id="ing" value="<?php echo $colonia ?>" placeholder="Ingrese su colonia">
+                                    <input type="text" name="colonia" class="form-control" id="ing" value="<?php echo $colonia ?>" placeholder="Ingrese su colonia" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Municipio: <span class="text-danger">*</span></label>
-                                    <input type="text" name="municipio" class="form-control" id="ing" value="<?php echo $municipio ?>" placeholder="Ingrese su municipio">
+                                    <input type="text" name="municipio" class="form-control" id="ing" value="<?php echo $municipio ?>" placeholder="Ingrese su municipio" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">CP:<span class="text-danger">*</span></label>
-                                    <input type="text" name="cp" class="form-control" id="ing" value="<?php echo $cp ?>" placeholder="Ingrese su código postal">
+                                    <input type="text" name="cp" class="form-control" id="ing" value="<?php echo $cp ?>" placeholder="Ingrese su código postal" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                             </div>
                             <!--Datos de salud-->
@@ -263,7 +263,7 @@
                                 </div><br>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Seleccione el tipo de servicio médico:<span class="text-danger">*</span></label>
-                                    <select name="servicio" class="custom-select" id="servicio">
+                                    <select name="servicio" class="custom-select" id="servicio" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                         <option selected="true" disabled="disabled">Seleccione</option>
                                         <option value="IMSS"
                                     <?php if ($servicio=='IMSS') { ?> selected <?php } ?>>IMSS</option>
@@ -277,7 +277,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">No. de seguridad social:</label>
-                                    <input type="text" name="num_seguridad" id="num_seguridad" class="form-control" value="<?php echo $num_seguridad ?>" placeholder="Ingresa tu número de seguridad social">
+                                    <input type="text" name="num_seguridad" id="num_seguridad" class="form-control" value="<?php echo $num_seguridad ?>" placeholder="Ingresa tu número de seguridad social" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold ">¿Cómo considera su estado de salud?<span class="text-danger">*</span></label>
@@ -318,7 +318,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Observaciones generales:</label>
-                                    <input type="text" name="observaciones" id="observaciones" class="form-control" value="<?php echo $observaciones ?>" placeholder="Ingresa observaciones en caso de tenerlas">
+                                    <input type="text" name="observaciones" id="observaciones" class="form-control" value="<?php echo $observaciones ?>" placeholder="Ingresa observaciones en caso de tenerlas" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                             </div>
 
@@ -327,11 +327,11 @@
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Correo electrónico <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" id="email" class="form-control" value="<?php echo $email ?>" placeholder="Ingresa tu correo electrónico">
+                                    <input type="email" name="email" id="email" class="form-control" value="<?php echo $email ?>" placeholder="Ingresa tu correo electrónico" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Contraseña <span class="text-danger">*</span></label>
-                                    <input type="password" name="pass" id="pass" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña">
+                                    <input type="password" name="pass" id="pass" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                             </div>
                                 <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-primary" style="width:90px">Editar</button>

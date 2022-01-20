@@ -163,7 +163,7 @@ if (!$resultado2) {
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card " id="contorno">
+                <div class="card">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3">Editar datos del Alumno</h1>
                     </div>
@@ -173,7 +173,7 @@ if (!$resultado2) {
                             <div class="form-row mb-2">
                                     <div class="form-group col-md-6">
                                     <label class="font-weight-bold">CURP:<span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp" value="<?php echo $curp ?>">
+                                    <input disabled type="text" name="curp" class="form-control" id="ing" placeholder="Ingrese curp" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" value="<?php echo $curp ?>">
 
                                 </div>
                                 <span>
@@ -182,23 +182,23 @@ if (!$resultado2) {
                                 </span>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Nombre: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="nombre" class="form-control" id="ing" value="<?php echo $nombre ?>" placeholder="Ingrese su nombre">
+                                    <input disabled type="text" name="nombre" class="form-control" id="ing" value="<?php echo $nombre ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" placeholder="Ingrese su nombre">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Apellido paterno: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="apellido_p" class="form-control" id="ing" value="<?php echo $apellido_p ?>" placeholder="Ingrese apellido paterno">
+                                    <input disabled type="text" name="apellido_p" class="form-control" id="ing" value="<?php echo $apellido_p ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" placeholder="Ingrese apellido paterno">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Apellido materno: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="apellido_m" class="form-control" id="ing" value="<?php echo $apellido_m ?>" placeholder="Ingrese apellido materno">
+                                    <input disabled type="text" name="apellido_m" class="form-control" id="ing" value="<?php echo $apellido_m ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" placeholder="Ingrese apellido materno">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Fecha de nacimiento: <span class="text-danger">*</span></label>
-                                    <input disabled type="date" name="fecha_nac" class="form-control" id="ing" value="<?php echo $fecha_nac ?>" placeholder="Ingrese su fecha de nacimiento">
+                                    <input disabled type="date" name="fecha_nac" class="form-control" id="ing" value="<?php echo $fecha_nac ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" placeholder="Ingrese su fecha de nacimiento">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Edad: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="edad" class="form-control" id="ing" value="<?php echo $edad ?>" placeholder="Ingrese su edad">
+                                    <input disabled type="text" name="edad" class="form-control" id="ing" value="<?php echo $edad ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" placeholder="Ingrese su edad">
                                 </div>
                                 <div class="form-group col-md-6 mt-4">
                                     <label class="font-weight-bold ">Género: <span class="text-danger">*</span></label>
@@ -207,7 +207,7 @@ if (!$resultado2) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Medio: <span class="text-danger">*</span></label>
-                                    <select disabled name="medio" class="custom-select" id="medio" value="<?php echo $medio ?>">
+                                    <select disabled name="medio" class="custom-select" id="medio" value="<?php echo $medio ?>" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                         <option selected="true" disabled="disabled">Seleccione</option>
                                         <option value="Redes Sociales" <?php if ($medio == 'Redes Sociales') { ?> selected <?php } ?>>Redes Sociales</option>
                                         <option value="Promotor" <?php if ($medio == 'Promotor') { ?> selected <?php } ?>>Promotor</option>
@@ -221,23 +221,23 @@ if (!$resultado2) {
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Teléfono: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="telefono" class="form-control" id="ing" value="<?php echo $telefono ?>" placeholder="Ingrese su número de teléfono">
+                                    <input disabled type="text" name="telefono" class="form-control" id="ing" value="<?php echo $telefono ?>" placeholder="Ingrese su número de teléfono" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Calle: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="calle" class="form-control" id="ing" value="<?php echo $calle ?>" placeholder="Ingrese su calle">
+                                    <input disabled type="text" name="calle" class="form-control" id="ing" value="<?php echo $calle ?>" placeholder="Ingrese su calle" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Colonia: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="colonia" class="form-control" id="ing" value="<?php echo $colonia ?>" placeholder="Ingrese su colonia">
+                                    <input disabled type="text" name="colonia" class="form-control" id="ing" value="<?php echo $colonia ?>" placeholder="Ingrese su colonia" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Municipio: <span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="municipio" class="form-control" id="ing" value="<?php echo $municipio ?>" placeholder="Ingrese su municipio">
+                                    <input disabled type="text" name="municipio" class="form-control" id="ing" value="<?php echo $municipio ?>" placeholder="Ingrese su municipio" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">CP:<span class="text-danger">*</span></label>
-                                    <input disabled type="text" name="cp" class="form-control" id="ing" value="<?php echo $cp ?>" placeholder="Ingrese su código postal">
+                                    <input disabled type="text" name="cp" class="form-control" id="ing" value="<?php echo $cp ?>" placeholder="Ingrese su código postal" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                             </div>
                             <!--Datos de salud-->
@@ -251,8 +251,8 @@ if (!$resultado2) {
                                 </div><br>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Seleccione el tipo de servicio médico:<span class="text-danger">*</span></label>
-                                    <select disabled name="servicio" class="custom-select" id="servicio">
-                                        <option selected="true" disabled="disabled">Seleccione</option>
+                                    <select disabled name="servicio" class="custom-select" id="servicio" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
+                                        <option selected="true" disabled="disabled" >Seleccione</option>
                                         <option value="IMSS" <?php if ($servicio == 'IMSS') { ?> selected <?php } ?>>IMSS</option>
                                         <option value="ISSTE" <?php if ($servicio == 'ISSTE') { ?> selected <?php } ?>>ISSTE</option>
                                         <option value="ISSEMYM" <?php if ($servicio == 'ISSEMYM') { ?> selected <?php } ?>>ISSEMYM</option>
@@ -261,7 +261,7 @@ if (!$resultado2) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">No. de seguridad social:</label>
-                                    <input disabled type="text" name="num_seguridad" id="num_seguridad" class="form-control" value="<?php echo $num_seguridad ?>" placeholder="Ingresa tu número de seguridad social">
+                                    <input disabled type="text" name="num_seguridad" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" id="num_seguridad" class="form-control" value="<?php echo $num_seguridad ?>" placeholder="Ingresa tu número de seguridad social">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="font-weight-bold ">¿Cómo considera su estado de salud?<span class="text-danger">*</span></label>
@@ -292,7 +292,7 @@ if (!$resultado2) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Observaciones generales:</label>
-                                    <input disabled type="text" name="observaciones" id="observaciones" class="form-control" value="<?php echo $observaciones ?>" placeholder="Ingresa observaciones en caso de tenerlas">
+                                    <input disabled type="text" name="observaciones" id="observaciones" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" class="form-control" value="<?php echo $observaciones ?>" placeholder="Ingresa observaciones en caso de tenerlas">
                                 </div>
                             </div>
 
@@ -301,11 +301,11 @@ if (!$resultado2) {
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Correo electrónico <span class="text-danger">*</span></label>
-                                    <input disabled type="email" name="email" id="email" class="form-control" value="<?php echo $email ?>" placeholder="Ingresa tu correo electrónico">
+                                    <input disabled type="email" name="email" id="email" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" class="form-control" value="<?php echo $email ?>" placeholder="Ingresa tu correo electrónico">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Contraseña <span class="text-danger">*</span></label>
-                                    <input type="password" name="pass" id="pass" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña">
+                                    <input type="password" name="pass" id="pass" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña">
                                 </div>
                             <div>
                             <br>
