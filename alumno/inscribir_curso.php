@@ -150,7 +150,7 @@
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="controllers/Inscribir_curso.php?clave=<?php echo $fila['clave']?>" class="btn btn-success">
+                                            <a href="controllers/Inscribir_curso.php?clave=<?php echo $fila['clave']?>" class="btn btn-success font-weight-bold center" id="btn">
                                                 INSCRIBIR
                                             </a>
                                         </td>

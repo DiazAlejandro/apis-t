@@ -41,7 +41,7 @@
     <title>Registro de pagos</title>
 </head>
 
-<body id="fondo " onload="initElement();">
+<body id="fondo" onload="initElement();">
     <!-- Barra de navegación-->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
