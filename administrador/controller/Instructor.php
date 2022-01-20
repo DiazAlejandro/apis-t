@@ -1,6 +1,5 @@
 <?php
     include("../../connect/conectar.php");
-    include("../registro_instructor.php");
     //Datos del Instructor 
     $nombre = $_POST['nombre'];
     $apellido_p = $_POST['apellido_p'];
@@ -20,7 +19,7 @@
             </script>";
     }else{
         $sqlInstructor = "INSERT INTO instructor (curp, nombre, apellido_p, apellido_m, telefono, correo_electronico) 
-                    VALUES ('$curp', '$nombre', '$apellido_m', '$apellido_p', '$telefono', '$email')";
+                    VALUES ('$curp', '$nombre', '$apellido_p', '$apellido_m', '$telefono', '$email')";
 
     if (mysqli_query($conexion,$sqlInstructor)){
         $messaget = "INSTRUCTOR AGREGADO CORRECTAMENTE";

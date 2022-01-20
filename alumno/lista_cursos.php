@@ -1,22 +1,22 @@
-<!--Lista de cursos inscritos -->
 <?php
-session_start();
-if (!isset($_SESSION['rol'])) {
-    header('location: login.php');
-} else {
-    if ($_SESSION['rol'] != 3) {
-        header('location: /apis-t/login.php');
+    session_start();
+    if (!isset($_SESSION['rol'])) {
+        header('location: login.php');
+    } else {
+        if ($_SESSION['rol'] != 3) {
+            header('location: login.php');
+        }
     }
-}
-if (isset($_GET['curp'])) {
-    $curp = $_GET['curp'];
-}
-include("../connect/conectar.php");
-$resultado = mysqli_query($conexion, "SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
-if (!$resultado) {
-    echo 'No se pudo ejecutar la consulta: ';
-    exit;
-}
+    include("../connect/conectar.php");
+    if (isset($_GET['curp'])) {
+        $curp = $_GET['curp'];
+    }
+    
+    $resultado = mysqli_query($conexion, "SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ';
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

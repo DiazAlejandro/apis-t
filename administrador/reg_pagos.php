@@ -109,7 +109,7 @@
                         <h1 class="font-weight-bold mb-3 ">Registrar pago</h1>
                     </div>
                     <div class="card-body">
-                        <form action="../recepcionista/controller/Pago.php" method="POST" enctype="multipart/form-data">
+                        <form action="controller/Pago.php" method="POST" enctype="multipart/form-data">
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label for="txtfolio" class="font-weight-bold">Folio:<span class="text-danger" id="marca">*</span></label>
