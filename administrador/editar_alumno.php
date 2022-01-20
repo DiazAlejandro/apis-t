@@ -335,7 +335,7 @@
                                 </div>
                             </div>
                                 <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-primary" style="width:90px">Editar</button>
-                                <a class="btn font-weight-bold btn-danger" id="btn" href="perfil_alumno.php?curp=<?php echo $curp ?>">Cancelar</a>
+                                <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_alumno.php">Cancelar</a>
                         
                         </form>
                     </div>

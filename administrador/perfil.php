@@ -309,7 +309,7 @@ if (!$resultado2) {
                                 </div>
                             <div>
                             <br>
-                            <a href="editar_datos.php?curp=<?php echo $curp ?>" class="btn btn-success">
+                            <a href="editar_alumno.php?curp=<?php echo $curp ?>" class="btn btn-success">
                                     <i class="fa fa-edit"></i> Editar
                                 </a>   
 
