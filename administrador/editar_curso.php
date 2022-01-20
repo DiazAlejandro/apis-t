@@ -139,7 +139,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card" id="contorno">
+                <div class="card">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3 ">Editar datos del curso</h1>
                     </div>
@@ -150,16 +150,16 @@
                                 <label for="txtclave">Clave:<span class="text-danger" id="marca">*</span></label>
                                 <input type="hidden" name="old_clave" class="form-control" id="old_clave" value="<?php echo $clave?>">
                                 <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave" value = "<?php echo $clave?>"
-                                    placeholder="Ingresa la clave del curso" minlength="5" maxlength="5" required>
+                                    placeholder="Ingresa la clave del curso" minlength="5" maxlength="5" required style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                             </div>
                             <div class="form-group">
                                 <label for="txtNombre">Nombre:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" id="bord" name="txtnombre" value = "<?php echo $nombre?>"
-                                    placeholder="Ingresa el nombre del curso" required>
+                                    placeholder="Ingresa el nombre del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtAsesor">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
-                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" required>
+                                <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                     <option value="<?php echo $instructor_curp?>" selected><?php echo $nombre_instructor.' '.$apellido_p.' '.$apellido_m?> </option>
                                     <?php
                                     if (mysqli_num_rows($instructores) > 0) {
@@ -175,11 +175,11 @@
                             <div class="form-group">
                                 <label for="txtDuracion">Duración:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Za-z0-9 ]+" type="text" class="form-control" id="bord" name="txtduracion" value = "<?php echo $duracion?>"
-                                    placeholder="Ingresa la duración del curso" required>
+                                    placeholder="Ingresa la duración del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
                             <div class="form-group">
                                 <label for="timeHora">Hora:<span class="text-danger" id="marca">*</span></label>
-                                <input type="time" class="form-control" id="bord" name="timehora" id="idhora" value = "<?php echo $hora?>" required>
+                                <input type="time" class="form-control" id="bord" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value = "<?php echo $hora?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPeriodo">Período de pago:<span
@@ -195,7 +195,7 @@
                             <div class="form-group">
                                 <label for="txtCoste">Coste:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[0-9]+" type="number" class="form-control" id="bord" name="txtcoste" value = "<?php echo $costo?>"
-                                    placeholder="Ingresa el costo del curso" required>
+                                    placeholder="Ingresa el costo del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 
