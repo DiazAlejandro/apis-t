@@ -52,10 +52,10 @@ var data = [{
 }];
 
 var layout = {
-  height: 450,
-  width: 600
+  title: 'Género',
+  font: {size: 13}
 };
-
-Plotly.newPlot('graficaBarras', data, layout);
+var config = {responsive: true}
+Plotly.newPlot('graficaBarras', data, layout, config);
 
 </script>

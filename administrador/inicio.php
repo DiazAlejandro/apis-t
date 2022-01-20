@@ -106,11 +106,9 @@ if (!isset($_SESSION['rol'])) {
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3>Género</h3>
                         <div id="carga_lineal"></div>
                     </div>
                     <div class="col-sm-6">
-                        <h3>Pagos</h3>
                         <div id="carga_barras"></div>
                     </div>
                 </div>

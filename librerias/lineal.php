@@ -55,6 +55,10 @@
     };*/
 
     var data = [trace1, trace2];
-
-    Plotly.newPlot('grafica_lineal', data);
+    var layout = {
+        title: 'Género',
+        font: {size: 13}
+    };
+    var config = {responsive: true}
+    Plotly.newPlot('grafica_lineal', data, layout, config);
 </script>
