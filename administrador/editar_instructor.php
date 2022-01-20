@@ -124,7 +124,7 @@
                         <h1 class="font-weight-bold mb-3">Editar datos del instructor</h1>
                     </div>
                     <div class="card-body">
-                        <form action="../recepcionista/controller/Instructor_update.php" method="post">
+                        <form action="controller/Instructor_update.php" method="post">
                             <div class="form-group">
                                 <label>CURP:<span class="text-danger" id="marca">*</span></label>
                                 <input type="text" name="curp" class="form-control" id="curp" value="<?php echo $curp?>">
