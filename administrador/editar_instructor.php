@@ -119,7 +119,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <br><br><br>
-                <div class="card " id="contorno">
+                <div class="card ">
                     <div class="card-header" id="cabeza">
                         <h1 class="font-weight-bold mb-3">Editar datos del instructor</h1>
                     </div>
@@ -127,41 +127,41 @@
                         <form action="controller/Instructor_update.php" method="post">
                             <div class="form-group">
                                 <label>CURP:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="curp" class="form-control" id="curp" value="<?php echo $curp?>">
+                                <input type="text" name="curp" class="form-control" id="curp" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" value="<?php echo $curp?>">
                                 <input type="hidden" name="old_curp" class="form-control" id="old_curp" value="<?php echo $curp?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="txtclave">Nombre:<span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" value = "<?php echo $nombre?>">
+                                <input type="text" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="nombre" class="form-control" id="nombre" value = "<?php echo $nombre?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Apellido paterno: <span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="apellido_p" class="form-control" id="apellido_p"
+                                <input type="text" name="apellido_p" class="form-control" id="apellido_p" style="border: black 1px solid; box-shadow: 0px 10px 10px black;"
                                 value = "<?php echo $apellido_p?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Apellido materno: <span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="apellido_m" class="form-control" id="apellido_m"
+                                <input type="text" name="apellido_m" class="form-control" id="apellido_m" style="border: black 1px solid; box-shadow: 0px 10px 10px black;"
                                 value = "<?php echo $apellido_m?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Teléfono: <span class="text-danger" id="marca">*</span></label>
-                                <input type="text" name="telefono" class="form-control" id="telefono"
+                                <input type="text" name="telefono" class="form-control" id="telefono" style="border: black 1px solid; box-shadow: 0px 10px 10px black;"
                                 value = "<?php echo $telefono?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Correo electrónico <span class="text-danger" id="marca">*</span></label>
-                                <input type="email" name="email" class="form-control" id="email" 
+                                <input type="email" name="email" class="form-control" id="email"  style="border: black 1px solid; box-shadow: 0px 10px 10px black;"
                                 value = "<?php echo $correo?>">
                             </div>
 
                             <br>
-                            <button type="submit" name="accion" value="enviar" id="reg"
+                            <button type="submit" name="accion" value="enviar" id="btn"
                             class="btn btn-warning font-weight-bold" >Editar</button>
                             <a class="btn font-weight-bold" id="btn"
                                     href="tabla_instructor.php">Cancelar</a>
