@@ -6,6 +6,7 @@
     $hora = (isset($_POST['timehora']))?$_POST['timehora']:"";
     $concepto = (isset($_POST['txtconcepto']))?$_POST['txtconcepto']:"";
     $alumno_curp = (isset($_POST['txtasesor']))?$_POST['txtasesor']:"";
+    $efectivo = (isset($_POST['txtefectivo']))?$_POST['txtefectivo']:"";
     
     $consultaExiste = "SELECT * FROM pago WHERE folio='$folio'";
     $resultadoExiste = mysqli_query($conexion, $consultaExiste);
@@ -17,8 +18,8 @@
                 window.location.href = '../reg_pagos.php';
             </script>";
     }else{
-        $sqlPago = "INSERT INTO pago (folio,fecha,hora,concepto,alumno_curp) 
-                    VALUES ('$folio','$fecha','$hora','$concepto','$alumno_curp')";
+        $sqlPago = "INSERT INTO pago (folio,fecha,hora,concepto,efectivo,alumno_curp) 
+                    VALUES ('$folio','$fecha','$hora','$concepto','$efectivo','$alumno_curp')";
 
         if (mysqli_query($conexion,$sqlPago)){
             $estado = (isset($_POST['txtEstado']))?$_POST['txtEstado']:"";
@@ -39,7 +40,7 @@
         }else{
             $messagec = "NO SE AGREGÓ EL PAGO";
             echo "<script type='text/javascript'>
-                    alert('$messagec');
+                    alert('$messaget');
                     window.location.href = '../reg_pagos.php';
                 </script>";
     }

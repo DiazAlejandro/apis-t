@@ -41,7 +41,7 @@
     <title>Registro de pagos</title>
 </head>
 
-<body id="fondo">
+<body id="fondo " onload="initElement();">
     <!-- Barra de navegación-->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -123,13 +123,36 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
-                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value="<?php date_default_timezone_set('America/Mexico_City');  echo date("h:i:s a");?>" readonly>
+                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value="<?php date_default_timezone_set('America/Mexico_City');  echo date("h:i:s");?>" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
                                     <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtconcepto"
-                                        placeholder="Ingresa el concepto del pago" required>
+                                        placeholder="Ingresa el concepto del pago" id="concepto" required>
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtEfectivo" class="font-weight-bold">Efectivo:<span class="text-danger" id="marca">*</span></label>
+                                    <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtefectivo"
+                                        placeholder="Ingresa el monto a pagar" id="efectivo" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtCambio" class="font-weight-bold">Cambio:<span class="text-danger" id="marca">*</span></label>
+                                    <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtCambio"
+                                        placeholder="Su cambio es" id="cambio" disabled="disabled" required>
+                                </div>
+                                
+                                <script type="text/javascript">
+                                    var efectivo = null;
+                                    function initElement(){
+                                    efectivo = document.getElementById("efectivo");
+                                    efectivo.onblur = doEvent;
+                                    }
+                                    function doEvent(){
+                                        concepto = document.getElementById("concepto").value;
+                                        document.getElementById("cambio").value = efectivo.value - concepto;
+                                    }                               
+                                </script>
+
                                 <div class="form-group col-md-6">
                                     Alumno seleccionado <span style="font-weight: bold;" id="alumno_sel"></span>
                                     <br>

@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS pago(
   fecha DATE NOT NULL,
   hora TIME NOT NULL,
   concepto FLOAT NOT NULL,
+  efectivo FLOAT NOT NULL,
   alumno_curp VARCHAR(18) NOT NULL,
   FOREIGN KEY (alumno_curp)
 REFERENCES alumno(curp)

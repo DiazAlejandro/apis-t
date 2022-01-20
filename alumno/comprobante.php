@@ -14,6 +14,8 @@
     if (isset($_GET['folio'])){   
         $folio = $_GET['folio'];
     }
+    
+date_default_timezone_set('America/Mexico_City');
 
 $pago = mysqli_query($conexion, "SELECT * FROM pago WHERE folio = '$folio'");
 if (!$pago) {
@@ -25,6 +27,8 @@ if (!$pago) {
     $fecha= $fila['fecha'];
     $hora = $fila['hora'];
     $concepto = $fila['concepto'];
+    $efectivo = $fila['efectivo'];
+    $cambio =  $efectivo - $concepto;
 }
 
 $alumno = mysqli_query($conexion, "SELECT * FROM alumno WHERE curp = '$curp'");
@@ -111,6 +115,18 @@ $pdf->SetFont('Arial','',14);
 $pdf->Cell(50,10,'Concepto: ',0,0);
 $pdf->SetFont('Bold','',14);
 $pdf->Cell(100,10,'$'.$concepto,0,0);
+
+$pdf->Ln(15);
+$pdf->SetFont('Arial','',14);
+$pdf->Cell(50,10,'Efectivo: ',0,0);
+$pdf->SetFont('Bold','',14);
+$pdf->Cell(100,10,'$'.$efectivo,0,0);
+
+$pdf->Ln(15);
+$pdf->SetFont('Arial','',14);
+$pdf->Cell(50,10,'Cambio: ',0,0);
+$pdf->SetFont('Bold','',14);
+$pdf->Cell(100,10,'$'.$cambio,0,0);
 
 $pdf->Ln(15);
 $pdf->SetFont('Arial','',14);
