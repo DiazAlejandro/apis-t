@@ -56,7 +56,7 @@
 
     var data = [trace1, trace2];
     var layout = {
-        title: 'Género',
+        title: 'Ingresos',
         font: {size: 13}
     };
     var config = {responsive: true}
