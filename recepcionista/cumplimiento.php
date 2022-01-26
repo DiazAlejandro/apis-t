@@ -7,14 +7,22 @@
             header('location: /apis-t/login.php');
         }
     }
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM curso");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
+    if (isset($_GET['curp'])) {
+        $curp = $_GET['curp'];
+        
     }
+    $name ="";
+    if (isset($_GET['name'])) {
+        $name = $_GET['name'];
+        
+    }
+    include("../connect/conectar.php");
+    $resultado = mysqli_query($conexion,"SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
+    if (!$resultado) {
+            echo 'No se pudo ejecutar la consulta: ' ;
+            exit;
+        }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,7 +43,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Cursos registrados</title>
+    <title>Consulta de pagos</title>
 </head>
 
 <body id="fondo">
@@ -54,7 +62,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div>
+            </div> 
         </div>
     </nav>
 
@@ -91,11 +99,11 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-14">
                 <br>
                 <div class="card " >
                     <div class="card-header" id="cabeza">
-                    <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Cumplimiento</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
@@ -103,41 +111,47 @@
                             <table class="table table-dark table-sm ">
                                 <thead >
                                     <tr>
-                                        <th>Clave</th>
-                                        <th>Nombre del Curso</th>
-                                        <th>Duración</th>
-                                        <th>Coste</th>
+                                        <th>FOLIO</th>
+                                        <th>FECHA INICIO</th>
+                                        <th>FECHA FINAL</th>
+                                        <th>ALUMNO</th>
+                                        <th>CURSO</th>
+                                        <th>CUMPLIMIENTO</th>
+                                        <th>GENERAR CONSTANCIA</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
                                     <?php
-                                        if (mysqli_num_rows($resultado) > 0) {
+                                    if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
                                     <tr>
+                                        <td><?php
+                                            echo $fila['folio'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['fecha_inicio'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['fecha_fin'];
+                                        ?></td>
+                                        <td class="text-uppercase"><?php
+                                            echo $name;
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['nombre'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['cumplimiento'];
+                                        ?></td>
                                         <td>
-                                            <?php
-                                                echo $fila['clave'];
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo $fila['nombre'];
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo $fila['duracion']." SEMANA(S)";
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo "$ ".$fila['costo'];
-                                            ?>
+                                        <a href="constancia.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-info">
+                                            <i class="fas fa-print"></i></i>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php
-                                    }
+                                        }
                                     }
                                     ?>
                                 </tbody>
@@ -149,7 +163,4 @@
         </div>
     </div>
 </body>
-
 </html>
-
-

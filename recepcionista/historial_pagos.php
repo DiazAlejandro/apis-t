@@ -123,6 +123,9 @@ if (!$resultadoa) {
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
                     </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -156,6 +159,7 @@ if (!$resultadoa) {
                                             <th>Fecha</th>
                                             <th>Hora</th>
                                             <th>Concepto</th>
+                                            <th>Imprimir</th>
                                         </tr>
                                     </thead>
                                     <tbody id="t-body">
@@ -183,6 +187,12 @@ if (!$resultadoa) {
                                                         <?php
                                                                 echo $fila['concepto'];
                                                                 ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="comprobante.php?folio=<?php echo $folio?>" class="btn btn-info" >
+                                                        <i class="fas fa-print"></i></i>
+                                                        </a>
+                                                        
                                                     </td>
                                                 </tr>
                                         <?php

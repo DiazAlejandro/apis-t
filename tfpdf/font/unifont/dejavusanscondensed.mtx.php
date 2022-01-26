@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-63;
 $ut=44;
-$ttffile='C:\Users\aleja\Documents\GitHub\apis-t\tfpdf\font\unifont\DejaVuSansCondensed.ttf';
+$ttffile='..\tfpdf\font\unifont\DejaVuSansCondensed.ttf';
 $originalsize=680264;
 $fontkey='dejavu';
 ?>

@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-63;
 $ut=44;
-$ttffile='C:\Users\aleja\Documents\GitHub\apis-t\tfpdf\font\unifont\DejaVuSans-Bold.ttf';
+$ttffile='..\tfpdf\font\unifont\DejaVuSans-Bold.ttf';
 $originalsize=705684;
 $fontkey='bold';
 ?>

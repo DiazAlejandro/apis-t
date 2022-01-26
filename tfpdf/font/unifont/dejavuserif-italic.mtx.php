@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-63;
 $ut=44;
-$ttffile='C:\Users\aleja\Documents\GitHub\apis-t\tfpdf\font\unifont\DejaVuSerif-Italic.ttf';
+$ttffile='..\tfpdf\font\unifont\DejaVuSerif-Italic.ttf';
 $originalsize=345996;
 $fontkey='dejavu-italic';
 ?>

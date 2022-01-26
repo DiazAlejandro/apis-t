@@ -3,18 +3,17 @@
     if (!isset($_SESSION['rol'])) {
         header('location: login.php');
     } else {
-        if ($_SESSION['rol'] != 2) {
+        if ($_SESSION['rol'] != 1) {
             header('location: /apis-t/login.php');
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM curso");
+    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ' ;
         exit;
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,7 +34,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Cursos registrados</title>
+    <title>Consulta Pagos</title>
 </head>
 
 <body id="fondo">
@@ -54,7 +53,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div>
+            </div> 
         </div>
     </nav>
 
@@ -69,10 +68,19 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -93,9 +101,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <br>
-                <div class="card " >
+                <div class="card ">
                     <div class="card-header" id="cabeza">
-                    <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Consulta de pagos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
@@ -103,41 +111,43 @@
                             <table class="table table-dark table-sm ">
                                 <thead >
                                     <tr>
-                                        <th>Clave</th>
-                                        <th>Nombre del Curso</th>
-                                        <th>Duración</th>
-                                        <th>Coste</th>
+                                        <th>CURP</th>
+                                        <th>Nombre</th>
+                                        <th>A. Paterno</th>
+                                        <th>A. Materno</th>
+                                        <th>Estatus</th>
+                                        <th>Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
                                     <?php
-                                        if (mysqli_num_rows($resultado) > 0) {
+                                    if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
                                     <tr>
+                                        <td><?php
+                                            echo $fila['curp'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['nombre'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['apellido_p'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['apellido_m'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['estatus'];
+                                        ?></td>
                                         <td>
-                                            <?php
-                                                echo $fila['clave'];
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo $fila['nombre'];
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo $fila['duracion']." SEMANA(S)";
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo "$ ".$fila['costo'];
-                                            ?>
+                                            <a href="historial_pagos.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
+                                            <i class="fas fa-eye"></i></i>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php
-                                    }
+                                        }
                                     }
                                     ?>
                                 </tbody>
@@ -149,7 +159,4 @@
         </div>
     </div>
 </body>
-
 </html>
-
-

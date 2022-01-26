@@ -7,47 +7,34 @@
             header('location: /apis-t/login.php');
         }
     }
-
-    if (isset($_SESSION['email'])) {
-        include("../connect/conectar.php");
-        $email = $_SESSION['email'];
-        $update = "SELECT * FROM alumno WHERE email = '$email'";
-        $resultado = mysqli_query($conexion, $update);
-        $curp = '';
-        if (!$resultado) {
-            echo 'No se pudo ejecutar la consulta: ';
-            exit;
-        } else {
-            $fila = mysqli_fetch_assoc($resultado);
-
-        }
+    include("../connect/conectar.php");
+    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ' ;
+        exit;
     }
 ?>
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../css/recep.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../css/tabla_curs.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <title>Inicio - Recepcionista</title>
+
+    <title>Lista de alumnos</title>
 </head>
 
 <body id="fondo">
@@ -66,7 +53,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div>
+            </div> 
         </div>
     </nav>
 
@@ -77,7 +64,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="tabs navbar-nav">
-                    <li class="nav-item" style="border: 1px solid white">
+                <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
@@ -100,19 +87,67 @@
         </div>
     </nav>
 
-    <div class="text-left" >
-
-        <img src="../img/a.JPG" class="float-xl-end rounded" width="350" height="350" > 
-        
-        <div class="col-md-8 p-lg-10 mx-3 my-5">    
-            <h1>Bienvenida</h1><p></p>
-            <p class="lead fw-normal text-justify">Esta es la página de Inicio del Sistema de Gestión de Inscripciones del Instituto APIS-T. </p>
-            <p class="lead fw-normal text-justify">En la barra superior encontrará todas las funciones necesarias para la correcta administración de las inscripciones de los alumnos a los cursos, así como de los pagos.</p>
-            <p class="lead fw-normal text-justify">Le deseamos lo mejor y esperamos la página le sea de mucha utilidad.</p>
-            <p class="lead fw-normal text-justify">No olvide cuidarse y seguir las indicaciones para el cuidado de su salud.</p>
+    <!--Contenido-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <br>
+                <div class="card ">
+                    <div class="card-header" id="cabeza">
+                        <h1 class="font-weight-bold mb-3 bg-gray">Alumnos</h1>
+                    </div>
+                    <div class="card-body" id="cuerpo">
+                        <div class="col-md-12">
+                            <br>
+                            <table class="table table-dark table-sm ">
+                                <thead >
+                                    <tr>
+                                        <th>CURP</th>
+                                        <th>Nombre</th>
+                                        <th>A. Paterno</th>
+                                        <th>A. Materno</th>
+                                        <th>Estatus</th>
+                                        <th>Ver</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="t-body">
+                                    <?php
+                                    if (mysqli_num_rows($resultado) > 0) {
+                                        while ($fila = mysqli_fetch_assoc($resultado)) {
+                                    ?>
+                                    <tr>
+                                        <td class="text-uppercase"><?php
+                                            echo $fila['curp'];
+                                        ?></td>
+                                        <td class="text-uppercase"><?php
+                                            echo $fila['nombre'];
+                                        ?></td>
+                                        <td class="text-uppercase"><?php
+                                            echo $fila['apellido_m'];
+                                        ?></td>
+                                        <td class="text-uppercase"><?php
+                                            echo $fila['apellido_p'];
+                                        ?></td>
+                                        <td class="text-uppercase"><?php
+                                            echo $fila['estatus'];
+                                        ?></td>
+                                        <td>
+                                            <a href="cumplimiento.php?curp=<?php echo $fila['curp']?>&name=<?php echo $fila['nombre'].' '.$fila['apellido_p'].' '.$fila['apellido_m']?>" class="btn btn-success">
+                                            <i class="fas fa-eye"></i></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </body>
-
-</html> 
+</html>
