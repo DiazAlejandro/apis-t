@@ -1,19 +1,19 @@
 <?php
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion, "SELECT * FROM alumno");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ';
-        exit;
-    }
+include("../connect/conectar.php");
+$resultado = mysqli_query($conexion, "SELECT * FROM alumno");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
 
-    session_start();
-    if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
-    } else {
-        if ($_SESSION['rol'] != 1) {
-            header('location: /apis-t/login.php');
-        }
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: login.php');
+} else {
+    if ($_SESSION['rol'] != 1) {
+        header('location: /apis-t/login.php');
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -113,52 +113,66 @@
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label for="txtfolio" class="font-weight-bold">Folio:<span class="text-danger" id="marca">*</span></label>
-                                    <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfolio"
-                                        placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
+                                    <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfolio" placeholder="Ingresa el folio del pago" minlength="5" maxlength="5" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtFecha" class="font-weight-bold">Fecha:<span class="text-danger" id="marca">*</span></label>
-                                    <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfecha"
-                                        placeholder="Ingresa la fecha del pago" value="<?php echo date("Y-m-d");?>" readonly >
+                                    <input pattern="[A-Za-z0-9_- ]+" type="date" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtfecha" placeholder="Ingresa la fecha del pago" value="<?php echo date("Y-m-d"); ?>" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
-                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value="<?php date_default_timezone_set('America/Mexico_City');  echo date("h:i:s");?>" readonly>
+                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value="<?php date_default_timezone_set('America/Mexico_City');
+                                                                                                                                                                                    echo date("h:i:s"); ?>" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtConcepto" class="font-weight-bold">Concepto:<span class="text-danger" id="marca">*</span></label>
-                                    <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtconcepto"
-                                        placeholder="Ingresa el concepto del pago" id="concepto" required>
+                                    <input pattern="[0-9]+" min="0"  type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtconcepto" placeholder="Ingresa el concepto del pago" id="concepto" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEfectivo" class="font-weight-bold">Efectivo:<span class="text-danger" id="marca">*</span></label>
-                                    <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtefectivo"
-                                        placeholder="Ingresa el monto a pagar" id="efectivo" required>
+                                    <input pattern="[0-9]+" min="0" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtefectivo" placeholder="Ingresa el monto a pagar" id="efectivo" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtCambio" class="font-weight-bold">Cambio:<span class="text-danger" id="marca">*</span></label>
-                                    <input pattern="[0-9]+" type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtCambio"
-                                        placeholder="Su cambio es" id="cambio" disabled="disabled" required>
+                                    <input pattern="[0-9]+"  type="number" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="txtCambio" placeholder="Su cambio es" id="cambio" disabled="disabled" required>
                                 </div>
-                                
+
                                 <script type="text/javascript">
                                     var efectivo = null;
-                                    function initElement(){
-                                    efectivo = document.getElementById("efectivo");
-                                    efectivo.onblur = doEvent;
+
+                                    function initElement() {
+                                        efectivo = document.getElementById("efectivo");
+                                        efectivo.onblur = doEvent;
                                     }
-                                    function doEvent(){
+
+                                    function doEvent() {
                                         concepto = document.getElementById("concepto").value;
-                                        document.getElementById("cambio").value = efectivo.value - concepto;
-                                    }                               
+                                        cambio = efectivo.value - concepto;
+                                        let alert_cambio = document.getElementById("efectivo_restante");
+                                        if(cambio < 0){
+                                            
+                                            alert_cambio.setAttribute("style","display");
+                                            document.getElementById("restan").innerHTML = cambio;
+                                            document.getElementById("efectivo").value=0;
+                                        }else{
+                                            document.getElementById("cambio").value = cambio;
+                                            document.getElementById("restan").innerHTML = 0;
+                                            alert_cambio.setAttribute("style","none");
+                                        }
+                                    }
                                 </script>
 
                                 <div class="form-group col-md-6">
+                                    <div style="display:none" id="efectivo_restante">
+                                        <label class="font-weight-bold">Restan: $ </label>
+                                        <span style="font-weight: normal;" id="restan"></span>
+                                        <label class="font-weight-bold">pesos </label>
+                                    </div>
                                     Alumno seleccionado <span style="font-weight: bold;" id="alumno_sel"></span>
                                     <br>
                                     <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
                                     <select pattern="[A-Za-z0-9]+" id="curp_alumno" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
-                                    <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
+                                        <option value="" selected="true" disabled="disabled">Seleccione el nombre del alumno</option>
                                         <?php
                                         if (mysqli_num_rows($resultado) > 0) {
                                             while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -166,11 +180,11 @@
                                             }
                                         }
                                         ?>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    
+
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEstado" class="font-weight-bold">Estado:<span class="text-danger" id="marca">*</span></label>
@@ -182,50 +196,51 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtInscripcion" class="font-weight-bold">Seleccione Curso:<span class="text-danger" id="marca">*</span></label>
-                                    <select id= "inscripcion" name="txtInscripcion" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                                    <select id="inscripcion" name="txtInscripcion" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                         <option value="" selected="true" disabled="disabled">Seleccione curso</option>
                                         <!-- Agregamos la libreria Jquery -->
-                                        <script
-                                        src="https://code.jquery.com/jquery-3.6.0.min.js"
-                                        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                                        crossorigin="anonymous"></script>
+                                        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
                                         <!-- Iniciamos el segmento de codigo javascript -->
                                         <script type="text/javascript">
-                                            $(document).ready(function(){
-                                            var inscripcion = $('#inscripcion');
-                                            var alumno_sel = $('#alumno_sel');
-                                            //Ejecutar accion al cambiar de opcion en el select de las bandas
-                                            $('#curp_alumno').change(function(){
-                                            var curp = $(this).val(); //obtener el id seleccionado
-                                                
-                                            if(curp !== ''){ //verificar haber seleccionado una opcion valida
-                                                console.log(curp);
-                                                /*Inicio de llamada ajax*/
-                                                $.ajax({
-                                                data: {curp:curp}, //variables o parametros a enviar, formato => nombre_de_variable:contenido
-                                                dataType: 'html', //tipo de datos que esperamos de regreso
-                                                type: 'POST', //mandar variables como post o get
-                                                url: '/apis-t/recepcionista/controller/get_cursos.php' //url que recibe las variables
-                                                }).done(function(data){ //metodo que se ejecuta cuando ajax ha completado su ejecucion             
+                                            $(document).ready(function() {
+                                                var inscripcion = $('#inscripcion');
+                                                var alumno_sel = $('#alumno_sel');
+                                                var cod_ins = $('#cod_ins');
+                                                //Ejecutar accion al cambiar de opcion en el select de las bandas
+                                                $('#curp_alumno').change(function() {
+                                                    var curp = $(this).val(); //obtener el id seleccionado
 
-                                                inscripcion.html(data); //establecemos el contenido html de discos con la informacion que regresa ajax             
-                                                inscripcion.prop('disabled', false); //habilitar el select
+                                                    if (curp !== '') { //verificar haber seleccionado una opcion valida
+                                                        console.log(curp);
+                                                        /*Inicio de llamada ajax*/
+                                                        $.ajax({
+                                                            data: {
+                                                                curp: curp
+                                                            }, //variables o parametros a enviar, formato => nombre_de_variable:contenido
+                                                            dataType: 'html', //tipo de datos que esperamos de regreso
+                                                            type: 'POST', //mandar variables como post o get
+                                                            url: '/apis-t/recepcionista/controller/get_cursos.php' //url que recibe las variables
+                                                        }).done(function(data) { //metodo que se ejecuta cuando ajax ha completado su ejecucion             
+
+                                                            inscripcion.html(data); //establecemos el contenido html de discos con la informacion que regresa ajax             
+                                                            inscripcion.prop('disabled', false); //habilitar el select
+                                                        });
+                                                        /*fin de llamada ajax*/
+
+                                                    } else { //en caso de seleccionar una opcion no valida
+                                                        inscripcion.val(''); //seleccionar la opcion "- Seleccione -", osea como reiniciar la opcion del select
+                                                        inscripcion.prop('disabled', true); //deshabilitar el select
+                                                    }
                                                 });
-                                                /*fin de llamada ajax*/
 
-                                            }else{ //en caso de seleccionar una opcion no valida
-                                                inscripcion.val(''); //seleccionar la opcion "- Seleccione -", osea como reiniciar la opcion del select
-                                                inscripcion.prop('disabled', true); //deshabilitar el select
-                                            }    
+                                                //mostrar una leyenda con el disco seleccionado
+                                                $('#inscripcion').change(function() {
+                                                    $('#alumno_sel').html($(this).val() + ' - ' + $('#inscripcion option:selected').text());
+                                                    $('#cod_ins').html($(this).val());
+                                                });
+
                                             });
-
-                                            //mostrar una leyenda con el disco seleccionado
-                                            $('#inscripcion').change(function(){
-                                            $('#alumno_sel').html($(this).val() + ' - ' + $('#inscripcion option:selected').text());
-                                            });
-
-                                        });
                                         </script>
                                     </select>
                                 </div>
@@ -233,12 +248,17 @@
                                     <label for="txtDescripcion" class="font-weight-bold">Descripcion:<span class="text-danger" id="marca">*</span></label>
                                     <textarea name="txtdescripcion" class="form-control" placeholder="Ingrese la descripción del pago" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" rows="5" cols="50"></textarea>
                                 </div>
-                             </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold">Folio de Inscripción: </label>
+                                    <span style="font-weight: normal;" id="cod_ins" name="cod_ins"></span>
+                                </div>
+                                
+                            </div>
 
                             <br><br>
-                            <button type="submit" name="accion" value="enviar" style="width: 150px;"id="btn" class="btn btn-warning font-weight-bold" >Registrar Pago</button>
+                            <button type="submit" name="accion" value="enviar" style="width: 150px;" id="btn" class="btn btn-warning font-weight-bold">Registrar Pago</button>
                             <a class="btn font-weight-bold btn-danger" style="width: 150px;" id="btn" href="tabla_curso.php">Cancelar</a>
-                            
+
                         </form>
                     </div>
                 </div>

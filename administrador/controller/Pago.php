@@ -7,7 +7,8 @@
     $concepto = (isset($_POST['txtconcepto']))?$_POST['txtconcepto']:"";
     $alumno_curp = (isset($_POST['txtasesor']))?$_POST['txtasesor']:"";
     $efectivo = (isset($_POST['txtefectivo']))?$_POST['txtefectivo']:"";
-    
+    $folio_ins = (isset($_POST['txtInscripcion']))?$_POST['txtInscripcion']:"";
+
     $consultaExiste = "SELECT * FROM pago WHERE folio='$folio'";
     $resultadoExiste = mysqli_query($conexion, $consultaExiste);
     if (mysqli_num_rows($resultadoExiste)>0){
@@ -18,8 +19,8 @@
                 window.location.href = '../reg_pagos.php';
             </script>";
     }else{
-        $sqlPago = "INSERT INTO pago (folio,fecha,hora,concepto,efectivo,alumno_curp) 
-                    VALUES ('$folio','$fecha','$hora','$concepto','$efectivo','$alumno_curp')";
+        $sqlPago = "INSERT INTO pago (folio,fecha,hora,concepto,efectivo,alumno_curp,folio_inscripcion ) 
+                    VALUES ('$folio','$fecha','$hora','$concepto','$efectivo','$alumno_curp','$folio_ins')";
 
         if (mysqli_query($conexion,$sqlPago)){
             $estado = (isset($_POST['txtEstado']))?$_POST['txtEstado']:"";
