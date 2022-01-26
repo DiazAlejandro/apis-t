@@ -220,7 +220,7 @@ if (!isset($_SESSION['rol'])) {
                                                             }, //variables o parametros a enviar, formato => nombre_de_variable:contenido
                                                             dataType: 'html', //tipo de datos que esperamos de regreso
                                                             type: 'POST', //mandar variables como post o get
-                                                            url: '/apis-t/recepcionista/controller/get_cursos.php' //url que recibe las variables
+                                                            url: '/apis-t/administrador/controller/get_cursos.php' //url que recibe las variables
                                                         }).done(function(data) { //metodo que se ejecuta cuando ajax ha completado su ejecucion             
 
                                                             inscripcion.html(data); //establecemos el contenido html de discos con la informacion que regresa ajax             
@@ -233,16 +233,16 @@ if (!isset($_SESSION['rol'])) {
                                                         inscripcion.prop('disabled', true); //deshabilitar el select
                                                     }
                                                 });
-
+                                                
                                                 //mostrar una leyenda con el disco seleccionado
                                                 $('#inscripcion').change(function() {
                                                     $('#alumno_sel').html($(this).val() + ' - ' + $('#inscripcion option:selected').text());
                                                     $('#cod_ins').html($(this).val());
                                                 });
-
                                             });
                                         </script>
                                     </select>
+
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtDescripcion" class="font-weight-bold">Descripcion:<span class="text-danger" id="marca">*</span></label>
@@ -250,9 +250,8 @@ if (!isset($_SESSION['rol'])) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Folio de Inscripción: </label>
-                                    <span style="font-weight: normal;" id="cod_ins" name="cod_ins"></span>
+                                    <span style="font-weight: normal;" id="cod_ins" name="cod_ins"></span>       
                                 </div>
-                                
                             </div>
 
                             <br><br>

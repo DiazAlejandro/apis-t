@@ -22,4 +22,5 @@
             echo '<option value="' . $fila['folio'] . '">' . $fila['clave'] . ' '. $fila['nombre'].'</option>';
         }
     }
+    
 ?>
