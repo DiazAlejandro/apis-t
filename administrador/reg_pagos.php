@@ -168,7 +168,7 @@ if (!isset($_SESSION['rol'])) {
                                         <span style="font-weight: normal;" id="restan"></span>
                                         <label class="font-weight-bold">pesos </label>
                                     </div>
-                                    Alumno seleccionado <span style="font-weight: bold;" id="alumno_sel"></span>
+                                    
                                     <br>
                                     <label for="txtAlumno" class="font-weight-bold">Alumno:<span class="text-danger" id="marca">*</span></label>
                                     <select pattern="[A-Za-z0-9]+" id="curp_alumno" name="txtasesor" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
@@ -249,6 +249,9 @@ if (!isset($_SESSION['rol'])) {
                                     <textarea name="txtdescripcion" class="form-control" placeholder="Ingrese la descripción del pago" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" rows="5" cols="50"></textarea>
                                 </div>
                                 <div class="form-group col-md-6">
+                                    
+                                    <label class="font-weight-bold">Datos seleccionados: </label><span style="font-weight: bold;" id="alumno_sel"></span>
+                                    <br>
                                     <label class="font-weight-bold">Folio de Inscripción: </label>
                                     <span style="font-weight: normal;" id="cod_ins" name="cod_ins"></span>       
                                 </div>

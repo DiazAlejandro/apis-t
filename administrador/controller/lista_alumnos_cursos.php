@@ -69,7 +69,7 @@ if (!$resultado2) {
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Cursos Actuales</title>
+    <title>Alumnos por cursos</title>
 </head>
 
 <body id="fondo">
@@ -118,7 +118,7 @@ if (!$resultado2) {
                                 <h3 class="font-weight-bold mb-3 bg-gray">INSTRUCTOR: </h3>
                             </div>
                             <div class="col-lg-7">
-                                <h3 class="mb-3 bg-gray"><?php echo $nombre_inst?> </h3>
+                                <h3 class="font-weight-bold mb-3 bg-gray"><?php echo $nombre_inst?> </h3>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@ if (!$resultado2) {
                     <div class="card-body" id="cuerpo">
                         <?php
                         if (mysqli_num_rows($resultado) > 0) {
-                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                            
                                 ?>
                                 <div class="col-md-12">
                                     <br>
@@ -143,7 +143,9 @@ if (!$resultado2) {
                                             </tr>
                                         </thead>
                                         <tbody id="t-body">
-
+                                        <?php
+                                        while ($fila = mysqli_fetch_assoc($resultado)) {
+                                        ?>
                                             <tr>
                                                 <td>
                                                     <?php

@@ -10,7 +10,7 @@ if (!isset($_SESSION['rol'])) {
 include("../connect/conectar.php");
 $resultado = mysqli_query($conexion, "SELECT 
 curso.clave,
-curso.nombre,
+curso.nombre as nombre_curso,
 curso.duracion,
 curso.costo,
 CONCAT(instructor.nombre, ' ', instructor.apellido_p) AS nombre
@@ -141,7 +141,7 @@ if (!$resultado) {
                                                 </td>
                                                 <td>
                                                     <?php
-                                                            echo $fila['nombre'];
+                                                            echo $fila['nombre_curso'];
                                                             ?>
                                                 </td>
                                                 <td>
