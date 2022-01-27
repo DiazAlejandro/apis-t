@@ -85,8 +85,13 @@ CREATE TABLE IF NOT EXISTS pago(
   concepto FLOAT NOT NULL,
   efectivo FLOAT NOT NULL,
   alumno_curp VARCHAR(18) NOT NULL,
+  folio_inscripcion VARCHAR(5) NOT NULL,
   FOREIGN KEY (alumno_curp)
 REFERENCES alumno(curp)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+FOREIGN KEY (folio_inscripcion)
+REFERENCES inscripcion(folio)
 ON DELETE CASCADE
 ON UPDATE CASCADE
     );  
