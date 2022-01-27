@@ -162,11 +162,12 @@ if (!$resultadoa) {
                                             <th>Imprimir</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="t-body">
-                                        <?php
+                                    <?php
                                         if (mysqli_num_rows($resultado) > 0) {
                                             while ($fila = mysqli_fetch_assoc($resultado)) {
                                                 ?>
+                                    <tbody id="t-body">
+                                        
                                                 <tr>
                                                     <td>
                                                         <?php
@@ -189,7 +190,7 @@ if (!$resultadoa) {
                                                                 ?>
                                                     </td>
                                                     <td>
-                                                        <a href="comprobante.php?folio=<?php echo $folio?>" class="btn btn-info" >
+                                                        <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
                                                         <i class="fas fa-print"></i></i>
                                                         </a>
                                                         
