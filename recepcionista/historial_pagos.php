@@ -10,7 +10,16 @@
     include("../connect/conectar.php");
     if (isset($_GET['curp'])) {
         $curp = $_GET['curp'];
-        $update = "SELECT * FROM pago WHERE alumno_curp = '$curp'";
+        $update = "SELECT 
+                        pago.folio,
+                        pago.fecha,
+                        pago.hora,
+                        pago.concepto,
+                        detalle_pago.descripcion,
+                        detalle_pago.estado
+                        FROM pago INNER JOIN detalle_pago 
+                        ON pago.folio = detalle_pago.pago_folio 
+                        AND pago.alumno_curp = '$curp'";
     }
     $resultado = mysqli_query($conexion, $update);
 
@@ -37,7 +46,7 @@ if (!$resultadoa) {
     $fecha = $fila['fecha'];
     $hora = $fila['hora'];
     $concepto = $fila['concepto'];
-    $alumno_curp = $fila['alumno_curp'];
+    $alumno_curp = $curp;
 }
     $updatea = "SELECT * FROM alumno WHERE curp = '$alumno_curp'";
 
@@ -159,6 +168,8 @@ if (!$resultadoa) {
                                             <th>Fecha</th>
                                             <th>Hora</th>
                                             <th>Concepto</th>
+                                            <th>Descripción</th>
+                                            <th>Estado</th>
                                             <th>Imprimir</th>
                                         </tr>
                                     </thead>
@@ -186,7 +197,17 @@ if (!$resultadoa) {
                                                     </td>
                                                     <td>
                                                         <?php
-                                                                echo $fila['concepto'];
+                                                                echo "$".$fila['concepto'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['descripcion'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['estado'];
                                                                 ?>
                                                     </td>
                                                     <td>

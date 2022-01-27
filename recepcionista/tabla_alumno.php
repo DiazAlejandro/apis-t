@@ -1,21 +1,22 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
-    } else {
-        if ($_SESSION['rol'] != 2) {
-            header('location: /apis-t/login.php');
-        }
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: login.php');
+} else {
+    if ($_SESSION['rol'] != 2) {
+        header('location: /apis-t/login.php');
     }
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
-    }
+}
+include("../connect/conectar.php");
+$resultado = mysqli_query($conexion, "SELECT * FROM alumno");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -53,7 +54,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </nav>
 
@@ -100,12 +101,12 @@
                         <div class="col-md-12">
                             <br>
                             <table class="table table-dark table-sm ">
-                                <thead >
+                                <thead>
                                     <tr>
                                         <th>CURP</th>
-                                        <th>Nombre</th>
                                         <th>A. Paterno</th>
                                         <th>A. Materno</th>
+                                        <th>Nombre</th>
                                         <th>Telefono</th>
                                         <th>Estatus</th>
                                     </tr>
@@ -114,28 +115,29 @@
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php
-                                            echo $fila['curp'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_p'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_m'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['telefono'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['estatus'];
-                                        ?></td>
-                                    
-                                    </tr>
+                                            ?>
+                                            <tr>
+                                                <td><?php
+                                                            echo $fila['curp'];
+                                                            ?></td>
+
+                                                <td><?php
+                                                            echo $fila['apellido_p'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['apellido_m'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['nombre'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['telefono'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['estatus'];
+                                                            ?></td>
+
+                                            </tr>
                                     <?php
                                         }
                                     }
@@ -149,7 +151,5 @@
         </div>
     </div>
 </body>
+
 </html>
-
-
-

@@ -90,14 +90,14 @@
 
     <!--Contenido-->
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-12">
                 <br>
                 <div class="card " >
                     <div class="card-header" id="cabeza">
                     <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
                     </div>
-                    <div class="card-body" id="cuerpo">
+                    <div class="card-body" >
                         <div class="col-md-12">
                             <br>
                             <table class="table table-dark table-sm ">
@@ -106,7 +106,7 @@
                                         <th>Clave</th>
                                         <th>Nombre del Curso</th>
                                         <th>Duración</th>
-                                        <th>Coste</th>
+                                        <th>Costo</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">

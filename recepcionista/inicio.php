@@ -113,8 +113,5 @@ if (isset($_SESSION['email'])) {
             </div>
         </div>
     </div>
-
-
 </body>
-
 </html>
