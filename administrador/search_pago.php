@@ -1,14 +1,16 @@
 <?php
     session_start();
     if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
+        header('location: ../login.php');
     } else {
         if ($_SESSION['rol'] != 1) {
-            header('location: /apis-t/login.php');
+            header('location: ../login.php');
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM alumno");
+
+    $curp_search = $_GET['curp_search'];
+    $resultado = mysqli_query($conexion,"SELECT * FROM alumno WHERE alumno.curp LIKE '$curp_search' '%'");
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ' ;
         exit;
@@ -41,8 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-
-    <title>Consulta Pagos</title>
+    <title>Consultar Pagos</title>
 </head>
 
 <body id="fondo">
@@ -71,24 +72,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="tabs navbar-nav">
+            <ul class="tabs navbar-nav">
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -132,7 +124,7 @@
                         </form>
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm ">
+                            <table class="table table-sm" id="tb">
                                 <thead >
                                     <tr class="bg-dark text-light">
                                         <th class="border border-dark">CURP</th>
