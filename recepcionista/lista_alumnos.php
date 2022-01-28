@@ -34,7 +34,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Lista de alumnos</title>
+    <title>Cumplimiento por alumno</title>
 </head>
 
 <body id="fondo">
@@ -94,7 +94,7 @@
                 <br>
                 <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Alumnos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Cumplimiento por alumno</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">

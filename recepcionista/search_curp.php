@@ -8,8 +8,9 @@ if (!isset($_SESSION['rol'])) {
     }
 }
 include("../connect/conectar.php");
+$curp_search = $_GET['curp_search'];
 
-$resultado = mysqli_query($conexion, "SELECT * FROM alumno");
+$resultado = mysqli_query($conexion, "SELECT * FROM alumno WHERE alumno.curp LIKE '$curp_search' '%'");
 if (!$resultado) {
     echo 'No se pudo ejecutar la consulta: ';
     exit;
@@ -35,16 +36,7 @@ if (!$resultado) {
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
 
-        
     <title>Alumnos registrados</title>
 </head>
 
@@ -111,9 +103,6 @@ if (!$resultado) {
                     <div class="card-body" id="cuerpo">
                     <form action="search_curp.php" method="$_POST">
                         <div class="row">
-                            
-                                <div class="col-lg-1 align-self-lg-center">
-                                </div>
                                 <div class="col-lg-3 align-self-lg-center">
                                     <h5 class="font-weight-bold">Buscar por CURP:</h5>
                                 </div>
@@ -123,23 +112,25 @@ if (!$resultado) {
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
                                 </div>
-                                
+                                <div class="col-lg-2 align-self-lg-center">
+                                    <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_alumno.php" style="width: 150px;">Mostrar todos</a>
+                                </div>
                             
                         </div></form>
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-sm table-hover table-responsive-sm" id="tb">
+                            <table class="table table-dark table-sm ">
                                 <thead>
-                                    <tr class="bg-dark text-light">
-                                        <th class="border border-dark">CURP</th>
-                                        <th class="border border-dark">A. Paterno</th>
-                                        <th class="border border-dark">A. Materno</th>
-                                        <th class="border border-dark">Nombre</th>
-                                        <th class="border border-dark">Telefono</th>
-                                        <th class="border border-dark">Estatus</th>
+                                    <tr>
+                                        <th>CURP</th>
+                                        <th>A. Paterno</th>
+                                        <th>A. Materno</th>
+                                        <th>Nombre</th>
+                                        <th>Telefono</th>
+                                        <th>Estatus</th>
                                     </tr>
                                 </thead>
-                                <tbody class="table-dark" id="t-body">
+                                <tbody id="t-body">
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -179,16 +170,5 @@ if (!$resultado) {
         </div>
     </div>
 </body>
-<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
-<script>
-    $("#tb").bootstrapTable({
-                 pagination: true,// Si se muestra la barra de paginación
-                 pageSize: 3, // Número de filas que se muestran en una página
-                 paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
-                 pageList: [5, 10, 20],// Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
-                 formatLoadingMessage: function() {
-        return '';//Agregar un mensaje x
-    }
-    });
-</script>
+
 </html>
