@@ -101,22 +101,23 @@ if (!$resultado) {
                     </div>
 
                     <div class="card-body" id="cuerpo">
-                    <form action="search_curp.php" method="$_POST">
-                        <div class="row">
-                                <div class="col-lg-3 align-self-lg-center">
-                                    <h5 class="font-weight-bold">Buscar por CURP:</h5>
-                                </div>
-                                <div class="col-lg-5">
-                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="curp_search" placeholder="Ingrese CURP" maxlength="18" required>
-                                </div>
-                                <div class="col-lg-2 align-self-lg-center">
-                                    <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
-                                </div>
-                                <div class="col-lg-2 align-self-lg-center">
-                                    <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_alumno.php" style="width: 150px;">Mostrar todos</a>
-                                </div>
-                            
-                        </div></form>
+                        <form action="search_curp.php" method="$_POST">
+                            <div class="row">
+                                    <div class="col-lg-3 align-self-lg-center">
+                                        <h5 class="font-weight-bold">Buscar por CURP:</h5>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="curp_search" placeholder="Ingrese CURP" maxlength="18" required>
+                                    </div>
+                                    <div class="col-lg-2 align-self-lg-center">
+                                        <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
+                                    </div>
+                                    <div class="col-lg-2 align-self-lg-center">
+                                        <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_alumno.php" style="width: 150px;">Mostrar todos</a>
+                                    </div>
+                                
+                            </div>
+                        </form>
                         <div class="col-md-12">
                             <br>
                             <table class="table table-dark table-sm ">
