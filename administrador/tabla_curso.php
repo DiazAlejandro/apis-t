@@ -1,22 +1,30 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: ../login.php');
+} else {
+    if ($_SESSION['rol'] != 1) {
         header('location: ../login.php');
-    } else {
-        if ($_SESSION['rol'] != 1) {
-            header('location: ../login.php');
-        }
     }
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM curso");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
-    }
+}
+include("../connect/conectar.php");
+$resultado = mysqli_query($conexion, "SELECT 
+        curso.clave,
+        curso.nombre as nombre_curso,
+        curso.duracion,
+        curso.costo,
+        CONCAT(instructor.nombre, ' ', instructor.apellido_p) AS nombre
+        FROM curso INNER JOIN instructor 
+        ON curso.instructor_curp = instructor.curp");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -36,12 +44,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <title>Cursos registrados</title>
 </head>
@@ -110,12 +114,12 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <br>
-                <div class="card " >
+                <div class="card ">
                     <div class="card-header" id="cabeza">
-                    <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
-                        <!-- Formulario para buscar --> 
+                        <!-- Formulario para buscar -->
                         <form action="search_curso.php" method="$_POST">
                             <div class="row">
                                 <div class="col-lg-1 align-self-lg-center">
@@ -134,55 +138,67 @@
                         <div class="col-md-12">
                             <br>
                             <table class="table table-sm" id="tb">
-                                <thead >
+                                <thead>
                                     <tr class="bg-dark text-light">
                                         <th class="border border-dark">Clave</th>
                                         <th class="border border-dark">Nombre del Curso</th>
                                         <th class="border border-dark">Duración</th>
                                         <th class="border border-dark">Costo</th>
+                                        <th class="border border-dark">Instructor</th>
                                         <th class="border border-dark">Editar</th>
                                         <th class="border border-dark">Eliminar</th>
+                                        <th class="border border-dark">Listas</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-dark" id="t-body">
                                     <?php
-                                        if (mysqli_num_rows($resultado) > 0) {
+                                    if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <?php
-                                                echo $fila['clave'];
                                             ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo $fila['nombre'];
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo $fila['duracion']." SEMANA(S)";
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                echo "$ ".$fila['costo'];
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <a href="editar_curso.php?clave=<?php echo $fila['clave']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a> 
-                                        </td>
-                                        <td>
-                                            <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave']?>" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            <tr>
+                                                <td>
+                                                    <?php
+                                                            echo $fila['clave'];
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                            echo $fila['nombre_curso'];
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                            echo $fila['duracion'] . " SEMANA(S)";
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                            echo "$ " . $fila['costo'];
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                            echo $fila['nombre'];
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <a href="editar_curso.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-secondary">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-danger">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a target="_blank" href="controller/lista_alumnos_cursos.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-info">
+                                                        <i class="fa fa-list"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                     <?php
-                                    }
+                                        }
                                     }
                                     ?>
                                 </tbody>
@@ -209,6 +225,5 @@
         }
     });
 </script>
+
 </html>
-
-
