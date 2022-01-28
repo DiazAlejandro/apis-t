@@ -8,7 +8,8 @@ if (!isset($_SESSION['rol'])) {
     }
 }
 include("../connect/conectar.php");
-$resultado = mysqli_query($conexion, "SELECT * FROM alumno");
+$curp_search = $_GET['curp_search'];
+$resultado = mysqli_query($conexion, "SELECT * FROM alumno WHERE alumno.curp LIKE '$curp_search' '%'");
 if (!$resultado) {
     echo 'No se pudo ejecutar la consulta: ';
     exit;
