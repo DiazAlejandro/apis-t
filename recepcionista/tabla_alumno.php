@@ -35,16 +35,12 @@ if (!$resultado) {
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
 
-        
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
     <title>Alumnos registrados</title>
 </head>
 
@@ -109,9 +105,9 @@ if (!$resultado) {
                     </div>
 
                     <div class="card-body" id="cuerpo">
-                    <form action="search_curp.php" method="$_POST">
-                        <div class="row">
-                            
+                        <!-- Formulario para buscar --> 
+                        <form action="search_curp.php" method="$_POST">
+                            <div class="row">
                                 <div class="col-lg-1 align-self-lg-center">
                                 </div>
                                 <div class="col-lg-3 align-self-lg-center">
@@ -123,9 +119,8 @@ if (!$resultado) {
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
                                 </div>
-                                
-                            
-                        </div></form>
+                            </div>
+                        </form>
                         <div class="col-md-12">
                             <br>
                             <table class="table table-sm table-hover table-responsive-sm" id="tb">
@@ -182,13 +177,14 @@ if (!$resultado) {
 <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
 <script>
     $("#tb").bootstrapTable({
-                 pagination: true,// Si se muestra la barra de paginación
-                 pageSize: 3, // Número de filas que se muestran en una página
-                 paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
-                 pageList: [5, 10, 20],// Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
-                 formatLoadingMessage: function() {
-        return '';//Agregar un mensaje x
-    }
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 3, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
     });
 </script>
+
 </html>
