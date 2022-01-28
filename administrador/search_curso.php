@@ -1,22 +1,24 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
-        header('location: ../login.php');
-    } else {
-        if ($_SESSION['rol'] != 1) {
-            header('location: /apis-t/login.php');
-        }
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: ../login.php');
+} else {
+    if ($_SESSION['rol'] != 1) {
+        header('location: /apis-t/login.php');
     }
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM curso");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
-    }
+}
+include("../connect/conectar.php");
+$curso_search = $_GET['curso_search'];
+$resultado = mysqli_query($conexion, "SELECT * FROM curso WHERE curso.nombre LIKE '$curso_search' '%'");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -36,12 +38,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <title>Cursos registrados</title>
 </head>
@@ -77,19 +75,10 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -107,19 +96,17 @@
 
     <!--Contenido-->
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row ">
             <div class="col-md-12">
                 <br>
-                <div class="card " >
+                <div class="card">
                     <div class="card-header" id="cabeza">
-                    <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
                     </div>
-                    <div class="card-body" id="cuerpo">
-                        <!-- Formulario para buscar --> 
+                    <div class="card-body">
+                        <!-- Formulario para buscar -->
                         <form action="search_curso.php" method="$_POST">
                             <div class="row">
-                                <div class="col-lg-1 align-self-lg-center">
-                                </div>
                                 <div class="col-lg-3 align-self-lg-center">
                                     <h5 class="font-weight-bold">Buscar por NOMBRE:</h5>
                                 </div>
@@ -128,6 +115,9 @@
                                 </div>
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
+                                </div>
+                                <div class="col-lg-2 align-self-lg-center">
+                                    <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_curso.php" style="width: 150px;">Mostrar todos</a>
                                 </div>
                             </div>
                         </form>
@@ -187,9 +177,6 @@
                                     ?>
                                 </tbody>
                             </table>
-                            <div>
-                                <a class="btn btn-success font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,6 +196,5 @@
         }
     });
 </script>
+
 </html>
-
-
