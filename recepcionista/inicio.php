@@ -1,27 +1,26 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: ../login.php');
+} else {
+    if ($_SESSION['rol'] != 2) {
+        header('location: ../login.php');
+    }
+}
+
+if (isset($_SESSION['email'])) {
+    include("../connect/conectar.php");
+    $email = $_SESSION['email'];
+    $update = "SELECT * FROM alumno WHERE email = '$email'";
+    $resultado = mysqli_query($conexion, $update);
+    $curp = '';
+    if (!$resultado) {
+        echo 'No se pudo ejecutar la consulta: ';
+        exit;
     } else {
-        if ($_SESSION['rol'] != 2) {
-            header('location: /apis-t/login.php');
-        }
+        $fila = mysqli_fetch_assoc($resultado);
     }
-
-    if (isset($_SESSION['email'])) {
-        include("../connect/conectar.php");
-        $email = $_SESSION['email'];
-        $update = "SELECT * FROM alumno WHERE email = '$email'";
-        $resultado = mysqli_query($conexion, $update);
-        $curp = '';
-        if (!$resultado) {
-            echo 'No se pudo ejecutar la consulta: ';
-            exit;
-        } else {
-            $fila = mysqli_fetch_assoc($resultado);
-
-        }
-    }
+}
 ?>
 
 
@@ -46,7 +45,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+
     <title>Inicio - Recepcionista</title>
 </head>
 
@@ -99,20 +98,20 @@
             </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="text-left">
 
-    <div class="text-left" >
+            <img src="../img/a.JPG" class="float-xl-end rounded" width="350" height="350">
 
-        <img src="../img/a.JPG" class="float-xl-end rounded" width="350" height="350" > 
-        
-        <div class="col-md-8 p-lg-10 mx-3 my-5">    
-            <h1>Bienvenida</h1><p></p>
-            <p class="lead fw-normal text-justify">Esta es la página de Inicio del Sistema de Gestión de Inscripciones del Instituto APIS-T. </p>
-            <p class="lead fw-normal text-justify">En la barra superior encontrará todas las funciones necesarias para la correcta administración de las inscripciones de los alumnos a los cursos, así como de los pagos.</p>
-            <p class="lead fw-normal text-justify">Le deseamos lo mejor y esperamos la página le sea de mucha utilidad.</p>
-            <p class="lead fw-normal text-justify">No olvide cuidarse y seguir las indicaciones para el cuidado de su salud.</p>
+            <div class="col-md-8 p-lg-10 mx-3 my-5">
+                <h1>Bienvenida</h1>
+                <p></p>
+                <p class="lead fw-normal text-justify">Esta es la página de Inicio del Sistema de Gestión de Inscripciones del Instituto APIS-T. </p>
+                <p class="lead fw-normal text-justify">En la barra superior encontrará todas las funciones necesarias para la correcta administración de las inscripciones de los alumnos a los cursos, así como de los pagos.</p>
+                <p class="lead fw-normal text-justify">Le deseamos lo mejor y esperamos la página le sea de mucha utilidad.</p>
+                <p class="lead fw-normal text-justify">No olvide cuidarse y seguir las indicaciones para el cuidado de su salud.</p>
+            </div>
         </div>
     </div>
-
 </body>
-
-</html> 
+</html>

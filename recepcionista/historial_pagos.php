@@ -1,16 +1,25 @@
 <?php
     session_start();
     if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
+        header('location: ../login.php');
     } else {
         if ($_SESSION['rol'] != 2) {
-            header('location: /apis-t/login.php');
+            header('location: ../login.php');
         }
     }
     include("../connect/conectar.php");
     if (isset($_GET['curp'])) {
         $curp = $_GET['curp'];
-        $update = "SELECT * FROM pago WHERE alumno_curp = '$curp'";
+        $update = "SELECT 
+                        pago.folio,
+                        pago.fecha,
+                        pago.hora,
+                        pago.concepto,
+                        detalle_pago.descripcion,
+                        detalle_pago.estado
+                        FROM pago INNER JOIN detalle_pago 
+                        ON pago.folio = detalle_pago.pago_folio 
+                        AND pago.alumno_curp = '$curp'";
     }
     $resultado = mysqli_query($conexion, $update);
 
@@ -37,7 +46,7 @@ if (!$resultadoa) {
     $fecha = $fila['fecha'];
     $hora = $fila['hora'];
     $concepto = $fila['concepto'];
-    $alumno_curp = $fila['alumno_curp'];
+    $alumno_curp = $curp;
 }
     $updatea = "SELECT * FROM alumno WHERE curp = '$alumno_curp'";
 
@@ -159,14 +168,17 @@ if (!$resultadoa) {
                                             <th>Fecha</th>
                                             <th>Hora</th>
                                             <th>Concepto</th>
+                                            <th>Descripción</th>
+                                            <th>Estado</th>
                                             <th>Imprimir</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="t-body">
-                                        <?php
+                                    <?php
                                         if (mysqli_num_rows($resultado) > 0) {
                                             while ($fila = mysqli_fetch_assoc($resultado)) {
                                                 ?>
+                                    <tbody id="t-body">
+                                        
                                                 <tr>
                                                     <td>
                                                         <?php
@@ -185,11 +197,21 @@ if (!$resultadoa) {
                                                     </td>
                                                     <td>
                                                         <?php
-                                                                echo $fila['concepto'];
+                                                                echo "$".$fila['concepto'];
                                                                 ?>
                                                     </td>
                                                     <td>
-                                                        <a href="comprobante.php?folio=<?php echo $folio?>" class="btn btn-info" >
+                                                        <?php
+                                                                echo $fila['descripcion'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['estado'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
                                                         <i class="fas fa-print"></i></i>
                                                         </a>
                                                         

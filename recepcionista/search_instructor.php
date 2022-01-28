@@ -3,25 +3,17 @@
     if (!isset($_SESSION['rol'])) {
         header('location: ../login.php');
     } else {
-        if ($_SESSION['rol'] != 1) {
+        if ($_SESSION['rol'] != 2) {
             header('location: ../login.php');
         }
     }
-    if (isset($_GET['curp'])) {
-        $curp = $_GET['curp'];
-        
-    }
-    $name ="";
-    if (isset($_GET['name'])) {
-        $name = $_GET['name'];
-        
-    }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
+    $instructor_search = $_GET['instructor_search'];
+    $resultado = mysqli_query($conexion,"SELECT * FROM instructor WHERE instructor.nombre LIKE '$instructor_search' '%'");
     if (!$resultado) {
-            echo 'No se pudo ejecutar la consulta: ' ;
-            exit;
-        }
+        echo 'No se pudo ejecutar la consulta: ' ;
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,12 +35,20 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Consulta de pagos</title>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <title>Instructores registrados</title>
 </head>
 
 <body id="fondo">
     <!-- Barra de navegación-->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg  ">
         <div class="container">
             <div class="form-group logo-img ">
                 <img src="../img/logo-header.png" width="80" height="80">
@@ -62,7 +62,7 @@
                         <a class="nav-link font-weight-bold border " href="../connect/cerrar_sesion.php" id="entrar">Cerrar sesión</a>
                     </li>
                 </ul>
-            </div> 
+            </div>
         </div>
     </nav>
 
@@ -77,19 +77,10 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -108,62 +99,67 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
+            <div class="col-md-12">
                 <br>
-                <div class="card " >
+                <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Cumplimiento</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Instructores</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
+                        <!-- Formulario para buscar --> 
+                        <form action="search_instructor.php" method="$_POST">
+                            <div class="row">
+                                <div class="col-lg-3 align-self-lg-center">
+                                    <h5 class="font-weight-bold">Buscar por NOMBRE:</h5>
+                                </div>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="instructor_search" placeholder="Ingrese NOMBRE del INSTRUCTOR" required>
+                                </div>
+                                <div class="col-lg-2 align-self-lg-center">
+                                    <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
+                                </div>
+                                <div class="col-lg-2 align-self-lg-center">
+                                    <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_instructor.php" style="width: 150px;">Mostrar todos</a>
+                                </div>
+                            </div>
+                        </form>
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm ">
+                            <table class="table table-sm" id="tb">
                                 <thead >
-                                    <tr>
-                                        <th>FOLIO</th>
-                                        <th>FECHA INICIO</th>
-                                        <th>FECHA FINAL</th>
-                                        <th>ALUMNO</th>
-                                        <th>CURSO</th>
-                                        <th>CUMPLIMIENTO</th>
-                                        <th>MARCAR CUMPLIDO</th>
-                                        <th>GENERAR CONSTANCIA</th>
+                                    <tr class="bg-dark text-light">
+                                        <th class="border border-dark">CURP</th>
+                                        <th class="border border-dark">Nombre</th>
+                                        <th class="border border-dark">A. Paterno</th>
+                                        <th class="border border-dark">A. Materno</th>
+                                        <th class="border border-dark">Telefono</th>
+                                        <th class="border border-dark">Correo electrónico</th>
                                     </tr>
                                 </thead>
-                                <tbody id="t-body">
+                                <tbody class="table-dark" id="t-body">
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
                                     <tr>
                                         <td><?php
-                                            echo $fila['folio'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['fecha_inicio'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['fecha_fin'];
-                                        ?></td>
-                                        <td class="text-uppercase"><?php
-                                            echo $name;
+                                            echo $fila['curp'];
                                         ?></td>
                                         <td><?php
                                             echo $fila['nombre'];
                                         ?></td>
                                         <td><?php
-                                            echo $fila['cumplimiento'];
+                                            echo $fila['apellido_p'];
                                         ?></td>
-                                        <td>
-                                            <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
-                                            <i class="fas fa-check"></i></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                        <a href="constancia.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-info">
-                                            <i class="fas fa-print"></i></i>
-                                            </a>
-                                        </td>
+                                        <td><?php
+                                            echo $fila['apellido_m'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['telefono'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['correo_electronico'];
+                                        ?></td>
                                     </tr>
                                     <?php
                                         }
@@ -178,4 +174,20 @@
         </div>
     </div>
 </body>
+
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script>
+    $("#tb").bootstrapTable({
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 3, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
+    });
+</script>
 </html>
+
+
+

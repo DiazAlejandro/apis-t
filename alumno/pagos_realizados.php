@@ -1,10 +1,10 @@
 <?php
     session_start();
     if (!isset($_SESSION['rol'])) {
-        header('location: login.php');
+        header('location: ../login.php');
     } else {
         if ($_SESSION['rol'] != 3) {
-            header('location: login.php');
+            header('location: ../login.php');
         }
     }
     include("../connect/conectar.php");
@@ -154,7 +154,7 @@
                                                                 ?>
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-success font-weight-bold center" id="btn" href="comprobante.php?folio=<?php echo $folio?>">Generar</a>
+                                                        <a class="btn btn-success font-weight-bold center" id="btn" href="comprobante.php?folio=<?php echo $fila['folio'];?>">Generar</a>
                                                     </td>
                                                 </tr>
                                         <?php
