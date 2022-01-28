@@ -8,7 +8,8 @@
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM instructor");
+    $instructor_search = $_GET['instructor_search'];
+    $resultado = mysqli_query($conexion,"SELECT * FROM instructor WHERE instructor.nombre LIKE '$instructor_search' '%'");
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ' ;
         exit;
@@ -108,8 +109,6 @@
                         <!-- Formulario para buscar --> 
                         <form action="search_instructor.php" method="$_POST">
                             <div class="row">
-                                <div class="col-lg-1 align-self-lg-center">
-                                </div>
                                 <div class="col-lg-3 align-self-lg-center">
                                     <h5 class="font-weight-bold">Buscar por NOMBRE:</h5>
                                 </div>
@@ -118,6 +117,9 @@
                                 </div>
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
+                                </div>
+                                <div class="col-lg-2 align-self-lg-center">
+                                    <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_instructor.php" style="width: 150px;">Mostrar todos</a>
                                 </div>
                             </div>
                         </form>
