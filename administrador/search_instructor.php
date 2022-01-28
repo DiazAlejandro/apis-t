@@ -8,7 +8,8 @@
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM instructor");
+    $instructor_search = $_GET['instructor_search'];
+    $resultado = mysqli_query($conexion,"SELECT * FROM instructor WHERE instructor.nombre LIKE '$instructor_search' '%'");
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ' ;
         exit;
@@ -76,19 +77,10 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -117,8 +109,6 @@
                         <!-- Formulario para buscar --> 
                         <form action="search_instructor.php" method="$_POST">
                             <div class="row">
-                                <div class="col-lg-1 align-self-lg-center">
-                                </div>
                                 <div class="col-lg-3 align-self-lg-center">
                                     <h5 class="font-weight-bold">Buscar por NOMBRE:</h5>
                                 </div>
@@ -127,6 +117,9 @@
                                 </div>
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
+                                </div>
+                                <div class="col-lg-2 align-self-lg-center">
+                                    <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_instructor.php" style="width: 150px;">Mostrar todos</a>
                                 </div>
                             </div>
                         </form>
@@ -186,9 +179,6 @@
                                     ?>
                                 </tbody>
                             </table>
-                            <div>
-                                <a class="btn btn-success font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
-                            </div>
                         </div>
                     </div>
                 </div>
