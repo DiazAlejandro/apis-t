@@ -125,10 +125,10 @@ if (!$resultado) {
                                 <div class="col-lg-1 align-self-lg-center">
                                 </div>
                                 <div class="col-lg-3 align-self-lg-center">
-                                    <h5 class="font-weight-bold">Buscar por NOMBRE:</h5>
+                                    <h5 class="font-weight-bold">Buscar por nombre:</h5>
                                 </div>
                                 <div class="col-lg-5">
-                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="curso_search" placeholder="Ingrese NOMBRE del CURSO" required>
+                                    <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="curso_search" placeholder="Ingrese nombre del curso" required>
                                 </div>
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
@@ -140,14 +140,14 @@ if (!$resultado) {
                             <table class="table table-sm" id="tb">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th class="border border-dark">Clave</th>
-                                        <th class="border border-dark">Nombre del Curso</th>
-                                        <th class="border border-dark">Duración</th>
-                                        <th class="border border-dark">Costo</th>
-                                        <th class="border border-dark">Instructor</th>
-                                        <th class="border border-dark">Editar</th>
-                                        <th class="border border-dark">Eliminar</th>
-                                        <th class="border border-dark">Listas</th>
+                                        <th class="border border-light">Clave</th>
+                                        <th class="border border-light">Nombre del Curso</th>
+                                        <th class="border border-light">Duración</th>
+                                        <th class="border border-light">Costo</th>
+                                        <th class="border border-light">Instructor</th>
+                                        <th class="border border-light">Editar</th>
+                                        <th class="border border-light">Eliminar</th>
+                                        <th class="border border-light">Listas</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-dark" id="t-body">
@@ -156,42 +156,42 @@ if (!$resultado) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                             ?>
                                             <tr>
-                                                <td>
+                                                <td class="border border-dark col-1">
                                                     <?php
                                                             echo $fila['clave'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="border border-dark">
                                                     <?php
                                                             echo $fila['nombre_curso'];
                                                             ?>
-                                                </td>
-                                                <td>
+                                                </td >
+                                                <td class="border border-dark">
                                                     <?php
                                                             echo $fila['duracion'] . " SEMANA(S)";
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="border border-dark col-1">
                                                     <?php
                                                             echo "$ " . $fila['costo'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="border border-dark">
                                                     <?php
                                                             echo $fila['nombre'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="border border-dark">
                                                     <a href="editar_curso.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-secondary">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 </td>
-                                                <td>
+                                                <td class="border border-dark">
                                                     <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
-                                                <td>
+                                                <td class="border border-dark">
                                                     <a target="_blank" href="controller/lista_alumnos_cursos.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-info">
                                                         <i class="fa fa-list"></i>
                                                     </a>
@@ -203,6 +203,7 @@ if (!$resultado) {
                                     ?>
                                 </tbody>
                             </table>
+                            <br><br>
                             <div>
                                 <a class="btn btn-success font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
                             </div>

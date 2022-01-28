@@ -39,8 +39,6 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
             </button>
-
-            
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="#" id="home">Home </a>

@@ -79,7 +79,7 @@
                 <div id=Login>
                     <div class="form-group apist-img">
                         <img src="img/logo-header.png">
-                    </div>
+            </div>
                     <br>
                     <h1 class="ti">Login</h1>
                     <form name="formulario" action="#" method="post" id="formulario">
