@@ -81,19 +81,10 @@ if (!$resultado) {
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
-                    </li>
-                    <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -140,12 +131,12 @@ if (!$resultado) {
                             <table class="table table-sm" id="tb">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th class="border border-dark">Clave</th>
-                                        <th class="border border-dark">Nombre del Curso</th>
-                                        <th class="border border-dark">Duración</th>
-                                        <th class="border border-dark">Costo</th>
-                                        <th class="border border-dark">Instructor</th>
-                                        <th class="border border-dark">Listas</th>
+                                        <th class="border border-dark">CLAVE</th>
+                                        <th class="border border-dark">NOMBRE DEL CURSO/th>
+                                        <th class="border border-dark">DURACIÓN</th>
+                                        <th class="border border-dark">COSTO</th>
+                                        <th class="border border-dark">INSTRUCTOR</th>
+                                        <th class="border border-dark">LISTAS</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-dark" id="t-body">
@@ -154,32 +145,32 @@ if (!$resultado) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                             ?>
                                             <tr>
-                                                <td>
+                                                <td class="col-1">
                                                     <?php
                                                             echo $fila['clave'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="col-4">
                                                     <?php
                                                             echo $fila['nombre_curso'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="col-2">
                                                     <?php
                                                             echo $fila['duracion'] . " SEMANA(S)";
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="col-1">
                                                     <?php
                                                             echo "$ " . $fila['costo'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td class="col-4">
                                                     <?php
                                                             echo $fila['nombre'];
                                                             ?>
                                                 </td>
-                                                <td>
+                                                <td style="text-align: center;">
                                                     <a target="_blank" href="controller/lista_alumnos_cursos.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-info">
                                                         <i class="fa fa-list"></i>
                                                     </a>
@@ -191,9 +182,6 @@ if (!$resultado) {
                                     ?>
                                 </tbody>
                             </table>
-                            <div>
-                                <a class="btn btn-success font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -99,7 +99,7 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-14">
+            <div class="col-md-12">
                 <br>
                 <div class="card " >
                     <div class="card-header" id="cabeza">
@@ -111,13 +111,13 @@
                             <table class="table table-dark table-sm ">
                                 <thead >
                                     <tr>
-                                        <th>FOLIO</th>
-                                        <th>FECHA INICIO</th>
-                                        <th>FECHA FINAL</th>
+                                        <th style="text-align: center;">FOLIO</th>
+                                        <th style="text-align: center;">FECHA INICIO</th>
+                                        <th style="text-align: center;">FECHA FINAL</th>
                                         <th>ALUMNO</th>
                                         <th>CURSO</th>
-                                        <th>CUMPLIMIENTO</th>
-                                        <th>GENERAR CONSTANCIA</th>
+                                        <th style="text-align: center;">CUMPLIMIENTO</th>
+                                        <th style="text-align: center;">GENERAR CONSTANCIA</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -126,25 +126,25 @@
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
                                     <tr>
-                                        <td><?php
+                                        <td class="col-1" style="text-align: center;"><?php
                                             echo $fila['folio'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="col-1" style="text-align: center;"><?php
                                             echo $fila['fecha_inicio'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="col-1" style="text-align: center;"><?php
                                             echo $fila['fecha_fin'];
                                         ?></td>
                                         <td class="text-uppercase"><?php
                                             echo $name;
                                         ?></td>
-                                        <td><?php
+                                        <td class="col-4"><?php
                                             echo $fila['nombre'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="col-1 text-uppercase" ><?php
                                             echo $fila['cumplimiento'];
                                         ?></td>
-                                        <td>
+                                        <td style="text-align: center;">
                                         <a href="constancia.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-info">
                                             <i class="fas fa-print"></i></i>
                                             </a>
