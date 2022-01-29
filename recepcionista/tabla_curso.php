@@ -125,7 +125,7 @@ if (!$resultado) {
                                 <div class="col-lg-1 align-self-lg-center">
                                 </div>
                                 <div class="col-lg-3 align-self-lg-center">
-                                    <h5 class="font-weight-bold">Buscar por NOMBRE:</h5>
+                                    <h5 class="font-weight-bold">Buscar por nombre:</h5>
                                 </div>
                                 <div class="col-lg-5">
                                     <input type="text" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="curso_search" placeholder="Ingrese NOMBRE del CURSO" required>

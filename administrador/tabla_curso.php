@@ -140,14 +140,14 @@ if (!$resultado) {
                             <table class="table table-sm" id="tb">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th class="border border-light">Clave</th>
-                                        <th class="border border-light">Nombre del Curso</th>
-                                        <th class="border border-light">Duración</th>
-                                        <th class="border border-light">Costo</th>
-                                        <th class="border border-light">Instructor</th>
-                                        <th class="border border-light">Editar</th>
-                                        <th class="border border-light">Eliminar</th>
-                                        <th class="border border-light">Listas</th>
+                                        <th class="border border-dark">Clave</th>
+                                        <th class="border border-dark">Nombre del Curso</th>
+                                        <th class="border border-dark">Duración</th>
+                                        <th class="border border-dark">Costo</th>
+                                        <th class="border border-dark">Instructor</th>
+                                        <th class="border border-dark">Editar</th>
+                                        <th class="border border-dark">Eliminar</th>
+                                        <th class="border border-dark">Listas</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-dark" id="t-body">
