@@ -43,7 +43,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Consulta de pagos</title>
+    <title>Cumplimiento alumno</title>
 </head>
 
 <body id="fondo">
@@ -120,14 +120,14 @@
                             <table class="table table-dark table-sm ">
                                 <thead >
                                     <tr>
-                                        <th>FOLIO</th>
-                                        <th>FECHA INICIO</th>
-                                        <th>FECHA FINAL</th>
+                                        <th style="text-align: center;">FOLIO</th>
+                                        <th style="text-align: center;">FECHA INICIO</th>
+                                        <th style="text-align: center;">FECHA FINAL</th>
                                         <th>ALUMNO</th>
                                         <th>CURSO</th>
                                         <th>CUMPLIMIENTO</th>
-                                        <th>MARCAR CUMPLIDO</th>
-                                        <th>GENERAR CONSTANCIA</th>
+                                        <th style="text-align: center;">MARCAR CUMPLIDO</th>
+                                        <th style="text-align: center;">GENERAR CONSTANCIA</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -136,33 +136,57 @@
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
                                     <tr>
-                                        <td><?php
+                                        <td class="col-1"><?php
                                             echo $fila['folio'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="col-1"><?php
                                             echo $fila['fecha_inicio'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="col-1"><?php
                                             echo $fila['fecha_fin'];
                                         ?></td>
-                                        <td class="text-uppercase"><?php
+                                        <td class="text-uppercase col-5"><?php
                                             echo $name;
                                         ?></td>
                                         <td><?php
                                             echo $fila['nombre'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="text-uppercase"><?php
                                             echo $fila['cumplimiento'];
                                         ?></td>
-                                        <td>
-                                            <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
-                                            <i class="fas fa-check"></i></i>
-                                            </a>
+                                        <td style="text-align: center;">
+                                            <?php
+                                                if($fila['cumplimiento']=="PENDIENTE"){
+                                                    ?>
+                                                        <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
+                                                            <i class="fas fa-check"></i></i>
+                                                        </a>
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                        <a href="controller/controller_remove_cumpl.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-danger">
+                                                            <i class="fas fa-ban"></i></i>
+                                                        </a>
+                                                    <?php
+                                                }
+                                            ?>
+                                            
                                         </td>
-                                        <td>
-                                        <a href="constancia.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-info">
-                                            <i class="fas fa-print"></i></i>
-                                            </a>
+                                        <td style="text-align: center;">
+                                            <?php
+                                                if($fila['cumplimiento']=="PENDIENTE"){
+                                                    ?>
+
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                        <a href="constancia.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-info">
+                                                            <i class="fas fa-print"></i></i>
+                                                        </a>
+                                                    <?php
+                                                }
+                                            ?>
+                                        
                                         </td>
                                     </tr>
                                     <?php

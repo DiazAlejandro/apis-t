@@ -56,7 +56,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="shortcut icon" href="../img/logo-header.png">
+    <link rel="shortcut icon" href="img/logo-header.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" cotent="ie-edge">
