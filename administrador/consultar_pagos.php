@@ -132,8 +132,8 @@
                         </form>
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm ">
-                                <thead >
+                            <table class="table table-sm" id="tb">
+                                <thead>
                                     <tr class="bg-dark text-light">
                                         <th class="border border-dark">CURP</th>
                                         <th class="border border-dark">Nombre</th>

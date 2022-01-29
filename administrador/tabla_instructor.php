@@ -169,12 +169,12 @@
                                         <td><?php
                                             echo $fila['correo_electronico'];
                                         ?></td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <a href="controller/Instructor_delete.php?curp=<?php echo $fila['curp']?>" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
@@ -186,6 +186,7 @@
                                     ?>
                                 </tbody>
                             </table>
+                            <br><br>
                             <div>
                                 <a class="btn btn-success font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
                             </div>

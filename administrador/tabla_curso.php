@@ -181,17 +181,17 @@ if (!$resultado) {
                                                             echo $fila['nombre'];
                                                             ?>
                                                 </td>
-                                                <td class="border border-dark">
+                                                <td class="border border-dark" style="text-align: center;">
                                                     <a href="editar_curso.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-secondary">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 </td>
-                                                <td class="border border-dark">
+                                                <td class="border border-dark" style="text-align: center;">
                                                     <a href="controller/Curso_delete.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
-                                                <td class="border border-dark">
+                                                <td class="border border-dark" style="text-align: center;">
                                                     <a target="_blank" href="controller/lista_alumnos_cursos.php?clave=<?php echo $fila['clave'] ?>" class="btn btn-info">
                                                         <i class="fa fa-list"></i>
                                                     </a>

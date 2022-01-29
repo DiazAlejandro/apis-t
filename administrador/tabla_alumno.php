@@ -170,17 +170,17 @@
                                         <td><?php
                                             echo $fila['estatus'];
                                         ?></td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <a href="editar_alumno.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;"> 
                                             <a href="perfil.php?curp=<?php echo $fila['curp']?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i></i>
                                             </a>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <a href="controller/alumno_delate.php?curp=<?php echo $fila['curp']?>&tutor_curp=<?php echo $fila['tutor_curp']?>&email=<?php echo $fila['email']?>" onclick="return confirm('¿Quieres borrar?')" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
