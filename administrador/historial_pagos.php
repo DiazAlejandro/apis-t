@@ -87,6 +87,10 @@ if (!$resultadoa) {
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
     <title>Historial de pagos</title>
 </head>
 
@@ -121,10 +125,19 @@ if (!$resultadoa) {
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
@@ -144,7 +157,7 @@ if (!$resultadoa) {
         <!--Contenido-->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-13 col-lg-10">
+                <div class="col-lg-12">
                     <br>
                     <div class="card">
                         <div class="card-header" id="cabeza">
@@ -164,13 +177,13 @@ if (!$resultadoa) {
                                 <table class="table table-dark table-sm ">
                                     <thead>
                                         <tr>
-                                            <th>Folio de pago</th>
-                                            <th>Fecha</th>
-                                            <th>Hora</th>
-                                            <th>Concepto</th>
-                                            <th>Descripción</th>
-                                            <th>Estado</th>
-                                            <th>Imprimir</th>
+                                            <th>FOLIO</th>
+                                            <th>FECHA</th>
+                                            <th>HORA</th>
+                                            <th>CONCEPTO</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>ESTADO</th>
+                                            <th>IMPRIMIR</th>
                                         </tr>
                                     </thead>
                                     <?php
@@ -180,22 +193,22 @@ if (!$resultadoa) {
                                     <tbody id="t-body">
                                         
                                                 <tr>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['folio'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['fecha'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['hora'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo "$".$fila['concepto'];
                                                                 ?>
@@ -210,7 +223,7 @@ if (!$resultadoa) {
                                                                 echo $fila['estado'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="text-align: center;" class="col-1">
                                                         <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
                                                         <i class="fas fa-print"></i></i>
                                                         </a>
@@ -223,6 +236,7 @@ if (!$resultadoa) {
                                         ?>
                                     </tbody>
                                 </table>
+                                <br><br>
                                 <div>
                                     <a class="btn btn-danger font-weight-bold" id="btn" href="consultar_pagos.php">Regresar</a>
                                 </div>
@@ -233,4 +247,5 @@ if (!$resultadoa) {
             </div>
         </div>
     </body>
+    
 </html>

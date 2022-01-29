@@ -12,7 +12,19 @@
         $curp = $_GET['curp'];
     }
     
-    $resultado = mysqli_query($conexion, "SELECT * FROM inscripcion INNER JOIN curso ON inscripcion.curso_clave = curso.clave where alumno_curp = '$curp'");
+    $resultado = mysqli_query($conexion, "SELECT
+                    inscripcion.folio,
+                    CONCAT(curso.clave,' ',curso.nombre) as nombre_curso,
+                    CONCAT(instructor.nombre,' ',instructor.apellido_p,' ',instructor.apellido_m) as nombre_instr,
+                    curso.duracion,
+                    curso.hora,
+                    inscripcion.fecha_inicio,
+                    inscripcion.fecha_fin 
+                    FROM inscripcion INNER JOIN curso ON 
+                    inscripcion.curso_clave = curso.clave 
+                    INNER JOIN instructor ON
+                    instructor.curp = curso.instructor_curp AND
+                    inscripcion.alumno_curp = '$curp'");
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ';
         exit;
@@ -39,7 +51,11 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Instructores registrados</title>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <title>Historial de cursos</title>
 </head>
 
 <body id="fondo">
@@ -68,21 +84,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="tabs navbar-nav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
+                        <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                        <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" style="border: 1px solid white" href="pagos_realizados.php">Pagos Realizados</a>
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="pagos_realizados.php?curp=<?php echo $curp ?>">Pagos Realizados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
                     </li>
                 </ul>
             </div>
@@ -96,18 +112,19 @@
                 <br>
                 <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">CURSOS</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Cursos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm ">
+                            <table class="table table-dark table-sm" id="tb">
                                 <thead>
                                     <tr>
-                                        <th>CLAVE</th>
-                                        <th>NOMBRE</th>
-                                        <th>HORA</th>
+                                        <th>FOLIO</th>
+                                        <th>CURSO</th>
+                                        <th>INSTRUCTOR</th>
                                         <th>DURACIÓN</th>
+                                        <th>HORA</th>
                                         <th>FECHA INICIO</th>
                                         <th>FECHA FINAL</th>
                                     </tr>
@@ -119,21 +136,25 @@
                                     ?>
                                             <tr>
                                                 <td><?php
-                                                    echo $fila['clave'];
+                                                    echo $fila['folio'];
                                                     ?>
                                                 </td>
 
                                                 <td><?php
-                                                    echo $fila['nombre'];
+                                                    echo $fila['nombre_curso'];
                                                     ?>
                                                 </td>
                                                 <td><?php
-                                                    echo $fila['hora'];
+                                                    echo $fila['nombre_instr'];
                                                     ?>
                                                 </td>
                                                 <td>
                                                     <?php
                                                     echo $fila['duracion'] . " SEMANA(S)";
+                                                    ?>
+                                                </td>
+                                                <td><?php
+                                                    echo $fila['hora'];
                                                     ?>
                                                 </td>
                                                 <td><?php
@@ -156,5 +177,16 @@
         </div>
     </div>
 </body>
-
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script>
+    $("#tb").bootstrapTable({
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 5, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20, 'all'], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
+    });
+</script>
 </html>

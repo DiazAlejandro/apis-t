@@ -8,28 +8,62 @@
         }
     }
     include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion, "SELECT * FROM pago");
+    if (isset($_GET['curp'])) {
+        $curp = $_GET['curp'];
+        $update = "SELECT 
+                        pago.folio,
+                        pago.fecha,
+                        pago.hora,
+                        pago.concepto,
+                        detalle_pago.descripcion,
+                        detalle_pago.estado
+                        FROM pago INNER JOIN detalle_pago 
+                        ON pago.folio = detalle_pago.pago_folio 
+                        AND pago.alumno_curp = '$curp'";
+    }
+    $resultado = mysqli_query($conexion, $update);
+
     if (!$resultado) {
         echo 'No se pudo ejecutar la consulta: ';
         exit;
-    }
+    } 
+    
+    
+    include("../connect/conectar.php");
+if (isset($_GET['folio'])) {
+    $folio = $_GET['folio'];
+    $update = "SELECT * FROM pago WHERE folio = '$folio'";
+}
+$resultadoa = mysqli_query($conexion, $update);
 
-    if (isset($_SESSION['email'])) {
-        include("../connect/conectar.php");
-        $email = $_SESSION['email'];
-        $update = "SELECT * FROM alumno WHERE email = '$email'";
+if (!$resultadoa) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+} else {
+    $fila = mysqli_fetch_assoc($resultadoa);
 
-        $resultadoCurp = mysqli_query($conexion, $update);
-        $curp = '';
-        if (!$resultadoCurp) {
-            echo 'No se pudo ejecutar la consulta: ';
-            exit;
-        } else {
-            $fila = mysqli_fetch_assoc($resultadoCurp);
+    $folio = $fila['folio'];
+    $fecha = $fila['fecha'];
+    $hora = $fila['hora'];
+    $concepto = $fila['concepto'];
+    $alumno_curp = $curp;
+}
+    $updatea = "SELECT * FROM alumno WHERE curp = '$alumno_curp'";
 
-            $curp = $fila['curp'];
-        }
-    }
+
+$resultadoa = mysqli_query($conexion, $updatea);
+
+if (!$resultadoa) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+} else {
+    $fila = mysqli_fetch_assoc($resultadoa);
+
+    $curp = $fila['curp'];
+    $nombre = $fila['nombre'];
+    $apellido_p = $fila['apellido_p'];
+    $apellido_m = $fila['apellido_m'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,11 +87,15 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Pagos realizados</title>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <title>Historial de pagos</title>
 </head>
 
 <body id="fondo">
-        <!-- Barra de navegación-->
+    <!-- Barra de navegación-->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <div class="form-group logo-img ">
@@ -84,30 +122,30 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
+                        <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
+                        <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" style="border: 1px solid white" href="pagos_realizados.php">Pagos Realizados</a>
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="pagos_realizados.php?curp=<?php echo $curp ?>">Pagos Realizados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-        <!-- Fin barra de navegación-->
+
 
         <!--Contenido-->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-13 col-lg-10">
+                <div class="col-lg-12">
                     <br>
                     <div class="card">
                         <div class="card-header" id="cabeza">
@@ -116,45 +154,68 @@
                         <div class="card-body" id="cuerpo">
                             <div class="col-md-12">
                                 <br>
+                            
+                                <label for="txtAlumno" class="font-weight-bold" style="font-size: 15pt;">NOMBRE:</label>
+                                <label style="font-size: 15pt;" value="<?php echo $curp ?>">
+                                    <?php
+                                      echo $nombre . ' ' . $apellido_m . ' ' . $apellido_p;
+                                    ?>
+                                </label>
+                                <br><br>
                                 <table class="table table-dark table-sm ">
                                     <thead>
                                         <tr>
-                                            <th>Folio</th>
-                                            <th>Fecha</th>
-                                            <th>Hora</th>
-                                            <th>Concepto</th>
-                                            <th>Comprobante</th>
+                                            <th>FOLIO</th>
+                                            <th>FECHA</th>
+                                            <th>HORA</th>
+                                            <th>CONCEPTO</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>ESTADO</th>
+                                            <th>IMPRIMIR</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="t-body">
-                                        <?php
+                                    <?php
                                         if (mysqli_num_rows($resultado) > 0) {
                                             while ($fila = mysqli_fetch_assoc($resultado)) {
                                                 ?>
+                                    <tbody id="t-body">
+                                        
                                                 <tr>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['folio'];
-                                                                $folio =  $fila['folio'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['fecha'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['hora'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
-                                                                echo $fila['concepto'];
+                                                                echo "$".$fila['concepto'];
                                                                 ?>
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-success font-weight-bold center" id="btn" href="comprobante.php?folio=<?php echo $fila['folio'];?>">Generar</a>
+                                                        <?php
+                                                                echo $fila['descripcion'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['estado'];
+                                                                ?>
+                                                    </td>
+                                                    <td style="text-align: center;" class="col-1">
+                                                        <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
+                                                        <i class="fas fa-print"></i></i>
+                                                        </a>
+                                                        
                                                     </td>
                                                 </tr>
                                         <?php
@@ -163,8 +224,9 @@
                                         ?>
                                     </tbody>
                                 </table>
+                                <br><br>
                                 <div>
-                                    <a class="btn btn-danger font-weight-bold" id="btn" href="inicio.php">Regresar</a>
+                                    <a class="btn btn-danger font-weight-bold" id="btn" href="consultar_pagos.php">Regresar</a>
                                 </div>
                             </div>
                         </div>
@@ -173,5 +235,5 @@
             </div>
         </div>
     </body>
-
+    
 </html>
