@@ -1,16 +1,16 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: ../login.php');
+} else {
+    if ($_SESSION['rol'] != 3) {
         header('location: ../login.php');
-    } else {
-        if ($_SESSION['rol'] != 3) {
-            header('location: ../login.php');
-        }
     }
-    include("../connect/conectar.php");
-    if (isset($_GET['curp'])) {
-        $curp = $_GET['curp'];
-        $update = "SELECT 
+}
+include("../connect/conectar.php");
+if (isset($_GET['curp'])) {
+    $curp = $_GET['curp'];
+    $update = "SELECT 
                         pago.folio,
                         pago.fecha,
                         pago.hora,
@@ -20,16 +20,16 @@
                         FROM pago INNER JOIN detalle_pago 
                         ON pago.folio = detalle_pago.pago_folio 
                         AND pago.alumno_curp = '$curp'";
-    }
-    $resultado = mysqli_query($conexion, $update);
+}
+$resultado = mysqli_query($conexion, $update);
 
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ';
-        exit;
-    } 
-    
-    
-    include("../connect/conectar.php");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
+
+
+include("../connect/conectar.php");
 if (isset($_GET['folio'])) {
     $folio = $_GET['folio'];
     $update = "SELECT * FROM pago WHERE folio = '$folio'";
@@ -48,7 +48,7 @@ if (!$resultadoa) {
     $concepto = $fila['concepto'];
     $alumno_curp = $curp;
 }
-    $updatea = "SELECT * FROM alumno WHERE curp = '$alumno_curp'";
+$updatea = "SELECT * FROM alumno WHERE curp = '$alumno_curp'";
 
 
 $resultadoa = mysqli_query($conexion, $updatea);
@@ -74,16 +74,20 @@ if (!$resultadoa) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../css/tabla_curs.css">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;900&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -142,98 +146,110 @@ if (!$resultadoa) {
     </nav>
 
 
-        <!--Contenido-->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <br>
-                    <div class="card">
-                        <div class="card-header" id="cabeza">
-                            <h1 class="font-weight-bold mb-3 bg-gray">Historial de pagos</h1>
-                        </div>
-                        <div class="card-body" id="cuerpo">
-                            <div class="col-md-12">
-                                <br>
-                            
-                                <label for="txtAlumno" class="font-weight-bold" style="font-size: 15pt;">NOMBRE:</label>
-                                <label style="font-size: 15pt;" value="<?php echo $curp ?>">
-                                    <?php
-                                      echo $nombre . ' ' . $apellido_m . ' ' . $apellido_p;
-                                    ?>
-                                </label>
-                                <br><br>
-                                <table class="table table-dark table-sm ">
-                                    <thead>
-                                        <tr>
-                                            <th>FOLIO</th>
-                                            <th>FECHA</th>
-                                            <th>HORA</th>
-                                            <th>CONCEPTO</th>
-                                            <th>DESCRIPCION</th>
-                                            <th>ESTADO</th>
-                                            <th>IMPRIMIR</th>
-                                        </tr>
-                                    </thead>
-                                    <?php
-                                        if (mysqli_num_rows($resultado) > 0) {
-                                            while ($fila = mysqli_fetch_assoc($resultado)) {
-                                                ?>
-                                    <tbody id="t-body">
-                                        
-                                                <tr>
-                                                    <td class="col-1">
-                                                        <?php
-                                                                echo $fila['folio'];
-                                                                ?>
-                                                    </td>
-                                                    <td class="col-1">
-                                                        <?php
-                                                                echo $fila['fecha'];
-                                                                ?>
-                                                    </td>
-                                                    <td class="col-1">
-                                                        <?php
-                                                                echo $fila['hora'];
-                                                                ?>
-                                                    </td>
-                                                    <td class="col-1">
-                                                        <?php
-                                                                echo "$".$fila['concepto'];
-                                                                ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                                echo $fila['descripcion'];
-                                                                ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                                echo $fila['estado'];
-                                                                ?>
-                                                    </td>
-                                                    <td style="text-align: center;" class="col-1">
-                                                        <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
-                                                        <i class="fas fa-print"></i></i>
-                                                        </a>
-                                                        
-                                                    </td>
-                                                </tr>
-                                        <?php
-                                            }
-                                        }
+    <!--Contenido-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <br>
+                <div class="card">
+                    <div class="card-header" id="cabeza">
+                        <h1 class="font-weight-bold mb-3 bg-gray">Historial de pagos</h1>
+                    </div>
+                    <div class="card-body" id="cuerpo">
+                        <div class="col-md-12">
+                            <br>
+
+                            <label for="txtAlumno" class="font-weight-bold" style="font-size: 15pt;">NOMBRE:</label>
+                            <label style="font-size: 15pt;" value="<?php echo $curp ?>">
+                                <?php
+                                echo $nombre . ' ' . $apellido_m . ' ' . $apellido_p;
+                                ?>
+                            </label>
+                            <br><br>
+                            <table class="table table-sm" id="tb">
+                                <thead>
+                                    <tr class="bg-dark text-light">
+                                        <th class="border border-dark">FOLIO</th>
+                                        <th class="border border-dark">FECHA</th>
+                                        <th class="border border-dark">HORA</th>
+                                        <th class="border border-dark">CONCEPTO</th>
+                                        <th class="border border-dark">DESCRIPCION</th>
+                                        <th class="border border-dark">ESTADO</th>
+                                        <th class="border border-dark">IMPRIMIR</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                if (mysqli_num_rows($resultado) > 0) {
+                                    while ($fila = mysqli_fetch_assoc($resultado)) {
                                         ?>
-                                    </tbody>
-                                </table>
-                                <br><br>
-                                <div>
-                                    <a class="btn btn-danger font-weight-bold" id="btn" href="consultar_pagos.php">Regresar</a>
-                                </div>
+                                        <tbody class="table-dark" id="t-body">
+
+                                            <tr>
+                                                <td class="col-1">
+                                                    <?php
+                                                            echo $fila['folio'];
+                                                            ?>
+                                                </td>
+                                                <td class="col-1">
+                                                    <?php
+                                                            echo $fila['fecha'];
+                                                            ?>
+                                                </td>
+                                                <td class="col-1">
+                                                    <?php
+                                                            echo $fila['hora'];
+                                                            ?>
+                                                </td>
+                                                <td class="col-1">
+                                                    <?php
+                                                            echo "$" . $fila['concepto'];
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                            echo $fila['descripcion'];
+                                                            ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                            echo $fila['estado'];
+                                                            ?>
+                                                </td>
+                                                <td style="text-align: center;" class="col-1">
+                                                    <a href="comprobante.php?folio=<?php echo $fila['folio']; ?>" class="btn btn-info">
+                                                        <i class="fas fa-print"></i></i>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                        </tbody>
+                            </table>
+                            <br><br>
+                            <div>
+                                <a class="btn btn-danger font-weight-bold" id="btn" href="consultar_pagos.php">Regresar</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
-    
+    </div>
+</body>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script>
+    $("#tb").bootstrapTable({
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 5, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20, 'all'], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
+    });
+</script>
+
 </html>

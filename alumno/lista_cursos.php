@@ -117,19 +117,18 @@
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-dark table-sm" id="tb">
+                            <table class="table table-sm" id="tb">
                                 <thead>
-                                    <tr>
-                                        <th>FOLIO</th>
-                                        <th>CURSO</th>
-                                        <th>INSTRUCTOR</th>
-                                        <th>DURACIÓN</th>
-                                        <th>HORA</th>
-                                        <th>FECHA INICIO</th>
-                                        <th>FECHA FINAL</th>
-                                    </tr>
+                                    <tr class="bg-dark text-light">
+                                        <th class="border border-dark">FOLIO</th>
+                                        <th class="border border-dark">CURSO</th>
+                                        <th class="border border-dark">INSTRUCTOR</th>
+                                        <th class="border border-dark">DURACIÓN</th>
+                                        <th class="border border-dark">HORA</th>
+                                        <th class="border border-dark">FECHA INICIO</th>
+                                        <th class="border border-dark">FECHA FINAL</th>                                   </tr>
                                 </thead>
-                                <tbody id="t-body">
+                                <tbody class="table-dark" id="t-body">
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {

@@ -51,6 +51,11 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    
     <title>Curso disponible - Alumno</title>
 </head>
 
@@ -104,7 +109,7 @@
     <!--Contenido-->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <br>
                 <div class="card">
                     <div class="card-header" id="cabeza">
@@ -113,17 +118,17 @@
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
                             <br>
-                            <table class="table table-responsive-sm table-dark table-sm">
-                                <thead >
-                                    <tr>
-                                        <th>Clave</th>
-                                        <th>Curso</th>
-                                        <th>Duración</th>
-                                        <th>Costo</th>
-                                        <th>Inscripción</th>
+                            <table class="table table-sm" id="tb">
+                                <thead>
+                                    <tr class="bg-dark text-light">
+                                        <th class="border border-dark">Clave</th>
+                                        <th class="border border-dark">Curso</th>
+                                        <th class="border border-dark">Duración</th>
+                                        <th class="border border-dark">Costo</th>
+                                        <th class="border border-dark">Inscripción</th>
                                     </tr>
                                 </thead>
-                                <tbody id="t-body">
+                                <tbody class="table-dark"  id="t-body">
                                     <?php
                                         if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -171,7 +176,18 @@
         </div>
     </div>
 </body>
-
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script>
+    $("#tb").bootstrapTable({
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 5, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20, 'all'], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
+    });
+</script>
 </html>
 
 
