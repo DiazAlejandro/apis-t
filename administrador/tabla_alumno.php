@@ -156,13 +156,13 @@
                                             echo $fila['curp'];
                                         ?></td>
                                         <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                        <td><?php
                                             echo $fila['apellido_p'];
                                         ?></td>
                                         <td><?php
                                             echo $fila['apellido_m'];
+                                        ?></td>
+                                        <td><?php
+                                            echo $fila['nombre'];
                                         ?></td>
                                         <td><?php
                                             echo $fila['telefono'];

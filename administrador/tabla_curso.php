@@ -13,7 +13,7 @@ $resultado = mysqli_query($conexion, "SELECT
         curso.nombre as nombre_curso,
         curso.duracion,
         curso.costo,
-        CONCAT(instructor.nombre, ' ', instructor.apellido_p) AS nombre
+        CONCAT(instructor.nombre, ' ', instructor.apellido_p, ' ', instructor.apellido_m) AS nombre
         FROM curso INNER JOIN instructor 
         ON curso.instructor_curp = instructor.curp");
 if (!$resultado) {

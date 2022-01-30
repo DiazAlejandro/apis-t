@@ -172,7 +172,7 @@
                                             echo $fila['correo_electronico'];
                                         ?></td>
                                         <td>
-                                            <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
+                                            <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-info">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>

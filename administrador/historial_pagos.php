@@ -68,7 +68,6 @@ if (!$resultadoa) {
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -88,9 +87,12 @@ if (!$resultadoa) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
     <title>Historial de pagos</title>
 </head>
 
@@ -157,7 +159,7 @@ if (!$resultadoa) {
         <!--Contenido-->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <br>
                     <div class="card">
                         <div class="card-header" id="cabeza">
@@ -174,23 +176,23 @@ if (!$resultadoa) {
                                     ?>
                                 </label>
                                 <br><br>
-                                <table class="table table-dark table-sm ">
-                                    <thead>
-                                        <tr>
-                                            <th>FOLIO</th>
-                                            <th>FECHA</th>
-                                            <th>HORA</th>
-                                            <th>CONCEPTO</th>
-                                            <th>DESCRIPCION</th>
-                                            <th>ESTADO</th>
-                                            <th>IMPRIMIR</th>
+                                <table class="table table-sm" id="tb">
+                                    <thead >
+                                        <tr class="bg-dark text-light">
+                                            <th class="border border-dark">FOLIO</th>
+                                            <th class="border border-dark">FECHA</th>
+                                            <th class="border border-dark">HORA</th>
+                                            <th class="border border-dark">CONCEPTO</th>
+                                            <th class="border border-dark">DESCRIPCION</th>
+                                            <th class="border border-dark">ESTADO</th>
+                                            <th class="border border-dark">IMPRIMIR</th>
                                         </tr>
                                     </thead>
                                     <?php
                                         if (mysqli_num_rows($resultado) > 0) {
                                             while ($fila = mysqli_fetch_assoc($resultado)) {
                                                 ?>
-                                    <tbody id="t-body">
+                                    <tbody class="table-dark" id="t-body">
                                         
                                                 <tr>
                                                     <td class="col-1">
@@ -225,7 +227,7 @@ if (!$resultadoa) {
                                                     </td>
                                                     <td style="text-align: center;" class="col-1">
                                                         <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
-                                                        <i class="fas fa-print"></i></i>
+                                                        <i class="fas fa-print"></i>
                                                         </a>
                                                         
                                                     </td>
@@ -247,5 +249,17 @@ if (!$resultadoa) {
             </div>
         </div>
     </body>
-    
+
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script>
+    $("#tb").bootstrapTable({
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 3, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
+    });
+</script>
 </html>
