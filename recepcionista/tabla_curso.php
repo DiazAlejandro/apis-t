@@ -132,7 +132,7 @@ if (!$resultado) {
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th class="border border-dark">CLAVE</th>
-                                        <th class="border border-dark">NOMBRE DEL CURSO/th>
+                                        <th class="border border-dark">NOMBRE DEL CURSO</th>
                                         <th class="border border-dark">DURACIÓN</th>
                                         <th class="border border-dark">COSTO</th>
                                         <th class="border border-dark">INSTRUCTOR</th>
