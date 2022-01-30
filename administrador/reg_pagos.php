@@ -220,7 +220,7 @@ if (!isset($_SESSION['rol'])) {
                                                             }, //variables o parametros a enviar, formato => nombre_de_variable:contenido
                                                             dataType: 'html', //tipo de datos que esperamos de regreso
                                                             type: 'POST', //mandar variables como post o get
-                                                            url: '/apis-t/administrador/controller/get_cursos.php' //url que recibe las variables
+                                                            url: '/administrador/controller/get_cursos.php' //url que recibe las variables
                                                         }).done(function(data) { //metodo que se ejecuta cuando ajax ha completado su ejecucion             
 
                                                             inscripcion.html(data); //establecemos el contenido html de discos con la informacion que regresa ajax             
