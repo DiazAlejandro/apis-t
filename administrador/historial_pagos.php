@@ -168,7 +168,6 @@ if (!$resultadoa) {
                         <div class="card-body" id="cuerpo">
                             <div class="col-md-12">
                                 <br>
-                            
                                 <label for="txtAlumno" class="font-weight-bold" style="font-size: 15pt;">NOMBRE:</label>
                                 <label style="font-size: 15pt;" value="<?php echo $curp ?>">
                                     <?php
@@ -188,12 +187,12 @@ if (!$resultadoa) {
                                             <th class="border border-dark">IMPRIMIR</th>
                                         </tr>
                                     </thead>
-                                    <?php
-                                        if (mysqli_num_rows($resultado) > 0) {
-                                            while ($fila = mysqli_fetch_assoc($resultado)) {
-                                                ?>
+                                   
                                     <tbody class="table-dark" id="t-body">
-                                        
+                                        <?php
+                                            if (mysqli_num_rows($resultado) > 0) {
+                                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                                    ?>
                                                 <tr>
                                                     <td class="col-1">
                                                         <?php
@@ -227,7 +226,7 @@ if (!$resultadoa) {
                                                     </td>
                                                     <td style="text-align: center;" class="col-1">
                                                         <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
-                                                        <i class="fas fa-print"></i>
+                                                            <i class="fas fa-print"></i>
                                                         </a>
                                                         
                                                     </td>
@@ -248,7 +247,7 @@ if (!$resultadoa) {
                 </div>
             </div>
         </div>
-    </body>
+</body>
 
 <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
 <script>
