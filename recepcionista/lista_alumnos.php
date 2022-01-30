@@ -127,9 +127,9 @@ if (!$resultado) {
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th class="border border-dark">CURP</th>
-                                        <th class="border border-dark">Nombre</th>
                                         <th class="border border-dark">A. Paterno</th>
                                         <th class="border border-dark">A. Materno</th>
+                                        <th class="border border-dark">Nombre</th>
                                         <th class="border border-dark">Estatus</th>
                                         <th class="border border-dark">Ver</th>
                                     </tr>
@@ -144,13 +144,13 @@ if (!$resultado) {
                                                                                     echo $fila['curp'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
-                                                                                    echo $fila['nombre'];
+                                                                                    echo $fila['apellido_p'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
                                                                                     echo $fila['apellido_m'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
-                                                                                    echo $fila['apellido_p'];
+                                                                                    echo $fila['nombre'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
                                                                                     echo $fila['estatus'];
