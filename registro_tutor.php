@@ -166,7 +166,7 @@
                                 <select name="servicio" class="custom-select" id="servicio">
                                     <option selected="true" disabled="disabled">Seleccione</option>
                                     <option value="IMSS">IMSS</option>
-                                    <option value="ISSTE">ISSTE</option>
+                                    <option value="ISSSTE">ISSSTE</option>
                                     <option value="ISSEMYM">ISSEMYM</option>
                                     <option value="OTRO">OTRO</option>
                                     <option value="NINGUNO">NINGUNO</option>

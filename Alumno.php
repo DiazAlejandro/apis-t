@@ -37,7 +37,7 @@
 
     if ($executeSQLDireccion == 1){
         $sqlAlumno = "INSERT INTO `alumno` (`curp`, `nombre`, `apellido_p`, `apellido_m`, `fecha_nac`, `sexo`, `edad`, `telefono`, `medio`, `calle`, `colonia`, `municipio`, `cp`, `estatus`, `email`) 
-                        VALUES ('$curp', '$nombre', '$apellido_m', '$apellido_p', '$fecha_nac', '$genero', '$edad', '$telefono', '$medio', '$calle', '$colonia', '$municipio', '$cp', '$estatus', '$email')";
+                        VALUES ('$curp', '$nombre', '$apellido_p', '$apellido_m', '$fecha_nac', '$genero', '$edad', '$telefono', '$medio', '$calle', '$colonia', '$municipio', '$cp', '$estatus', '$email')";
         $executeSQLAlumno = mysqli_query($conexion,$sqlAlumno);
         if ($executeSQLAlumno == 1){
             $sqlEstadoSalud = "INSERT INTO estado_salud (seguro_med, servicio, num_seguridad, estado, enfermedad, covid, alergias, prescripcion, observaciones, alumno_curp )
