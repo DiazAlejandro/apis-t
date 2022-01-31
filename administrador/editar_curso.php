@@ -185,7 +185,7 @@
                                 <label for="exampleInputPeriodo">Período de pago:<span
                                         class="text-danger" id="marca">*</span></label>
                                 <select id="" name="txtperiodo" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
-                                    <option value="" selected="true" disabled="disabled">Seleccione periodo de pago</option>
+                                    <option value = "" selected="true" disabled="disabled"><?php echo $periodo_pago?></option>
                                     <option value="POR DIA">POR DIA</option>
                                     <option value="SEMANAL">SEMANAL</option>
                                     <option value="MENSUAL">MENSUAL</option>
