@@ -107,9 +107,15 @@ if (!isset($_SESSION['rol'])) {
                 <div class="row">
                     <div class="col-sm-6">
                         <div id="carga_lineal"></div>
+                        <label for="">En la siguiente gráfica se muestran la cantidad de alumnos 
+                            inscritos actualmente en el sistema. Se muestran las cantidades por género.
+                        </label>
                     </div>
                     <div class="col-sm-6">
                         <div id="carga_barras"></div>
+                        <label for="">En la siguiente gráfica se muestran los ingresos por día 
+                            que se tienen respecto al pago de los cursos.
+                        </label>
                     </div>
                 </div>
             </div>

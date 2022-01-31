@@ -99,31 +99,23 @@ if (!$resultado2) {
                 <br>
                 <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <h3 class="font-weight-bold mb-3 bg-gray">CLAVE: </h3>
-                            </div>
-                            <div class="col-lg-3">
-                                <h3 class="mb-3 bg-gray"><?php echo $clave?> </h3>
-                            </div>
-                            <div class="col-lg-2">
-                                <h3 class="font-weight-bold mb-3 bg-gray">CURSO: </h3>
-                            </div>
-                            <div class="col-lg-5">
-                                <h3 class="mb-3 bg-gray"><?php echo $nombre_curso?> </h3>
-                            </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <h3 class="font-weight-bold mb-3 bg-gray">INSTRUCTOR: </h3>
-                            </div>
-                            <div class="col-lg-7">
-                                <h3 class="font-weight-bold mb-3 bg-gray"><?php echo $nombre_inst?> </h3>
-                            </div>
+                            <h1 class="font-weight-bold mb-3 bg-gray">Alumnos del curso</h1>
                         </div>
-                    </div>
 
                     <div class="card-body" id="cuerpo">
+                        <div class="row">
+                            <div class="col-lg-6 pl-5">
+                                <label class="font-weight-bold mb-3 bg-gray">CLAVE: </label> 
+                                <label><?php echo $clave?></label> 
+                                <br>
+                                <label class="font-weight-bold mb-3 bg-gray">CURSO: </label>
+                                <label class="text-uppercase"><?php echo $nombre_curso?> </label>
+                                <br>
+                                <label class="font-weight-bold mb-3 bg-gray">INSTRUCTOR: </label>
+                                <label><?php echo $nombre_inst?> </label>
+                            </div>
+                            
+                        </div>
                         <?php
                         if (mysqli_num_rows($resultado) > 0) {
                             

@@ -178,12 +178,12 @@ if (!$resultadoa) {
                                         <th class="border border-dark">IMPRIMIR</th>
                                     </tr>
                                 </thead>
-                                <?php
-                                if (mysqli_num_rows($resultado) > 0) {
-                                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                                        ?>
+                                
                                         <tbody class="table-dark" id="t-body">
-
+                                        <?php
+                                        if (mysqli_num_rows($resultado) > 0) {
+                                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                                ?>
                                             <tr>
                                                 <td class="col-1">
                                                     <?php
