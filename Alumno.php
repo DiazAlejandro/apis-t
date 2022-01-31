@@ -30,6 +30,7 @@
     $prescripcion = $_POST['prescripcion'];
     $observaciones = $_POST['observaciones'];
     
+
     $sqlUsuario = "INSERT INTO usuario(email, pass, rol_id)
                     VALUES('$email',SHA1('$pass'),'$rol_id')";
     $executeSQLDireccion = mysqli_query($conexion,$sqlUsuario);

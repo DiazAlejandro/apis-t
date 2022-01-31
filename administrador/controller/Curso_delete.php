@@ -9,7 +9,7 @@
             $messaget = "CURSO BORRADO CORRECTAMENTE CORRECTAMENTE";
                 echo "<script type='text/javascript'>
                         alert('$messaget');
-                        window.location.href = '../apis-t/login.php';
+                        window.location.href = '../tabla_curso.php';
                     </script>";
             $_SESSION['message_type'] = 'danger'; # Funcion de bootstrap
             header('Location:../tabla_curso.php'); # Redireccionar el archivo
@@ -17,7 +17,7 @@
             $messaget = "CURSO ACTUAL EN DESARROLLO";
                 echo "<script type='text/javascript'>
                         alert('$messaget');
-                        window.location.href = '../apis-t/login.php';
+                        window.location.href = '../tabla_curso.php';
                     </script>";
             #echo "Error al borrar registro: " . mysqli_error($conexion);
         }
