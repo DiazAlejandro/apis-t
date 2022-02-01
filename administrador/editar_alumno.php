@@ -130,25 +130,25 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de Instructor</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de Curso</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
@@ -334,7 +334,7 @@
                                     <input type="password" name="pass" id="pass" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña" style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                                 </div>
                             </div>
-                                <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-primary" style="width:90px">Editar</button>
+                                <button type="submit" name="accion" value="enviar" id="btn" class="btn font-weight-bold btn-primary" style="width:90px">Guardar</button>
                                 <a class="btn font-weight-bold btn-danger" id="btn" href="tabla_alumno.php">Cancelar</a>
                         
                         </form>

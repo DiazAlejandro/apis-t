@@ -67,30 +67,30 @@ if (!isset($_SESSION['rol'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="tabs navbar-nav">
+            <ul class="tabs navbar-nav">
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de Instructor</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de Curso</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
@@ -106,7 +106,7 @@ if (!isset($_SESSION['rol'])) {
                 <br><br><br>
                 <div class="card">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 ">Registrar pago</h1>
+                        <h1 class="font-weight-bold mb-3 ">Registrar Pago</h1>
                     </div>
                     <div class="card-body">
                         <form action="controller/Pago.php" method="POST" enctype="multipart/form-data">
@@ -245,7 +245,7 @@ if (!isset($_SESSION['rol'])) {
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="txtDescripcion" class="font-weight-bold">Descripcion:<span class="text-danger" id="marca">*</span></label>
+                                    <label for="txtDescripcion" class="font-weight-bold">Descripción:<span class="text-danger" id="marca">*</span></label>
                                     <textarea name="txtdescripcion" class="form-control" placeholder="Ingrese la descripción del pago" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" rows="5" cols="50"></textarea>
                                 </div>
                                 <div class="form-group col-md-6">

@@ -99,7 +99,7 @@ if (!$resultado2) {
                 <br>
                 <div class="card ">
                     <div class="card-header" id="cabeza">
-                            <h1 class="font-weight-bold mb-3 bg-gray">Alumnos del curso</h1>
+                            <h1 class="font-weight-bold mb-3 bg-gray">Alumnos del Curso</h1>
                         </div>
 
                     <div class="card-body" id="cuerpo">
