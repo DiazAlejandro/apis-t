@@ -174,9 +174,16 @@
                                             
                                         </td>
 
-                                        <td class="text-uppercase"><?php
-                                            echo "FINALIZADO";
-                                        ?></td>
+                                        <td class="text-uppercase" style="text-align: center;">
+                                            <?php
+
+                                            ?>
+                                                <a href="controller/controller_incumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
+                                                    <i class="fas fa-check"></i></i>
+                                                </a>
+                                            <?php
+                                            ?>
+                                        </td>
 
                                         <td style="text-align: center;">
                                             <?php
@@ -208,4 +215,5 @@
         </div>
     </div>
 </body>
+
 </html>
