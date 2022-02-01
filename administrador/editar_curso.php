@@ -104,25 +104,25 @@
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de Instructor</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de Curso</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
@@ -141,24 +141,25 @@
                 <br><br><br>
                 <div class="card">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 ">Editar datos del curso</h1>
+                        <h1 class="font-weight-bold mb-3 ">Editar datos del Curso</h1>
                     </div>
                     <div class="card-body">
                         <form action="controller/Curso_update.php" method="POST"
                             enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="txtclave">Clave:<span class="text-danger" id="marca">*</span></label>
+                            <div class="form-row mb-2">
+                            <div class="form-group col-md-6">
+                                <label for="txtclave" class="font-weight-bold">Clave:<span class="text-danger" id="marca">*</span></label>
                                 <input type="hidden" name="old_clave" class="form-control" id="old_clave" value="<?php echo $clave?>">
                                 <input pattern="[A-Z]+[0-9]+" type="text" class="form-control" id="bord" name="txtclave" value = "<?php echo $clave?>"
                                     placeholder="Ingresa la clave del curso" minlength="5" maxlength="5" required style="border: black 1px solid; box-shadow: 0px 10px 10px black;">
                             </div>
-                            <div class="form-group">
-                                <label for="txtNombre">Nombre:<span class="text-danger" id="marca">*</span></label>
+                            <div class="form-group col-md-6">
+                                <label for="txtNombre" class="font-weight-bold">Nombre:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Za-z0-9_- ]+" type="text" class="form-control" id="bord" name="txtnombre" value = "<?php echo $nombre?>"
                                     placeholder="Ingresa el nombre del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
-                            <div class="form-group">
-                                <label for="txtAsesor">Seleciona el Instructor:<span class="text-danger" id="marca">*</span></label>
+                            <div class="form-group col-md-6">
+                                <label for="txtAsesor" class="font-weight-bold">Selecciona el Instructor:<span class="text-danger" id="marca">*</span></label>
                                 <select pattern="[A-Za-z0-9]+" name="txtasesor" class="form-control" id="bord" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                     <option value="<?php echo $instructor_curp?>" selected><?php echo $nombre_instructor.' '.$apellido_p.' '.$apellido_m?> </option>
                                     <?php
@@ -172,17 +173,17 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="txtDuracion">Duración:<span class="text-danger" id="marca">*</span></label>
+                            <div class="form-group col-md-6">
+                                <label for="txtDuracion" class="font-weight-bold" >Duración:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[A-Za-z0-9 ]+" type="text" class="form-control" id="bord" name="txtduracion" value = "<?php echo $duracion?>"
                                     placeholder="Ingresa la duración del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                             </div>
-                            <div class="form-group">
-                                <label for="timeHora">Hora:<span class="text-danger" id="marca">*</span></label>
+                            <div class="form-group col-md-6">
+                                <label for="timeHora" class="font-weight-bold">Hora:<span class="text-danger" id="marca">*</span></label>
                                 <input type="time" class="form-control" id="bord" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" name="timehora" id="idhora" value = "<?php echo $hora?>" required>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPeriodo">Período de pago:<span
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputPeriodo" class="font-weight-bold">Periodo de pago:<span
                                         class="text-danger" id="marca">*</span></label>
                                 <select id="" name="txtperiodo" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                     <option value = "" selected="true" disabled="disabled"><?php echo $periodo_pago?></option>
@@ -192,10 +193,11 @@
                                     <option value="ANUAL">ANUAL</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="txtCoste">Coste:<span class="text-danger" id="marca">*</span></label>
+                            <div class="form-group col-md-6">
+                                <label for="txtCoste" class="font-weight-bold">Costo:<span class="text-danger" id="marca">*</span></label>
                                 <input pattern="[0-9]+" type="number" class="form-control" id="bord" name="txtcoste" value = "<?php echo $costo?>"
                                     placeholder="Ingresa el costo del curso" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
+                            </div>
                             </div>
                             <br><br>
                             <button type="submit" name="accion" value="enviar" 

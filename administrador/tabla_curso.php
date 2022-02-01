@@ -81,25 +81,25 @@ if (!$resultado) {
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de instructor</a>
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de Instructor</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de curso</a>
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de Curso</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
@@ -116,7 +116,7 @@ if (!$resultado) {
                 <br>
                 <div class="card ">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de cursos</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">Lista de Cursos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <!-- Formulario para buscar -->
@@ -203,7 +203,7 @@ if (!$resultado) {
                                     ?>
                                 </tbody>
                             </table>
-                            <br><br>
+                            <br><br><br>
                             <div>
                                 <a class="btn btn-success font-weight-bold" id="btn" href="registro_curso.php">Nuevo Curso</a>
                             </div>
