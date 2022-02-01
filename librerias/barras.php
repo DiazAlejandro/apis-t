@@ -52,7 +52,7 @@ var data = [{
 }];
 
 var layout = {
-  title: 'Género',
+  title: 'Cantidad de mujeres y hombres registrados',
   font: {size: 13}
 };
 var config = {responsive: true}
