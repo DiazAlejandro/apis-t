@@ -28,11 +28,12 @@ if (!$pago) {
     $hora = $fila['hora'];
     $concepto = $fila['concepto'];
     $efectivo = $fila['efectivo'];
+    $clave = $fila['folio_inscripcion'];
     $cambio =  $efectivo - $concepto;
 }
 
 $alumno = mysqli_query($conexion, "SELECT * FROM alumno WHERE curp = '$curp'");
-if (!$pago) {
+if (!$alumno) {
     echo 'No se pudo ejecutar la consulta: ';
     exit;
 } else{
@@ -40,6 +41,15 @@ if (!$pago) {
     $nombre = $fila['nombre'];
     $apellido_p = $fila['apellido_p'];
     $apellido_m = $fila['apellido_m'];
+}
+
+$curso = mysqli_query($conexion, "SELECT * FROM curso WHERE clave = '$clave'");
+if (!$curso) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+} else{
+    $fila = mysqli_fetch_assoc($curso);
+    $nombre_curso = $fila['nombre'];
 }
     
 class PDF extends tFPDF{
@@ -73,7 +83,7 @@ class PDF extends tFPDF{
         $this->SetFont('DejaVu-Italic','',8);
         $this->SetTextColor(80);
         // Número de página
-        $this->Cell(0,10,'Este documento solo tiene validez dentro de la Institución APIS-T',0,0,'C');
+        $this->Cell(0,10,'Este documento solo tiene validez para el curso '.$nombre_curso.' del Instituto APIS-T',0,0,'C');
     }
 }
 
