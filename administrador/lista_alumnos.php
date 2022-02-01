@@ -156,10 +156,10 @@ if (!$resultado) {
                                                                                     echo $fila['nombre'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
-                                                                                    echo $fila['apellido_m'];
+                                                                                    echo $fila['apellido_p'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
-                                                                                    echo $fila['apellido_p'];
+                                                                                    echo $fila['apellido_m'];
                                                                                     ?></td>
                                                 <td class="text-uppercase"><?php
                                                                                     echo $fila['estatus'];
