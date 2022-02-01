@@ -119,10 +119,12 @@
                             <br>
                             <table class="table table-dark table-sm ">
                                 <thead >
-                                    <tr>
-                                        <th style="text-align: center;">FOLIO</th>
-                                        <th style="text-align: center;">FECHA INICIO</th>
-                                        <th style="text-align: center;">FECHA FINAL</th>
+                                    <tr >
+                                        <th class="border" style="text-align: center;">FOLIO</th>
+                                        <th class="border" style="text-align: center;">FECHA INICIO</th>
+                                        <th class="border" style="text-align: center;">FECHA FINAL
+                                            <i class="icon fa fa-info-circle text-danger fa-fw " title="El administrador puede cambiar el estatus de cumplimiento antes de la fecha estimada, siempre y cuando se haya concluido con el curso" ></i>
+                                        </th>
                                         <th>ALUMNO</th>
                                         <th>CURSO</th>
                                         <th style="text-align: center;">ESTATUS</th>
@@ -143,8 +145,8 @@
                                             echo $fila['fecha_inicio'];
                                         ?></td>
                                         <td class="col-2 text-uppercase" style="text-align: center;"><?php
-                                            echo $fila['fecha_fin'];
-                                        ?></td>
+                                            echo $fila['fecha_fin'];?>
+                                           </td>
                                         <td class="text-uppercase col-5"><?php
                                             echo $name;
                                         ?></td>

@@ -22,7 +22,7 @@
                 WHERE clave = '$old_clave'";
                 
     if (mysqli_query($conexion,$sqlCurso)){
-        $messagec = "EDICIÓN REALIZADA CORRECTAMENTE";
+        $messagec = "CURSO ACTUALIZADO CORRECTAMENTE";
         echo "<script type='text/javascript'>
                 alert('$messagec');
                 window.location.href = '../tabla_curso.php';

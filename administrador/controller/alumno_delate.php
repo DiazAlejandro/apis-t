@@ -55,7 +55,7 @@ if (isset($_GET['curp'])) {
                                         
 
                                         if (mysqli_query($conexion, $deleteUserT)) {
-                                            $messaget = "SE ELIMINO AL ALUMNO CORRECTAMENTE";
+                                            $messaget = "SE ELIMINÓ AL ALUMNO CORRECTAMENTE";
                                     echo "<script type='text/javascript'>
                                                 alert('$messaget');
                                                 window.location.href = '../tabla_alumno.php';
@@ -79,7 +79,7 @@ if (isset($_GET['curp'])) {
                                             </script>";
                                 }
                             }else {
-                                $messaget = "SE ELIMINO AL ALUMNO CORRECTAMENTE";
+                                $messaget = "SE ELIMINÓ AL ALUMNO CORRECTAMENTE";
                                 echo "<script type='text/javascript'>
                                             alert('$messaget');
                                             window.location.href = '../tabla_alumno.php';
@@ -97,7 +97,7 @@ if (isset($_GET['curp'])) {
                 }
 
             } else {
-                $messaget = "ALUMNO ACTUAL INSCRIPTO EN CURSOS ";
+                $messaget = "ALUMNO ACTUAL INSCRITO EN CURSOS ";
                 echo "<script type='text/javascript'>
                                 alert('$messaget');
                                 window.location.href = '../tabla_alumno.php';
@@ -113,7 +113,7 @@ if (isset($_GET['curp'])) {
         }
 
     } else {
-        $messaget = "ALUMNO ACTUAL ESTA INSCRIPTO EN UN CURSO";
+        $messaget = "ALUMNO ACTUAL ESTA INSCRITO EN UN CURSO";
         echo "<script type='text/javascript'>
                         alert('$messaget');
                         window.location.href = '../tabla_alumno.php';

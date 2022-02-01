@@ -19,13 +19,13 @@
                     WHERE curp = '$old_curp'";      
 
     if (mysqli_query($conexion,$sqlInstructor)){
-        $messaget = "REGISTRO AGREGADO CORRECTAMENTE";
+        $messaget = "REGISTRO ACTUALIZADO CORRECTAMENTE";
         echo "<script type='text/javascript'>
                 alert('$messaget');
                 window.location.href = '../tabla_instructor.php';
             </script>";
     }else{
-        $messagec = "NO SE AGREGÓ EL INSTRUCTOR";
+        $messagec = "NO SE ACTUALIZÓ EL INSTRUCTOR";
         echo "<script type='text/javascript'>
                 alert('$messagec');
                 window.location.href = '../editar_instructor.php;

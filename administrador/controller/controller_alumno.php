@@ -104,7 +104,7 @@ if (mysqli_query($conexion, $sqlUsuario)) {
     </script>";
     }
 }else {
-    $messagec = "ERROR DEL USAURIO";
+    $messagec = "ERROR DEL USUARIO";
     echo "<script type='text/javascript'>
     alert('$messagec');
     window.location.href = '../tabla_alumno.php';

@@ -6,7 +6,7 @@
         $delete = "DELETE FROM instructor WHERE curp = '$curp'";
         #delete from curso where clave='001'; delete from curso where clave='001';
         if (mysqli_query($conexion, $delete)){
-            $messaget = "INSTRUCTOR BORRADO CORRECTAMENTE CORRECTAMENTE";
+            $messaget = "INSTRUCTOR BORRADO CORRECTAMENTE";
                 echo "<script type='text/javascript'>
                         alert('$messaget');
                         window.location.href = '../tabla_instructor.php';

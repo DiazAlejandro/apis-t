@@ -24,7 +24,7 @@
         VALUES ('$txtclave','$txtnombre','$txtduracion','$timehora','$txtperiodo','$txtcoste','$txtasesor')";
 
         if (mysqli_query($conexion, $sqlCurso)) {
-            $messaget = "SE REGISTRO El CURSO CORRECTAMENTE";
+            $messaget = "CURSO REGISTRADO CORRECTAMENTE";
             echo "<script type='text/javascript'>
                             alert('$messaget');
                             window.location.href = '../tabla_curso.php';
