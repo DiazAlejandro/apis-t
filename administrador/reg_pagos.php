@@ -190,8 +190,8 @@ if (!isset($_SESSION['rol'])) {
                                     <label for="txtEstado" class="font-weight-bold">Estado:<span class="text-danger" id="marca">*</span></label>
                                     <select name="txtEstado" class="form-control" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" required>
                                         <option value="" selected="true" disabled="disabled">Seleccione un estado</option>
-                                        <option value="PAGO ACREDITADO">PAGO PARCIAL</option>
-                                        <option value="PAGO ACREDITADO">PAGO COMPLETO</option>
+                                        <option value="PAGO PARCIAL">PAGO PARCIAL</option>
+                                        <option value="PAGO COMPLETO">PAGO COMPLETO</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">

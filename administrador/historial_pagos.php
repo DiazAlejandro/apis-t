@@ -16,10 +16,16 @@
                         pago.hora,
                         pago.concepto,
                         detalle_pago.descripcion,
-                        detalle_pago.estado
+                        detalle_pago.estado,
+                        curso.nombre,
+                        curso.costo
                         FROM pago INNER JOIN detalle_pago 
                         ON pago.folio = detalle_pago.pago_folio 
-                        AND pago.alumno_curp = '$curp'";
+                        INNER JOIN inscripcion 
+                        ON inscripcion.folio = pago.folio_inscripcion
+                        INNER JOIN curso
+                        ON inscripcion.curso_clave = curso.clave
+                        AND pago.alumno_curp =  '$curp'";
     }
     $resultado = mysqli_query($conexion, $update);
 
@@ -181,6 +187,8 @@ if (!$resultadoa) {
                                             <th class="border border-dark">FOLIO</th>
                                             <th class="border border-dark">FECHA</th>
                                             <th class="border border-dark">HORA</th>
+                                            <th class="border border-dark">NOMBRE DEL CURSO</th>
+                                            <th class="border border-dark">COSTO</th>
                                             <th class="border border-dark">CONCEPTO</th>
                                             <th class="border border-dark">DESCRIPCIÓN</th>
                                             <th class="border border-dark">ESTADO</th>
@@ -199,14 +207,24 @@ if (!$resultadoa) {
                                                                 echo $fila['folio'];
                                                                 ?>
                                                     </td>
-                                                    <td class="col-1">
+                                                    <td>
                                                         <?php
                                                                 echo $fila['fecha'];
                                                                 ?>
                                                     </td>
-                                                    <td class="col-1">
+                                                    <td>
                                                         <?php
                                                                 echo $fila['hora'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo $fila['nombre'];
+                                                                ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                                echo "$".$fila['costo'];
                                                                 ?>
                                                     </td>
                                                     <td class="col-1">

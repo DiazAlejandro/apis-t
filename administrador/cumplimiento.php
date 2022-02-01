@@ -125,11 +125,11 @@
                                         <th class="border" style="text-align: center;">FECHA FINAL
                                             <i class="icon fa fa-info-circle text-danger fa-fw " title="El administrador puede cambiar el estatus de cumplimiento antes de la fecha estimada, siempre y cuando se haya concluido con el curso" ></i>
                                         </th>
-                                        <th>ALUMNO</th>
-                                        <th>CURSO</th>
-                                        <th style="text-align: center;">ESTATUS</th>
-                                        <th style="text-align: center;">MARCAR CUMPLIMIENTO</th>
-                                        <th style="text-align: center;">GENERAR CONST.</th>
+                                        <th class="border">ALUMNO</th>
+                                        <th class="border">CURSO</th>
+                                        <th class="border" style="text-align: center;">ESTATUS</th>
+                                        <th class="border" style="text-align: center;">MARCAR CUMPLIMIENTO</th>
+                                        <th class="border" style="text-align: center;">GENERAR CONST.</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
