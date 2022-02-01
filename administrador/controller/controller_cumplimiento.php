@@ -17,7 +17,7 @@
                 window.location.href = '../cumplimiento.php?curp=$curp&name=$name';
                 </script>";
         }else {
-            $messaget = "ERROR we NO SE PUDO ACTUALIZAR LA INSCRIPCION";
+            $messaget = "ERROR NO SE PUDO ACTUALIZAR LA INSCRIPCION";
             echo "<script type='text/javascript'>
                         alert('$messaget');
                         window.location.href = '../cumplimiento.php?curp=$curp&name=$name';

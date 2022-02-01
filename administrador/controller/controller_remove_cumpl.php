@@ -11,7 +11,7 @@
 
         $sqlInscripcion = "UPDATE inscripcion SET cumplimiento='PENDIENTE' WHERE folio='$folio'";
         if (mysqli_query($conexion, $sqlInscripcion)) {
-            $messaget = "SE ACTUALIZO EL CUMPLIMIENTO DE LA INSCRIPCION";
+            $messaget = "EL ALUMNO NO HA TERMINADO SU CURSO";
                 echo "<script type='text/javascript'>
                 alert('$messaget');
                 window.location.href = '../cumplimiento.php?curp=$curp&name=$name';
