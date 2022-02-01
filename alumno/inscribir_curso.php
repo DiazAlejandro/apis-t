@@ -90,18 +90,18 @@
                         <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="pagos_realizados.php?curp=<?php echo $curp ?>">Pagos Realizados</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="perfil_alumno.php?curp=<?php echo $curp ?>">Información Personal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light font-weight-bold" style="border: 1px solid white" aria-current="page" href="inscribir_curso.php">Cursos Disponibles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="lista_cursos.php?curp=<?php echo $curp ?>">Cursos Inscritos</a>
                     </li>
-                </ul>
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold" style="border: 1px solid white" href="pagos_realizados.php?curp=<?php echo $curp ?>">Pagos Realizados</a>
+                    </li>
+                 </ul>
             </div>
         </div>
     </nav>
@@ -113,7 +113,7 @@
                 <br>
                 <div class="card">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3">Lista de cursos</h1>
+                        <h1 class="font-weight-bold mb-3">Lista de Cursos</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
@@ -166,6 +166,7 @@
                                     ?>
                                 </tbody>
                             </table>
+                            <br><br>
                             <div>
                                 <a class="btn btn-danger font-weight-bold" id="btn" href="inicio.php">Regresar</a>
                             </div>
@@ -188,6 +189,29 @@
         }
     });
 </script>
+<footer>
+    <br>
+    <div style="background:black;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-warning text-center pl-3">Instituto APIS-T</h5>
+                    <p class="text-light pl-5" style="text-align: justify;">
+                        Somos un grupo de profesionales que colaboran para brindar capacitación y formación en habilidades tecnológicas – educativas para las 3 áreas más importantes de la vida diaria: Trabajo, Escuela y Negocios.
+                    </p>
+                </div>
+                <div class="col-5 text-center">
+                    <h5 class="text-warning text-center pl-3">Información</h5>
+                    <li><a class="text-light" href="https://apist.mx/contacto/">Contacto</a></li>
+                </div>
+                
+            </div>
+            <p class="text-center text-secondary">2021 Todos los derechos reservados</p>
+        </div>
+        <br>
+    </div>
+</footer>
 </html>
 
 
