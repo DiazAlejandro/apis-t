@@ -28,7 +28,7 @@ if (!$pago) {
     $hora = $fila['hora'];
     $concepto = $fila['concepto'];
     $efectivo = $fila['efectivo'];
-    $clave = $fila['folio_inscripcion'];
+    $folio_insc = $fila['folio_inscripcion'];
     $cambio =  $efectivo - $concepto;
 }
 
@@ -41,6 +41,15 @@ if (!$alumno) {
     $nombre = $fila['nombre'];
     $apellido_p = $fila['apellido_p'];
     $apellido_m = $fila['apellido_m'];
+}
+
+$inscripcion = mysqli_query($conexion, "SELECT * FROM inscripcion WHERE folio = '$folio_insc'");
+if (!$inscripcion) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+} else{
+    $fila = mysqli_fetch_assoc($inscripcion);
+    $clave = $fila['curso_clave'];
 }
 
 $curso = mysqli_query($conexion, "SELECT * FROM curso WHERE clave = '$clave'");
@@ -73,18 +82,6 @@ class PDF extends tFPDF{
         // Salto de línea
         $this->Ln(20);
     }
-
-// Pie de página
-    function Footer(){
-        // Posición: a 1,5 cm del final
-        $this->SetY(-15);
-        // Arial italic 8
-        $this->AddFont('DejaVu-Italic','','DejaVuSerif-Italic.ttf',true);
-        $this->SetFont('DejaVu-Italic','',8);
-        $this->SetTextColor(80);
-        // Número de página
-        $this->Cell(0,10,'Este documento solo tiene validez para el curso '.$nombre_curso.' del Instituto APIS-T',0,0,'C');
-    }
 }
 
 // Creación del objeto de la clase heredada
@@ -107,6 +104,12 @@ $pdf->SetFont('Arial','',14);
 $pdf->Cell(50,10,'Folio de Pago: ',0,0);
 $pdf->SetFont('Bold','',14);
 $pdf->Cell(35,10,$folio,0,0);
+
+$pdf->Ln(15);
+$pdf->SetFont('Arial','',14);
+$pdf->Cell(50,10,'Curso: ',0,0);
+$pdf->SetFont('Bold','',14);
+$pdf->Cell(100,10,$nombre_curso,0,0);
 
 $pdf->Ln(15);
 $pdf->SetFont('Arial','',14);
@@ -149,5 +152,16 @@ $pdf->SetFont('Arial','',14);
 $pdf->Cell(50,10,'Hora del Pago: ',0,0);
 $pdf->SetFont('Bold','',14);
 $pdf->Cell(100,10,$hora,0,0);
+
+// Posición: a 1,5 cm del final
+$pdf->Ln(74);
+// Arial italic 8
+$pdf->AddFont('DejaVu-Italic','','DejaVuSerif-Italic.ttf',true);
+$pdf->SetFont('DejaVu-Italic','',10);
+$pdf->SetTextColor(80);
+// Número de página
+$pdf->Cell(0,10,'Este documento solo tiene validez para el curso de '.$nombre_curso.' del Instituto APIS-T',0,0,'C');
+$pdf->Ln(5);
+$pdf->Cell(0,10,'Los pagos se realizan solo en efectivo y dentro de la institución.',0,0,'C');
 
 $pdf->Output();
