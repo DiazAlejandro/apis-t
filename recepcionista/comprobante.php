@@ -59,6 +59,7 @@ if (!$curso) {
 } else{
     $fila = mysqli_fetch_assoc($curso);
     $nombre_curso = $fila['nombre'];
+    $costo = $fila['costo'];
 }
     
 class PDF extends tFPDF{
@@ -113,6 +114,12 @@ $pdf->Cell(100,10,$nombre_curso,0,0);
 
 $pdf->Ln(15);
 $pdf->SetFont('Arial','',14);
+$pdf->Cell(50,10,'Costo del curso: ',0,0);
+$pdf->SetFont('Bold','',14);
+$pdf->Cell(100,10,'$'.$costo,0,0);
+
+$pdf->Ln(15);
+$pdf->SetFont('Arial','',14);
 $pdf->Cell(50,10,'Nombre del Alumno: ',0,0);
 $pdf->SetFont('Bold','',14);
 $pdf->Cell(100,10,$nombre.' '.$apellido_p.' '.$apellido_m,0,0);
@@ -154,7 +161,7 @@ $pdf->SetFont('Bold','',14);
 $pdf->Cell(100,10,$hora,0,0);
 
 // Posición: a 1,5 cm del final
-$pdf->Ln(69);
+$pdf->Ln(54);
 // Arial italic 9
 $pdf->AddFont('DejaVu-Italic','','DejaVuSerif-Italic.ttf',true);
 $pdf->SetFont('DejaVu-Italic','',9);
@@ -163,6 +170,6 @@ $pdf->Cell(0,10,'Este documento solo tiene validez para el curso de '.$nombre_cu
 $pdf->Ln(5);
 $pdf->Cell(0,10,'Los pagos se realizan solo en efectivo y dentro de la institución.',0,0,'C');
 $pdf->Ln(5);
-$pdf->Cell(0,10,'No se hacen reembolsos.',0,0,'C');
+$pdf->Cell(0,10,'Una vez efectuado el pago, no hay reembolso.',0,0,'C');
 
 $pdf->Output();
