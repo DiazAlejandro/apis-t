@@ -112,7 +112,7 @@
                 <br>
                 <div class="card " >
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3 bg-gray">Cumplimiento</h1>
+                        <h1 class="font-weight-bold mb-3 bg-gray">CUMPLIMIENTO</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
                         <div class="col-md-12">
@@ -125,9 +125,10 @@
                                         <th style="text-align: center;">FECHA FINAL</th>
                                         <th>ALUMNO</th>
                                         <th>CURSO</th>
-                                        <th>CUMPLIMIENTO</th>
+                                        <th style="text-align: center;">ESTATUS</th>
                                         <th style="text-align: center;">MARCAR CUMPLIDO</th>
-                                        <th style="text-align: center;">GENERAR CONSTANCIA</th>
+                                        <th style="text-align: center;">NO TERMINADO</th>
+                                        <th style="text-align: center;">GENERAR CONST.</th>
                                     </tr>
                                 </thead>
                                 <tbody id="t-body">
@@ -136,13 +137,13 @@
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
                                     ?>
                                     <tr>
-                                        <td class="col-1"><?php
+                                        <td class="col-1 text-uppercase" style="text-align: center;"><?php
                                             echo $fila['folio'];
                                         ?></td>
-                                        <td class="col-1"><?php
+                                        <td class="col-2 text-uppercase" style="text-align: center;"><?php
                                             echo $fila['fecha_inicio'];
                                         ?></td>
-                                        <td class="col-1"><?php
+                                        <td class="col-2 text-uppercase" style="text-align: center;"><?php
                                             echo $fila['fecha_fin'];
                                         ?></td>
                                         <td class="text-uppercase col-5"><?php
@@ -172,6 +173,11 @@
                                             ?>
                                             
                                         </td>
+
+                                        <td class="text-uppercase"><?php
+                                            echo "FINALIZADO";
+                                        ?></td>
+
                                         <td style="text-align: center;">
                                             <?php
                                                 if($fila['cumplimiento']=="PENDIENTE"){
