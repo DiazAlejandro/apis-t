@@ -150,7 +150,7 @@
                                         ?></td>
                                         <td style="text-align: center;">
                                             <?php
-                                                if($fila['cumplimiento'] == "PENDIENTE"){
+                                                if($fila['cumplimiento'] == "PENDIENTE" ||  $fila['cumplimiento'] == "SIN FINALIZAR"){
 
                                                 }else{
                                                     ?>
