@@ -154,14 +154,15 @@ $pdf->SetFont('Bold','',14);
 $pdf->Cell(100,10,$hora,0,0);
 
 // Posición: a 1,5 cm del final
-$pdf->Ln(74);
-// Arial italic 8
+$pdf->Ln(69);
+// Arial italic 9
 $pdf->AddFont('DejaVu-Italic','','DejaVuSerif-Italic.ttf',true);
-$pdf->SetFont('DejaVu-Italic','',10);
+$pdf->SetFont('DejaVu-Italic','',9);
 $pdf->SetTextColor(80);
-// Número de página
-$pdf->Cell(0,10,'Este documento solo tiene validez para el curso de '.$nombre_curso.' del Instituto APIS-T',0,0,'C');
+$pdf->Cell(0,10,'Este documento solo tiene validez para el curso de '.$nombre_curso.' del Instituto APIS-T.',0,0,'C');
 $pdf->Ln(5);
 $pdf->Cell(0,10,'Los pagos se realizan solo en efectivo y dentro de la institución.',0,0,'C');
+$pdf->Ln(5);
+$pdf->Cell(0,10,'No se hacen reembolsos.',0,0,'C');
 
 $pdf->Output();
