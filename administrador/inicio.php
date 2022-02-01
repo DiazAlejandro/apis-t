@@ -121,6 +121,31 @@ if (!isset($_SESSION['rol'])) {
             </div>
         </div>
     </div>
+<footer>
+    <br>
+    <div style="background:black;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-warning text-center pl-3">Instituto APIS-T</h5>
+                    <p class="text-light text-justify pl-5">
+                        Somos un grupo de profesionales que colaboran para brindar capacitación 
+                        y formación en habilidades tecnológicas – educativas para las 3 áreas más }
+                        importantes de la vida diaria: Trabajo, Escuela y Negocios.
+                    </p>
+                </div>
+                <div class="col-5 text-center">
+                    <h5 class="text-warning text-center pl-3">Información</h5>
+                    <li><a class="text-light" href="https://apist.mx/contacto/">Contacto</a></li>
+                </div>
+                
+            </div>
+            <p class="text-center text-secondary">2021 Todos los derechos reservados</p>
+        </div>
+        <br>
+    </div>
+</footer>
 </body>
 
 </html>
