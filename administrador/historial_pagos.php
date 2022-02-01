@@ -207,12 +207,12 @@ if (!$resultadoa) {
                                                                 echo $fila['folio'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['fecha'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['hora'];
                                                                 ?>
@@ -222,7 +222,7 @@ if (!$resultadoa) {
                                                                 echo $fila['nombre'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo "$".$fila['costo'];
                                                                 ?>
@@ -232,7 +232,7 @@ if (!$resultadoa) {
                                                                 echo "$".$fila['concepto'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-3">
                                                         <?php
                                                                 echo $fila['descripcion'];
                                                                 ?>
