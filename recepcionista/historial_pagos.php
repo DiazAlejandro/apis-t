@@ -16,10 +16,16 @@
                         pago.hora,
                         pago.concepto,
                         detalle_pago.descripcion,
-                        detalle_pago.estado
+                        detalle_pago.estado,
+                        curso.nombre,
+                        curso.costo
                         FROM pago INNER JOIN detalle_pago 
                         ON pago.folio = detalle_pago.pago_folio 
-                        AND pago.alumno_curp = '$curp'";
+                        INNER JOIN inscripcion 
+                        ON inscripcion.folio = pago.folio_inscripcion
+                        INNER JOIN curso
+                        ON inscripcion.curso_clave = curso.clave
+                        AND pago.alumno_curp =  '$curp'";
     }
     $resultado = mysqli_query($conexion, $update);
 
@@ -68,7 +74,6 @@ if (!$resultadoa) {
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -87,6 +92,13 @@ if (!$resultadoa) {
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
     <title>Historial de pagos</title>
 </head>
 
@@ -121,16 +133,25 @@ if (!$resultadoa) {
                         <a class="nav-link active text-light font-weight-bold" href="inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link active text-light font-weight-bold" href="registro_instructor.php">Alta de Instructor</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_instructor.php">Instructores registrados</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="registro_curso.php">Alta de Curso</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_curso.php">Cursos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
+                        <a class="nav-link text-light font-weight-bold" href="reg_pagos.php">Registro de Pagos</a>
+                    </li>
+                    <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="tabla_alumno.php">Alumnos registrados</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
-                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar pagos</a>
+                        <a class="nav-link text-light font-weight-bold" href="consultar_pagos.php">Consultar Pagos</a>
                     </li>
                     <li class="nav-item" style="border: 1px solid white">
                         <a class="nav-link text-light font-weight-bold" href="lista_alumnos.php">Cumplimiento</a>
@@ -144,16 +165,15 @@ if (!$resultadoa) {
         <!--Contenido-->
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-13 col-lg-10">
+                <div class="col-md-12">
                     <br>
                     <div class="card">
                         <div class="card-header" id="cabeza">
-                            <h1 class="font-weight-bold mb-3 bg-gray">Historial de pagos</h1>
+                            <h1 class="font-weight-bold mb-3 bg-gray">Historial de Pagos</h1>
                         </div>
                         <div class="card-body" id="cuerpo">
                             <div class="col-md-12">
                                 <br>
-                            
                                 <label for="txtAlumno" class="font-weight-bold" style="font-size: 15pt;">NOMBRE:</label>
                                 <label style="font-size: 15pt;" value="<?php echo $curp ?>">
                                     <?php
@@ -161,46 +181,58 @@ if (!$resultadoa) {
                                     ?>
                                 </label>
                                 <br><br>
-                                <table class="table table-dark table-sm ">
-                                    <thead>
-                                        <tr>
-                                            <th>Folio de pago</th>
-                                            <th>Fecha</th>
-                                            <th>Hora</th>
-                                            <th>Concepto</th>
-                                            <th>Descripción</th>
-                                            <th>Estado</th>
-                                            <th>Imprimir</th>
+                                <table class="table table-sm" id="tb">
+                                    <thead >
+                                        <tr class="bg-dark text-light">
+                                            <th class="border border-dark">FOLIO</th>
+                                            <th class="border border-dark">FECHA</th>
+                                            <th class="border border-dark">HORA</th>
+                                            <th class="border border-dark">NOMBRE DEL CURSO</th>
+                                            <th class="border border-dark">COSTO</th>
+                                            <th class="border border-dark">CONCEPTO</th>
+                                            <th class="border border-dark">DESCRIPCIÓN</th>
+                                            <th class="border border-dark">ESTADO</th>
+                                            <th class="border border-dark">IMPRIMIR</th>
                                         </tr>
                                     </thead>
-                                    <?php
-                                        if (mysqli_num_rows($resultado) > 0) {
-                                            while ($fila = mysqli_fetch_assoc($resultado)) {
-                                                ?>
-                                    <tbody id="t-body">
-                                        
+                                   
+                                    <tbody class="table-dark" id="t-body">
+                                        <?php
+                                            if (mysqli_num_rows($resultado) > 0) {
+                                                while ($fila = mysqli_fetch_assoc($resultado)) {
+                                                    ?>
                                                 <tr>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['folio'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['fecha'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-1">
                                                         <?php
                                                                 echo $fila['hora'];
                                                                 ?>
                                                     </td>
                                                     <td>
                                                         <?php
+                                                                echo $fila['nombre'];
+                                                                ?>
+                                                    </td>
+                                                    <td class="col-1">
+                                                        <?php
+                                                                echo "$".$fila['costo'];
+                                                                ?>
+                                                    </td>
+                                                    <td class="col-1">
+                                                        <?php
                                                                 echo "$".$fila['concepto'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-3">
                                                         <?php
                                                                 echo $fila['descripcion'];
                                                                 ?>
@@ -210,9 +242,9 @@ if (!$resultadoa) {
                                                                 echo $fila['estado'];
                                                                 ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="text-align: center;" class="col-1">
                                                         <a href="comprobante.php?folio=<?php echo $fila['folio'];?>" class="btn btn-info" >
-                                                        <i class="fas fa-print"></i></i>
+                                                            <i class="fas fa-print"></i>
                                                         </a>
                                                         
                                                     </td>
@@ -223,6 +255,7 @@ if (!$resultadoa) {
                                         ?>
                                     </tbody>
                                 </table>
+                                <br><br>
                                 <div>
                                     <a class="btn btn-danger font-weight-bold" id="btn" href="consultar_pagos.php">Regresar</a>
                                 </div>
@@ -232,5 +265,42 @@ if (!$resultadoa) {
                 </div>
             </div>
         </div>
-    </body>
+</body>
+<footer>
+    <br>
+    <div style="background:black;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-warning text-center pl-3">Instituto APIS-T</h5>
+                    <p class="text-light text-justify pl-5">
+                        Somos un grupo de profesionales que colaboran para brindar capacitación
+                        y formación en habilidades tecnológicas – educativas para las 3 áreas más
+                        importantes de la vida diaria: Trabajo, Escuela y Negocios.
+                    </p>
+                </div>
+                <div class="col-5 text-center">
+                    <h5 class="text-warning text-center pl-3">Información</h5>
+                    <li><a class="text-light" href="https://apist.mx/contacto/">Contacto</a></li>
+                </div>
+
+            </div>
+            <p class="text-center text-secondary">2021 Todos los derechos reservados</p>
+        </div>
+        <br>
+    </div>
+</footer>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script>
+    $("#tb").bootstrapTable({
+        pagination: true, // Si se muestra la barra de paginación
+        pageSize: 3, // Número de filas que se muestran en una página
+        paginationLoop: false, // Si se abre el bucle infinito de la barra de paginación, haga clic en la página siguiente cuando la última página se convierta en la primera página
+        pageList: [5, 10, 20], // Seleccione cuántas filas se muestran en cada página. Si los datos son demasiado pequeños, puede ser ineficaz
+        formatLoadingMessage: function() {
+            return ''; //Agregar un mensaje x
+        }
+    });
+</script>
 </html>
