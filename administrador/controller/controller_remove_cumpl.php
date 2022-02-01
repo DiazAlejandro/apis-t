@@ -9,7 +9,7 @@
     if (isset($_GET['folio'])) {
         $folio = $_GET['folio'];
 
-        $sqlInscripcion = "UPDATE inscripcion SET cumplimiento='PENDIENTE' WHERE folio='$folio'";
+        $sqlInscripcion = "UPDATE inscripcion SET cumplimiento='SIN FINALIZAR' WHERE folio='$folio'";
         if (mysqli_query($conexion, $sqlInscripcion)) {
             $messaget = "EL ALUMNO NO HA TERMINADO SU CURSO";
                 echo "<script type='text/javascript'>

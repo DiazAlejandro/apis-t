@@ -126,8 +126,7 @@
                                         <th>ALUMNO</th>
                                         <th>CURSO</th>
                                         <th style="text-align: center;">ESTATUS</th>
-                                        <th style="text-align: center;">MARCAR CUMPLIDO</th>
-                                        <th style="text-align: center;">NO TERMINADO</th>
+                                        <th style="text-align: center;">MARCAR CUMPLIMIENTO</th>
                                         <th style="text-align: center;">GENERAR CONST.</th>
                                     </tr>
                                 </thead>
@@ -157,7 +156,7 @@
                                         ?></td>
                                         <td style="text-align: center;">
                                             <?php
-                                                if($fila['cumplimiento']=="PENDIENTE"){
+                                                if($fila['cumplimiento']=="SIN FINALIZAR"){
                                                     ?>
                                                         <a href="controller/controller_cumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
                                                             <i class="fas fa-check"></i></i>
@@ -173,21 +172,9 @@
                                             ?>
                                             
                                         </td>
-
-                                        <td class="text-uppercase" style="text-align: center;">
-                                            <?php
-
-                                            ?>
-                                                <a href="controller/controller_incumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
-                                                    <i class="fas fa-check"></i></i>
-                                                </a>
-                                            <?php
-                                            ?>
-                                        </td>
-
                                         <td style="text-align: center;">
                                             <?php
-                                                if($fila['cumplimiento']=="PENDIENTE"){
+                                                if($fila['cumplimiento']=="SIN FINALIZAR"){
                                                     ?>
 
                                                     <?php
