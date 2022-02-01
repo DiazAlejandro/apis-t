@@ -174,9 +174,16 @@
                                             
                                         </td>
 
-                                        <td class="text-uppercase"><?php
-                                            echo "FINALIZADO";
-                                        ?></td>
+                                        <td class="text-uppercase" style="text-align: center;">
+                                            <?php
+
+                                            ?>
+                                                <a href="controller/controller_incumplimiento.php?folio=<?php echo $fila['folio']?>&curp=<?php echo $fila['alumno_curp']?>&name=<?php echo $name?>" class="btn btn-success">
+                                                    <i class="fas fa-check"></i></i>
+                                                </a>
+                                            <?php
+                                            ?>
+                                        </td>
 
                                         <td style="text-align: center;">
                                             <?php
@@ -208,29 +215,5 @@
         </div>
     </div>
 </body>
-<footer>
-    <br>
-    <div style="background:black;">
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="text-warning text-center pl-3">Instituto APIS-T</h5>
-                    <p class="text-light text-justify pl-5">
-                        Somos un grupo de profesionales que colaboran para brindar capacitación
-                        y formación en habilidades tecnológicas – educativas para las 3 áreas más
-                        importantes de la vida diaria: Trabajo, Escuela y Negocios.
-                    </p>
-                </div>
-                <div class="col-5 text-center">
-                    <h5 class="text-warning text-center pl-3">Información</h5>
-                    <li><a class="text-light" href="https://apist.mx/contacto/">Contacto</a></li>
-                </div>
 
-            </div>
-            <p class="text-center text-secondary">2021 Todos los derechos reservados</p>
-        </div>
-        <br>
-    </div>
-</footer>
 </html>
