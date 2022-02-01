@@ -307,7 +307,7 @@ if (!$resultado2) {
                                     <label class="font-weight-bold">Contraseña <span class="text-danger">*</span></label>
                                     <input type="password" name="pass" id="pass" style="border: black 1px solid; box-shadow: 0px 10px 10px black;" class="form-control" value="<?php echo $pass ?>" placeholder="Ingresa una contraseña">
                                 </div>
-                            <div>
+                            </div>
                             <br>
                             <a href="editar_alumno.php?curp=<?php echo $curp ?>" class="btn btn-success">
                                     <i class="fa fa-edit"></i> Editar
@@ -320,5 +320,29 @@ if (!$resultado2) {
         </div>
     </div>
 </body>
+<footer>
+    <br>
+    <div style="background:black;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-warning text-center pl-3">Instituto APIS-T</h5>
+                    <p class="text-light text-justify pl-5">
+                        Somos un grupo de profesionales que colaboran para brindar capacitación
+                        y formación en habilidades tecnológicas – educativas para las 3 áreas más
+                        importantes de la vida diaria: Trabajo, Escuela y Negocios.
+                    </p>
+                </div>
+                <div class="col-5 text-center">
+                    <h5 class="text-warning text-center pl-3">Información</h5>
+                    <li><a class="text-light" href="https://apist.mx/contacto/">Contacto</a></li>
+                </div>
 
+            </div>
+            <p class="text-center text-secondary">2021 Todos los derechos reservados</p>
+        </div>
+        <br>
+    </div>
+</footer>
 </html>

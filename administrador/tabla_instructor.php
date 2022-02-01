@@ -1,21 +1,22 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['rol'])) {
+session_start();
+if (!isset($_SESSION['rol'])) {
+    header('location: ../login.php');
+} else {
+    if ($_SESSION['rol'] != 1) {
         header('location: ../login.php');
-    } else {
-        if ($_SESSION['rol'] != 1) {
-            header('location: ../login.php');
-        }
     }
-    include("../connect/conectar.php");
-    $resultado = mysqli_query($conexion,"SELECT * FROM instructor");
-    if (!$resultado) {
-        echo 'No se pudo ejecutar la consulta: ' ;
-        exit;
-    }
+}
+include("../connect/conectar.php");
+$resultado = mysqli_query($conexion, "SELECT * FROM instructor");
+if (!$resultado) {
+    echo 'No se pudo ejecutar la consulta: ';
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="shortcut icon" href="../img/logo-header.png">
     <meta charset="UTF-8">
@@ -35,12 +36,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <title>Instructores registrados</title>
 </head>
@@ -114,7 +111,7 @@
                         <h1 class="font-weight-bold mb-3 bg-gray">Lista de Instructores</h1>
                     </div>
                     <div class="card-body" id="cuerpo">
-                        <!-- Formulario para buscar --> 
+                        <!-- Formulario para buscar -->
                         <form action="search_instructor.php" method="$_POST">
                             <div class="row">
                                 <div class="col-lg-1 align-self-lg-center">
@@ -133,7 +130,7 @@
                         <div class="col-md-12">
                             <br>
                             <table class="table table-sm" id="tb">
-                                <thead >
+                                <thead>
                                     <tr class="bg-dark text-light">
                                         <th class="border border-dark">CURP</th>
                                         <th class="border border-dark">Nombre</th>
@@ -149,37 +146,37 @@
                                     <?php
                                     if (mysqli_num_rows($resultado) > 0) {
                                         while ($fila = mysqli_fetch_assoc($resultado)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php
-                                            echo $fila['curp'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['nombre'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_p'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['apellido_m'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['telefono'];
-                                        ?></td>
-                                        <td><?php
-                                            echo $fila['correo_electronico'];
-                                        ?></td>
-                                        <td style="text-align: center;">
-                                            <a href="editar_instructor.php?curp=<?php echo $fila['curp']?>" class="btn btn-secondary">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <a href="controller/Instructor_delete.php?curp=<?php echo $fila['curp']?>" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            ?>
+                                            <tr>
+                                                <td><?php
+                                                            echo $fila['curp'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['nombre'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['apellido_p'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['apellido_m'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['telefono'];
+                                                            ?></td>
+                                                <td><?php
+                                                            echo $fila['correo_electronico'];
+                                                            ?></td>
+                                                <td style="text-align: center;">
+                                                    <a href="editar_instructor.php?curp=<?php echo $fila['curp'] ?>" class="btn btn-secondary">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <a href="controller/Instructor_delete.php?curp=<?php echo $fila['curp'] ?>" class="btn btn-danger">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                     <?php
                                         }
                                     }
@@ -188,7 +185,7 @@
                             </table>
                             <br><br>
                             <div>
-                                <a class="btn btn-success font-weight-bold"  id="btn"  href="registro_instructor.php">Nuevo Instructor</a>
+                                <a class="btn btn-success font-weight-bold" id="btn" href="registro_instructor.php">Nuevo Instructor</a>
                             </div>
                         </div>
                     </div>
@@ -197,7 +194,31 @@
         </div>
     </div>
 </body>
+<footer>
+    <br>
+    <div style="background:black;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-warning text-center pl-3">Instituto APIS-T</h5>
+                    <p class="text-light text-justify pl-5">
+                        Somos un grupo de profesionales que colaboran para brindar capacitación
+                        y formación en habilidades tecnológicas – educativas para las 3 áreas más
+                        importantes de la vida diaria: Trabajo, Escuela y Negocios.
+                    </p>
+                </div>
+                <div class="col-5 text-center">
+                    <h5 class="text-warning text-center pl-3">Información</h5>
+                    <li><a class="text-light" href="https://apist.mx/contacto/">Contacto</a></li>
+                </div>
 
+            </div>
+            <p class="text-center text-secondary">2021 Todos los derechos reservados</p>
+        </div>
+        <br>
+    </div>
+</footer>
 <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
 <script>
     $("#tb").bootstrapTable({
@@ -210,7 +231,5 @@
         }
     });
 </script>
+
 </html>
-
-
-
