@@ -165,7 +165,7 @@ if (!$resultado2) {
                 <br><br><br>
                 <div class="card">
                     <div class="card-header" id="cabeza">
-                        <h1 class="font-weight-bold mb-3">Editar datos del Alumno</h1>
+                        <h1 class="font-weight-bold mb-3">Datos del Alumno</h1>
                     </div>
                     <div class="card-body">
                         <form action="controller_alumno.php" method="post">

@@ -142,13 +142,13 @@
                                         <td><?php
                                             echo $fila['curp'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="text-uppercase"><?php
                                             echo $fila['nombre'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="text-uppercase"><?php
                                             echo $fila['apellido_p'];
                                         ?></td>
-                                        <td><?php
+                                        <td class="text-uppercase"><?php
                                             echo $fila['apellido_m'];
                                         ?></td>
                                         <td><?php

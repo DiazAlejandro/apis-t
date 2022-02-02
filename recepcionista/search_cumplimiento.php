@@ -109,8 +109,6 @@ if (!$resultado) {
                     <div class="card-body" id="cuerpo">
                     <form action="search_cumplimiento.php" method="$_POST">
                             <div class="row">
-                                <div class="col-lg-1 align-self-lg-center">
-                                </div>
                                 <div class="col-lg-3 align-self-lg-center">
                                     <h5 class="font-weight-bold">Buscar por CURP:</h5>
                                 </div>
@@ -119,6 +117,9 @@ if (!$resultado) {
                                 </div>
                                 <div class="col-lg-2 align-self-lg-center">
                                     <button type="submit" class="btn btn-warning font-weight-bold" id="btn" style="width: 150px;">Buscar</button>
+                                </div>
+                                <div class="col-lg-2 align-self-lg-center">
+                                        <a class="btn font-weight-bold btn-danger" id="btn" href="lista_alumnos.php" style="width: 150px;">Mostrar todos</a>
                                 </div>
                             </div>
                         </form>
